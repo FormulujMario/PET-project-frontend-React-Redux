@@ -1,0 +1,133 @@
+/*********************** Universal styles ***********************/
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0px;
+}
+header {
+  padding: 25px;
+}
+main {
+  padding-left: 25px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+}
+h1 {
+  display: flex;
+  white-space: nowrap;
+  font-weight: 300;
+  font-size: 11.8vw;
+  margin: auto;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+h2 {
+  font-weight: 300;
+  font-size: 4vw;
+  margin-bottom: 30px;
+  line-height: 4vw;
+}
+h4 {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.4vw;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.normal-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 30px;
+  padding: 7px 20px 7px 20px;
+  font-size: 1vw;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.transparent-button {
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+}
+.transparent-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+.transparent-button:hover svg path {
+  fill: #000000;
+}
+.white-button-without-border {
+  background-color: #fff;
+  border: 1px solid #ffffff;
+}
+.white-button-without-border:hover {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000000;
+}
+.white-button-without-border:hover svg path {
+  fill: #fff;
+}
+.slider {
+  margin-top: 30px;
+}
+swiper-container {
+  --swiper-theme-color: #000;
+}
+swiper-slide img {
+  width: 100%;
+}
+.swiper-slide-item {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+}
+.swiper-slide-item img {
+  border-radius: 8px;
+  outline: 1px solid #000;
+  outline-offset: -1px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swiper-slide-item-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.swiper-slide-item p {
+  font-weight: 300;
+}
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+.section-title .tab-buttons {
+  display: flex;
+  gap: 12px;
+}
+.nav-link {
+  background-color: #fff;
+  border: 1px solid #999999;
+  color: #999999;
+  text-decoration: none;
+  color: inherit;
+}
+.nav-link.active {
+  border: 1px solid #000000;
+  color: #000;
+}
+.nav-link:hover{
+  background-color: #000;
+  border: 1px solid #000000;
+  color: #fff;
+}
+.tab-content > .tab-pane {
+  display: none;
+}
+.tab-content > .active {
+  border: none;
+  display: block;
+}
