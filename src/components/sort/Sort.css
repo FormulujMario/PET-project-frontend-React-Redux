@@ -1,0 +1,6 @@
+.sort {
+  width: 20%;
+}
+.sort div {
+  cursor: pointer;
+}

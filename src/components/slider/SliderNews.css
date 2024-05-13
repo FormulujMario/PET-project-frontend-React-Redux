@@ -1,0 +1,9 @@
+.news-swiper-slide-item-img img {
+  padding-bottom: 0 !important;
+}
+.swiper-latest-news p {
+  margin-bottom: 5px;
+}
+.swiper-latest-news h4 {
+  margin-top: 5px;
+}

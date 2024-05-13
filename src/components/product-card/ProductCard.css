@@ -1,0 +1,15 @@
+.product-card {
+  display: flex;
+  justify-content: space-between;
+}
+.product-info {
+  width: 53%;
+}
+.beers-main-properties {
+  text-transform: uppercase;
+}
+.product-top-description {
+  opacity: 70%;
+  margin-top: 32px;
+  margin-bottom: 50px;
+}

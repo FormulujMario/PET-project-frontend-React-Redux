@@ -1,0 +1,81 @@
+.about-kabinet {
+  text-transform: uppercase;
+}
+.about-kabinet img {
+  object-fit: cover;
+  max-width: 100%;
+}
+.about-first-section {
+  margin-top: 60px;
+}
+.about-second-section,
+.about-third-section,
+.about-fourth-section,
+.about-fifth-section {
+  margin-top: 200px;
+}
+.about-second-section {
+  display: flex;
+  justify-content: right;
+}
+.content-to-right p {
+  width: 70%;
+  font-weight: 300;
+  font-size: 1.3vw;
+}
+.content-to-right {
+  width: 70%;
+}
+.video-preview-container {
+  position: relative;
+}
+.video-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-preview-img {
+  position: relative;
+}
+.video-preview-icon {
+  position: absolute;
+}
+.video-preview-icon svg {
+  fill: #fff;
+  width: 100px;
+  height: 100px;
+  transition: transform 0.5s;
+}
+.video-preview-icon svg:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+
+.about-fourth-section h2 {
+  text-align: center;
+}
+.awards-section {
+  display: flex;
+  justify-content: space-between;
+}
+.awards-title {
+  width: 30%;
+  font-size: 1.4vw;
+}
+.awards-table {
+  width: 70%;
+}
+.awards-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.awards-table table td {
+  padding: 20px 0px;
+  border-bottom: 1px solid #9a9a9a;
+}
+.awards-table table td:first-child {
+  padding-right: 100px;
+}
+.awards-table table td:last-child {
+  opacity: 50%;
+}

@@ -1,0 +1,82 @@
+.gallery-container {
+  display: grid;
+  grid-template-areas:
+    "a a b c"
+    "a a d e"
+    "f g h h"
+    "i j h h"
+    "k l m n";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 30px;
+  margin-top: 40px;
+}
+.gallery-item {
+  border: 1px solid #000000;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.gallery-item-img {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.gallery-item img {
+  object-fit: cover;
+  max-width: 100%;
+}
+.gallery-item p {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.gallery-item-without-pic {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
+.d {
+  grid-area: d;
+}
+.e {
+  grid-area: e;
+}
+.f {
+  grid-area: f;
+}
+.g {
+  grid-area: g;
+}
+.h {
+  grid-area: h;
+}
+.i {
+  grid-area: i;
+}
+.j {
+  grid-area: j;
+}
+.k {
+  grid-area: k;
+}
+.l {
+  grid-area: l;
+}
+.m {
+  grid-area: m;
+}
+.n {
+  grid-area: n;
+}
