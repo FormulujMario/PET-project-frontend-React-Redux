@@ -1,0 +1,16 @@
+  .footer-main {
+    background-color: #111111;
+    padding-top: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .developed-by {
+    display: flex;
+    justify-content: flex-end;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff80;
+    font-size: 0.9vw;
+    padding-bottom: 25px;
+  }

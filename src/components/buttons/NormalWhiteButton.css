@@ -1,0 +1,13 @@
+.white-button {
+    background-color: #fff;
+    border: 1px solid #000;
+    text-decoration: none;
+    color: inherit;
+  }
+  .white-button:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .white-button:hover svg path {
+    fill: #fff;
+  }
