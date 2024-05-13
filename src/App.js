@@ -4,6 +4,7 @@ import { CartContextProvider } from "./contexts/CartContext.js";
 import MyRouter from "./components/MyRouter.js";
 import { ActiveCategoryContextProvider } from "./contexts/ActiveCategoryContext.js";
 
+
 function App() {
   return (
     <div className="App">
