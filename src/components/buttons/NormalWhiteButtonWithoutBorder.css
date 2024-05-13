@@ -1,0 +1,12 @@
+.white-button-without-border {
+  background-color: #fff;
+  border: 1px solid #ffffff;
+}
+.white-button-without-border:hover {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000000;
+}
+.white-button-without-border:hover svg path {
+  fill: #fff;
+}

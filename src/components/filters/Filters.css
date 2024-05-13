@@ -1,0 +1,5 @@
+.filters-wrapper {
+  display: grid;
+  width: 65%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
