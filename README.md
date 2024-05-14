@@ -10,6 +10,7 @@ The purpose of the project is to demonstrate my frontend skills in React. I'm ba
 ![Static Badge](https://img.shields.io/badge/JS-EAD51A)
 ![Static Badge](https://img.shields.io/badge/CSS-242524)
 ![Static Badge](https://img.shields.io/badge/HTML-D1AA73)
+![Static Badge](https://img.shields.io/badge/Redux-B90001)
 
  ## Environment
 ![Static Badge](https://img.shields.io/badge/VSCode-242524)
@@ -18,7 +19,7 @@ The purpose of the project is to demonstrate my frontend skills in React. I'm ba
 ![Static Badge](https://img.shields.io/badge/webPack-5.89.0-D1AA73)
 
 ## Demo
-Here is a working live demo :  https://formulujmario.github.io/PET-project-frontend-React/
+Here is a working live demo :  https://formulujmario.github.io/PET-project-frontend-React-Redux/
 
 ## Setup
 
@@ -77,6 +78,7 @@ I wanted to show, that I can use different types of elements and hooks, so in th
 * useMemo
 * React.memo
 * useRef
+* Redux
 
 Want to notice, that I understand, that it's not a right way to make a structure of product, it's just a way to show my skills (sometimes I used unnecessary things just for demonstrating)
 
