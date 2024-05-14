@@ -28,7 +28,7 @@ const ProductCard = () => {
           .replace(/\s+/g, " ")
           .replace(/\s/g, "-");
       if (itemUrl === window.location.pathname) {
-        if (path === "/PET-project-frontend-React/shop-beers/") {
+        if (path === "/PET-project-frontend-React-Redux/shop-beers/") {
           currentProduct = {
             name: item.name,
             price: item.price,
@@ -60,25 +60,25 @@ const ProductCard = () => {
   {
     pathsToProducts(
       SHOP_MAIN_BEERS_LIST,
-      "/PET-project-frontend-React/shop-beers/"
+      "/PET-project-frontend-React-Redux/shop-beers/"
     );
   }
   {
     pathsToProducts(
       SHOP_MAIN_BEER_PACKS_LIST,
-      "/PET-project-frontend-React/shop-beer-packs/"
+      "/PET-project-frontend-React-Redux/shop-beer-packs/"
     );
   }
   {
     pathsToProducts(
       SHOP_MAIN_MERCH_LIST,
-      "/PET-project-frontend-React/shop-merch/"
+      "/PET-project-frontend-React-Redux/shop-merch/"
     );
   }
   {
     pathsToProducts(
       SHOP_MAIN_PIVOLADA_LIST,
-      "/PET-project-frontend-React/shop-pivolada/"
+      "/PET-project-frontend-React-Redux/shop-pivolada/"
     );
   }
   const [packageType, setPackageType] = useState("BOTTLE");

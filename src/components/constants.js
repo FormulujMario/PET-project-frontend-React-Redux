@@ -40,7 +40,7 @@ export const BESTSELLERS_LIST = [
     price: "230 RSD",
     description: "IPA / abv 4.7% / ibu 15 / 0.33l",
     img: imgsPath + "/Lutka.png",
-    path:"/shop-beers/lutka",
+    path: "/shop-beers/lutka",
   },
   {
     name: "Plavo",
