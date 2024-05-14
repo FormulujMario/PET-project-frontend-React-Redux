@@ -1,11 +1,12 @@
 import { BsArrowRight } from "react-icons/bs";
 import { FOOTER_MENU_LIST } from "../constants";
-import { useActiveCategoryContext } from "../../contexts/ActiveCategoryContext";
 import "./NextCategory.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const NextCategory = () => {
-  const activeCategoryContext = useActiveCategoryContext();
-  const currentUrl = activeCategoryContext.activeState.activeCategory.replace(
+  const activeCategoryDispatch = useDispatch()
+  const activeCategoryContext = useSelector((state) => state.activeCategoryReducer.activeCategory);
+  const currentUrl = activeCategoryContext.replace(
     "-",
     " "
   );
@@ -24,7 +25,7 @@ const NextCategory = () => {
   const randomIndex = Math.floor(Math.random() * shopArr.length);
   const firstButtonTitle = shopArr[randomIndex];
   const changeCategory = () => {
-    activeCategoryContext.dispatch({
+    activeCategoryDispatch({
       type: "NOTALL",
       payload: firstButtonTitle.replace(" ", "-"),
       visible: firstButtonTitle.filterButton,

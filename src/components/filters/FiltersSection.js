@@ -2,33 +2,35 @@ import { SORT_BY } from "../constants.js";
 import Sort from "../sort/Sort.js";
 import Filters from "./Filters.js";
 import ClearFilters from "../buttons/ClearFilters.js";
-import { useActiveCategoryContext } from "../../contexts/ActiveCategoryContext.js";
-import { useProductsContext } from "../../contexts/ProductsContext.js";
 import "./FiltersSection.css";
+import { useSelector } from "react-redux";
 
 const FiltersSection = () => {
-  const activeCategoryContext = useActiveCategoryContext();
-  const products = useProductsContext();
-  if (activeCategoryContext.activeState.activeCategory !== "ALL") {
-    return products[0].lists.map((list) => {
+  console.log("filters section renders")
+const activeCategoryContext = useSelector((state) => state.activeCategoryReducer.activeCategory);
+const products = useSelector((state) => state.productsReducer.lists);
+  const filtersButtonTitleContext = useSelector(
+    (state) => state.filtersButtonReducer.filters
+  );
+  if (activeCategoryContext !== "ALL") {
+    return products.map((list) => {
       if (
-        list.categories === activeCategoryContext.activeState.activeCategory
+        list.categories === activeCategoryContext
       ) {
         return (
           <div
             className="filters-section"
-            style={{ display: products[1].filtersState.filters }}
+            style={{ display: filtersButtonTitleContext }}
           >
             <div className="sort-filters">
               <Sort
                 list={SORT_BY}
                 state={list.state}
-                stateFn={list.stateFn}
                 section={list.sectionSort}
               />
               <Filters
                 productsList={list.productsList}
-                stateFn={list.stateFn}
+                // stateFn={list.stateFn}
                 section={list.sectionFilter}
                 quantity={list.quantity}
                 style={list.style}
@@ -39,7 +41,7 @@ const FiltersSection = () => {
             {(list.quantity || list.style || list.color || list.alcohol) && (
               <ClearFilters
                 productsList={list.productsList}
-                stateFn={list.stateFn}
+                // stateFn={list.stateFn}
               />
             )}
           </div>

@@ -1,24 +1,24 @@
 import { TabContainer, Nav, Row } from "react-bootstrap";
 import ShowFilters from "../buttons/ShowFilters.js";
 import FiltersSection from "../filters/FiltersSection.js";
-import { useActiveCategoryContext } from "../../contexts/ActiveCategoryContext.js";
-import { ProductsContextProvider } from "../../contexts/ProductsContext.js";
 import ShopTabsProductsRow from "./ShopTabsProductsRow.js";
 import "./ShopTabs.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const ShopTabs = () => {
-  const activeCategoryContext = useActiveCategoryContext();
+  console.log("shop tabs renders")
+  const activeCategoryDispatch = useDispatch()
+  const activeCategoryContext = useSelector((state) => state.activeCategoryReducer.activeCategory);
   const hideFiltersButton = (selectedKey) => {
     selectedKey !== "ALL"
-      ? activeCategoryContext.dispatch({ type: "NOTALL", payload: selectedKey })
-      : activeCategoryContext.dispatch({ type: "ALL", payload: selectedKey });
+      ? activeCategoryDispatch({ type: "NOTALL", payload: selectedKey })
+      : activeCategoryDispatch({ type: "ALL", payload: selectedKey });
   };
   return (
     <section className="shop-section">
-      <ProductsContextProvider>
         <TabContainer
           id="shop-section"
-          activeKey={activeCategoryContext.activeState.activeCategory}
+          activeKey={activeCategoryContext}
           onSelect={hideFiltersButton}
         >
           <Row>
@@ -55,7 +55,6 @@ const ShopTabs = () => {
           </Row>
           <ShopTabsProductsRow />
         </TabContainer>
-      </ProductsContextProvider>
     </section>
   );
 };

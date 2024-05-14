@@ -13,12 +13,12 @@ import React from "react";
 import Footer from "./footer/Footer.js";
 import Header from "./header/Header.js";
 import Cart from "./cart/Cart.js";
-import { useCartContext } from "../contexts/CartContext.js";
 import Mobile from "./mobile/Mobile.js";
 import "../App.css";
+import { useSelector } from "react-redux";
 
 function MyRouter() {
-  const showCart = useCartContext();
+  const showCart = useSelector((state) => state.cartReducer.showCart);
   const pathsTemplate = (item) => {
     return item
       .toLowerCase()
@@ -58,10 +58,11 @@ function MyRouter() {
     }
     return { fullPathArt };
   };
+
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       {window.innerWidth <= 850 ? <Mobile /> : null}
-      {showCart.showCartContext.showCart ? <Cart /> : null}
+      {showCart ? <Cart /> : null}
       <Header />
       <Routes>
         {MENU_LIST.map((item) => {

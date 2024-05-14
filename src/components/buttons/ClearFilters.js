@@ -1,15 +1,19 @@
+import { useDispatch } from "react-redux";
 import "./ClearFilters.css";
 
-const ClearFilters = ({ productsList, stateFn }) => {
+const ClearFilters = () => {
+  const clearFiltersDispatch = useDispatch()
   const clearFiltersFn = () => {
     Array(...document.querySelectorAll(".shop-section input:checked")).map(
       (input) => {
         return (input.checked = false);
       }
     );
-    stateFn((currentValue) => {
-      return (currentValue = productsList);
+
+    const clear = (() => {
+      clearFiltersDispatch({type: "setCreared"});
     });
+    clear()
   };
 
   return (

@@ -5,18 +5,17 @@ import {
   SHOP_MAIN_MERCH_LIST,
 } from "../constants";
 import { Link } from "react-router-dom";
-import { useActiveCategoryContext } from "../../contexts/ActiveCategoryContext";
 import "./ShopSlider.css";
+import { useSelector } from "react-redux";
+import { activeCategoryList } from "../../store/selectors";
 
-const ShopSlider = ({ list }) => {
-  const activeCategoryContext = useActiveCategoryContext();
+const ShopSlider = ({list}) => { 
+  console.log("shop slider renders")
   let shopPath = null;
   const swiperElRef = useRef(null);
-  const id = activeCategoryContext.activeState.activeCategory
-    .toLowerCase()
-    .replace(/ /g, "-");
   return (
-    <div className="swiper" id={id}>
+    
+    <div className="swiper" >
       <div className="swiper-wrapper">
         <swiper-container
           ref={swiperElRef}
@@ -80,7 +79,7 @@ const ShopSlider = ({ list }) => {
       <div className="swiper-button-prev"></div>
       <div className="swiper-button-next"></div>
     </div>
-  );
+  )
 };
 
 export default memo(ShopSlider);

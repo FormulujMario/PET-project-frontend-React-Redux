@@ -1,8 +1,8 @@
-import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { MENU_LIST } from "../constants.js";
 
 const HeaderMenu = () => {
+  console.log("header menu renders")
   return (
     <nav>
       <ul>
@@ -19,4 +19,4 @@ const HeaderMenu = () => {
     </nav>
   );
 };
-export default memo(HeaderMenu);
+export default HeaderMenu;

@@ -1,19 +1,19 @@
 import CartItem from "./CartItem";
-import { useCartContext } from "../../contexts/CartContext";
 import "./Cart.css";
+import { useDispatch } from "react-redux";
 
 const Cart = () => {
-  const showCart = useCartContext();
+  const cartDispatch = useDispatch()
   return (
     <div>
       <div
         className="cart-modal-back"
-        onClick={showCart.showCartContext.toggleShow}
+        onClick={()=>{cartDispatch({type:"toggle"})}}
       ></div>
       <div className="cart-modal">
         <div className="cart-title">
           <div>YOUR CART</div>
-          <div onClick={showCart.showCartContext.toggleShow}>
+          <div onClick={()=>{cartDispatch({type:"toggle"})}}>
             <svg
               width="20"
               height="20"

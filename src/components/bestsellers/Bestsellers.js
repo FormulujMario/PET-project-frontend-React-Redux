@@ -5,6 +5,7 @@ import ProductsSlider from "../slider/ProductsSlider.js";
 import "./Bestsellers.css";
 
 const Bestsellers = () => {
+  console.log("bestsellers render")
   const bestsellers = BESTSELLERS_LIST;
   const sliderParams = {
     slidesPerView: "4",

@@ -1,11 +1,10 @@
 import FilterItem from "./FilterItem.js";
 import { STYLE, ALCOHOL, COLOR, QUANTITY } from "../constants.js";
-import { memo } from "react";
 import "./Filters.css";
+import { useDispatch} from "react-redux";
 
 const Filters = ({
   productsList,
-  stateFn,
   style,
   alcohol,
   color,
@@ -13,6 +12,7 @@ const Filters = ({
   section,
 }) => {
   const filters = { style: [], alcohol: [], color: [], quantity: [] };
+  const filterDispatch = useDispatch()
   const filterFunction = () => {
     const filtered = productsList.filter((element) => {
       if (filters.style.length === 0) {
@@ -38,10 +38,10 @@ const Filters = ({
         filters.quantity.includes(element.quantityFilter)
       );
     });
-
-    stateFn((currentValue) => {
-      return (currentValue = filtered);
+    const filter = (() => {
+      filterDispatch({type: "setFiltered", payload: {productsList: productsList, filtereddArr: filtered}});
     });
+    filter()
   };
 
   return (
@@ -97,4 +97,4 @@ const Filters = ({
     </div>
   );
 };
-export default memo(Filters);
+export default Filters;

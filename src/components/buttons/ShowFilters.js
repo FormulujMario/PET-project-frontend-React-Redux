@@ -1,17 +1,23 @@
 import NormalWhiteButton from "./NormalWhiteButton.js";
 import { BsArrowRight } from "react-icons/bs";
-import { useActiveCategoryContext } from "../../contexts/ActiveCategoryContext.js";
-import { useProductsContext } from "../../contexts/ProductsContext.js";
+import { useDispatch, useSelector } from "react-redux";
 
 const ShowFilters = () => {
-  const showFiltersSectionContext = useProductsContext();
-  const activeCategoryContext = useActiveCategoryContext();
+  const activeCategoryContextButton = useSelector(
+    (state) => state.activeCategoryReducer.visible
+  );
+  const filtersButtonTitleContext = useSelector(
+    (state) => state.filtersButtonReducer.filtersButtonTitle
+  );
+  const openFiltersDispatch = useDispatch();
   return (
     <NormalWhiteButton
-      text={showFiltersSectionContext[1].filtersState.filtersButtonTitle}
+      text={filtersButtonTitleContext}
       icon={<BsArrowRight />}
-      click={showFiltersSectionContext[1].openFilters}
-      isHidden={activeCategoryContext.activeState.visible}
+      click={() => {
+        openFiltersDispatch({ type: filtersButtonTitleContext });
+      }}
+      isHidden={activeCategoryContextButton}
     />
   );
 };

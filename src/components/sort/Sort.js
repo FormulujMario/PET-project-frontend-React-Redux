@@ -1,7 +1,8 @@
-import { memo } from "react";
 import "./Sort.css";
+import { useDispatch} from "react-redux";
 
-const Sort = ({ list, state, stateFn, section }) => { 
+const Sort = ({ list, state, section }) => { 
+  const sortDispatch = useDispatch()
   const onclickSortBy = (event) => {
     const sortingNamesArr = [...document.querySelectorAll(`.${section} div`)];
     sortingNamesArr.map((sortingName) => {
@@ -18,9 +19,11 @@ const Sort = ({ list, state, stateFn, section }) => {
         ? a.price - b.price
         : b[propertyForSorting] - a[propertyForSorting];
     });
-    stateFn((currentValue) => {
-      return (currentValue = sortedBeers);
+
+    const sort = (() => {
+     sortDispatch({type: "setSorted", payload: {section: section, sortedArr: sortedBeers}});
     });
+    sort()
   };
 
   return (
@@ -36,4 +39,4 @@ const Sort = ({ list, state, stateFn, section }) => {
     </div>
   );
 };
-export default memo(Sort);
+export default Sort;

@@ -1,20 +1,22 @@
 import { FOOTER_MENU_LIST, SOC_NET_ICONS } from "../../constants";
-import { useActiveCategoryContext } from "../../../contexts/ActiveCategoryContext";
 import { Link } from "react-router-dom";
 import "./MainLinks.css";
+import { useDispatch } from "react-redux";
 
 const MainLinks = () => {
-  const activeCategoryContext = useActiveCategoryContext();
+  const activeCategoryDispatch = useDispatch()
   const changeCategory = (subelement) => {
+    if(subelement.activeKey){
     subelement.activeKey !== "ALL"
-      ? activeCategoryContext.dispatch({
+      ? activeCategoryDispatch({
           type: "NOTALL",
           payload: subelement.activeKey,
         })
-      : activeCategoryContext.dispatch({
+      : activeCategoryDispatch({
           type: "ALL",
           payload: subelement.activeKey,
         });
+      }
     window.scrollTo({
       top: 0,
       left: 0,

@@ -1,10 +1,10 @@
-import { memo } from "react";
 import BackToTop from "../buttons/BackToTop.js";
 import Subscribe from "./subscribe/Subscribe.js";
 import MainLinks from "./main-links/MainLinks.js";
 import "./Footer.css";
 
 const Footer = () => {
+  console.log("footer renders")
   return (
     <footer>
       <BackToTop />
@@ -19,4 +19,4 @@ const Footer = () => {
   );
 };
 
-export default memo(Footer);
+export default Footer;

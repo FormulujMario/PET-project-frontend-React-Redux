@@ -9,15 +9,14 @@ import ProductPics from "./ProductPics";
 import ProductDescription from "./ProductDescripion";
 import ProductTitle from "./ProductTitle";
 import AddToCartForm from "./AddToCartForm";
-import { useCartContext } from "../../contexts/CartContext";
 import "./ProductCard.css";
+import { useDispatch } from "react-redux";
 
 const ProductCard = () => {
   const cartToStorage = [];
   if (localStorage.cart) {
     cartToStorage.push(JSON.parse(localStorage.cart));
-  }
-  const showCart = useCartContext();
+  }  const cartDispatch = useDispatch()
   let currentProduct = {};
   const pathsToProducts = (arr, path) => {
     arr.map((item) => {
@@ -98,7 +97,7 @@ const ProductCard = () => {
     });
   };
   const addToCart = (img, item, price, quantity, event) => {
-    showCart.showCartContext.toggleShow();
+    cartDispatch({type:"toggle"})
     let foundItem = null;
     if (cartToStorage.length === 0) {
       cartToStorage.push({

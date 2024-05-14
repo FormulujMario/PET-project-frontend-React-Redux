@@ -1,18 +1,14 @@
 import "./App.css";
 import React from "react";
-import { CartContextProvider } from "./contexts/CartContext.js";
 import MyRouter from "./components/MyRouter.js";
-import { ActiveCategoryContextProvider } from "./contexts/ActiveCategoryContext.js";
-
-
+import { Provider } from "react-redux";
+import { store } from "./store/index.js";
 function App() {
   return (
     <div className="App">
-      <CartContextProvider>
-        <ActiveCategoryContextProvider>
+      <Provider store={store}>
           <MyRouter />
-        </ActiveCategoryContextProvider>
-      </CartContextProvider>
+      </Provider>
     </div>
   );
 }

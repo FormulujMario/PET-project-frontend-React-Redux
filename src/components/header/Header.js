@@ -1,11 +1,11 @@
-import { memo } from "react";
 import HeaderMenu from "./HeaderMenu";
 import { ghPagesPath } from "../constants.js";
-import { useCartContext } from "../../contexts/CartContext";
 import "./Header.css";
+import { useDispatch } from "react-redux";
 
 function Header() {
-  const showCart = useCartContext();
+  console.log("header render")
+  const cartDispatch = useDispatch()
   let quantityOfProducts = 0;
   if (localStorage.cart) {
     quantityOfProducts = JSON.parse(localStorage.cart).length;
@@ -29,7 +29,7 @@ function Header() {
             <li>
               <div
                 className="cart-icon"
-                onClick={showCart.showCartContext.toggleShow}
+                onClick={()=>{cartDispatch({type:"toggle"})}}
               >
                 <div>CART {quantityOfProducts}</div>
               </div>
@@ -41,4 +41,4 @@ function Header() {
   );
 }
 
-export default memo(Header);
+export default Header;
