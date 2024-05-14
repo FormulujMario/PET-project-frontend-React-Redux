@@ -4,7 +4,6 @@ import MainLinks from "./main-links/MainLinks.js";
 import "./Footer.css";
 
 const Footer = () => {
-  console.log("footer renders")
   return (
     <footer>
       <BackToTop />

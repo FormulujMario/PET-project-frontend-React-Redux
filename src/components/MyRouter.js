@@ -14,8 +14,8 @@ import Footer from "./footer/Footer.js";
 import Header from "./header/Header.js";
 import Cart from "./cart/Cart.js";
 import Mobile from "./mobile/Mobile.js";
-import "../App.css";
 import { useSelector } from "react-redux";
+import "../App.css";
 
 function MyRouter() {
   const showCart = useSelector((state) => state.cartReducer.showCart);

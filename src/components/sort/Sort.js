@@ -1,8 +1,8 @@
+import { useDispatch } from "react-redux";
 import "./Sort.css";
-import { useDispatch} from "react-redux";
 
-const Sort = ({ list, state, section }) => { 
-  const sortDispatch = useDispatch()
+const Sort = ({ list, state, section }) => {
+  const sortDispatch = useDispatch();
   const onclickSortBy = (event) => {
     const sortingNamesArr = [...document.querySelectorAll(`.${section} div`)];
     sortingNamesArr.map((sortingName) => {
@@ -20,10 +20,13 @@ const Sort = ({ list, state, section }) => {
         : b[propertyForSorting] - a[propertyForSorting];
     });
 
-    const sort = (() => {
-     sortDispatch({type: "setSorted", payload: {section: section, sortedArr: sortedBeers}});
-    });
-    sort()
+    const sort = () => {
+      sortDispatch({
+        type: "setSorted",
+        payload: { section: section, sortedArr: sortedBeers },
+      });
+    };
+    sort();
   };
 
   return (

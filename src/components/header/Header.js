@@ -1,11 +1,10 @@
 import HeaderMenu from "./HeaderMenu";
 import { ghPagesPath } from "../constants.js";
-import "./Header.css";
 import { useDispatch } from "react-redux";
+import "./Header.css";
 
 function Header() {
-  console.log("header render")
-  const cartDispatch = useDispatch()
+  const cartDispatch = useDispatch();
   let quantityOfProducts = 0;
   if (localStorage.cart) {
     quantityOfProducts = JSON.parse(localStorage.cart).length;
@@ -29,7 +28,9 @@ function Header() {
             <li>
               <div
                 className="cart-icon"
-                onClick={()=>{cartDispatch({type:"toggle"})}}
+                onClick={() => {
+                  cartDispatch({ type: "toggle" });
+                }}
               >
                 <div>CART {quantityOfProducts}</div>
               </div>

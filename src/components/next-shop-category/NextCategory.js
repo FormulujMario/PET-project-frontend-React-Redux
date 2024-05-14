@@ -1,15 +1,14 @@
 import { BsArrowRight } from "react-icons/bs";
 import { FOOTER_MENU_LIST } from "../constants";
-import "./NextCategory.css";
 import { useDispatch, useSelector } from "react-redux";
+import "./NextCategory.css";
 
 const NextCategory = () => {
-  const activeCategoryDispatch = useDispatch()
-  const activeCategoryContext = useSelector((state) => state.activeCategoryReducer.activeCategory);
-  const currentUrl = activeCategoryContext.replace(
-    "-",
-    " "
+  const activeCategoryDispatch = useDispatch();
+  const activeCategoryContext = useSelector(
+    (state) => state.activeCategoryReducer.activeCategory
   );
+  const currentUrl = activeCategoryContext.replace("-", " ");
   const shopArr = FOOTER_MENU_LIST[0].list
     .map((element) => {
       return element.name;

@@ -1,22 +1,22 @@
 import { FOOTER_MENU_LIST, SOC_NET_ICONS } from "../../constants";
 import { Link } from "react-router-dom";
-import "./MainLinks.css";
 import { useDispatch } from "react-redux";
+import "./MainLinks.css";
 
 const MainLinks = () => {
-  const activeCategoryDispatch = useDispatch()
+  const activeCategoryDispatch = useDispatch();
   const changeCategory = (subelement) => {
-    if(subelement.activeKey){
-    subelement.activeKey !== "ALL"
-      ? activeCategoryDispatch({
-          type: "NOTALL",
-          payload: subelement.activeKey,
-        })
-      : activeCategoryDispatch({
-          type: "ALL",
-          payload: subelement.activeKey,
-        });
-      }
+    if (subelement.activeKey) {
+      subelement.activeKey !== "ALL"
+        ? activeCategoryDispatch({
+            type: "NOTALL",
+            payload: subelement.activeKey,
+          })
+        : activeCategoryDispatch({
+            type: "ALL",
+            payload: subelement.activeKey,
+          });
+    }
     window.scrollTo({
       top: 0,
       left: 0,

@@ -1,4 +1,4 @@
-import { memo, useRef } from "react";
+import React, { memo, useRef } from "react";
 import {
   SHOP_MAIN_BEERS_LIST,
   SHOP_MAIN_BEER_PACKS_LIST,
@@ -6,8 +6,6 @@ import {
 } from "../constants";
 import { Link } from "react-router-dom";
 import "./ShopSlider.css";
-import { useSelector } from "react-redux";
-import { activeCategoryList } from "../../store/selectors";
 
 const ShopSlider = ({list}) => { 
   console.log("shop slider renders")
@@ -82,4 +80,4 @@ const ShopSlider = ({list}) => {
   )
 };
 
-export default memo(ShopSlider);
+export default React.memo(ShopSlider);

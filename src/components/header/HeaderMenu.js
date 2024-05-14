@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { MENU_LIST } from "../constants.js";
 
 const HeaderMenu = () => {
-  console.log("header menu renders")
   return (
     <nav>
       <ul>
