@@ -2,6 +2,7 @@ import HeaderMenu from "./HeaderMenu";
 import { ghPagesPath } from "../constants.js";
 import { useDispatch } from "react-redux";
 import "./Header.css";
+import { HeaderLogo } from "../header-logo/HeaderLogo.js";
 
 function Header() {
   const cartDispatch = useDispatch();
@@ -14,11 +15,7 @@ function Header() {
   return (
     <header>
       <section className="menu">
-        <div className="logo">
-          <a href={ghPagesPath}>
-            <img src={process.env.REACT_APP_IMAGES_PATH + "/logo.png"} alt="" />
-          </a>
-        </div>
+        <HeaderLogo />
         <div className="menu-list">
           <HeaderMenu />
         </div>

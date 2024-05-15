@@ -6,9 +6,6 @@
   font-weight: 400;
   font-size: 1.1vw;
 }
-.logo {
-  height: 60px;
-}
 .menu-list ul {
   list-style: none;
   display: flex;
