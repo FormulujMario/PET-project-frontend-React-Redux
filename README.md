@@ -28,6 +28,8 @@ The purpose of the project is to demonstrate my frontend skills in React. I'm ba
 * run npm/yarn run start 
 
 ## Pages and Functions
+![beeranimation](/public/pics/animatedlogo.gif)<-- this is .gif, but logic of animation you can see in HeaderLogo component
+
 * main page:
     + slider (swiperjs)
     + categories preview modules (with/without tabs, pagination and other functions)
@@ -64,6 +66,7 @@ The purpose of the project is to demonstrate my frontend skills in React. I'm ba
     + backtotop button
 
 ## Elements and Hooks
+
 I wanted to show, that I can use different types of elements and hooks, so in this project you will see:
 * class components
 * functional components
@@ -79,7 +82,6 @@ I wanted to show, that I can use different types of elements and hooks, so in th
 * useRef
 * Redux
 
-![beeranimation](/public/pics/animatedlogo.gif)
 
 Want to notice, that I understand, that it's not a right way to make a structure of product, it's just a way to show my skills (sometimes I used unnecessary things just for demonstrating)
 
