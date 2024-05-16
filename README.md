@@ -19,15 +19,14 @@ The purpose of the project is to demonstrate my frontend skills in React. I'm ba
 ![Static Badge](https://img.shields.io/badge/webPack-5.89.0-D1AA73)
 
 ## Demo
-Here is a working live demo :  https://formulujmario.github.io/PET-project-frontend-React-Redux/
+ Here is a working live demo :  https://formulujmario.github.io/PET-project-frontend-React-Redux/
 
 ## Setup
-
 * clone the repo
 * install the dependencies
 * change the environment to local
-* run npm/yarn run start
- 
+* run npm/yarn run start 
+
 ## Pages and Functions
 * main page:
     + slider (swiperjs)
@@ -79,6 +78,10 @@ I wanted to show, that I can use different types of elements and hooks, so in th
 * React.memo
 * useRef
 * Redux
+
+<div align="center">
+	<img src="https://formulujmario.github.io/PET-project-frontend-React-Redux/pics/animatedlogo.gif">
+</div>
 
 Want to notice, that I understand, that it's not a right way to make a structure of product, it's just a way to show my skills (sometimes I used unnecessary things just for demonstrating)
 
