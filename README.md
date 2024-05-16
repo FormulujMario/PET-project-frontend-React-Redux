@@ -79,9 +79,7 @@ I wanted to show, that I can use different types of elements and hooks, so in th
 * useRef
 * Redux
 
-<div align="center">
-	<img src="https://formulujmario.github.io/PET-project-frontend-React-Redux/pics/animatedlogo.gif">
-</div>
+![beeranimation](/public/pics/animatedlogo.gif)
 
 Want to notice, that I understand, that it's not a right way to make a structure of product, it's just a way to show my skills (sometimes I used unnecessary things just for demonstrating)
 
