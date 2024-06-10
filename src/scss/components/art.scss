@@ -1,0 +1,44 @@
+.gallery-container {
+  @extend %grid-four;
+  grid-template-areas:
+    "a a b c"
+    "a a d e"
+    "f g h h"
+    "i j h h"
+    "k l m n";
+  grid-template-rows: auto;
+  gap: 30px;
+  margin-top: 40px;
+  $letters: a, b, c, d, e, f, g, h, i, j, k, l, m, n;
+  @each $letter in $letters {
+    .#{$letter} {
+      grid-area: $letter;
+    }
+  }
+  .gallery-item {
+    @extend %flex-clm-end;
+    @extend %bordered;
+    .item-img {
+      @extend %flex-center;
+      margin-top: 10%;
+      margin-bottom: 10%;
+      img {
+        width: inherit;
+      }
+    }
+    p {
+      text-transform: $text-uppercase;
+      margin-bottom: 10px;
+      margin-left: 10px;
+    }
+  }
+  .item-without-pic {
+    @extend %flex-center;
+    @extend %bordered;
+    p {
+      text-transform: $text-uppercase;
+      text-align: center;
+      padding: 10%;
+    }
+  }
+}

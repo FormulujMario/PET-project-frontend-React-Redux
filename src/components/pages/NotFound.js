@@ -7,7 +7,6 @@ export default function NotFound() {
       <p>Here are some helpful links:</p>
       <ul>
         <li>
-          {" "}
           <Link to="/">Home</Link>
         </li>
         <li>

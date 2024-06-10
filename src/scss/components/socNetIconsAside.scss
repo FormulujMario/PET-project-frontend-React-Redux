@@ -1,0 +1,9 @@
+.soc-net-icons-aside {
+  float: left;
+  width: 5%;
+  svg {
+    @extend %svg-scale;
+    display: block;
+    margin-top: 10px;
+  }
+}

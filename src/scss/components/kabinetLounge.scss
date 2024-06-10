@@ -1,0 +1,27 @@
+.trip-to-kabinet-lounge {
+  display: flex;
+  margin-bottom: $default-margin-bottom;
+  .kabinet-lounge-title {
+    @extend %flex-sp-bw-start;
+    gap: 50px;
+    position: absolute;
+    width: 66%;
+    margin-top: 50px;
+    margin-left: 50px;
+    color: $default-color;
+    .title {
+      flex-basis: 712px;
+    }
+    .description {
+      @extend %med-font;
+      margin: 0;
+      flex-basis: 365px;
+      font-weight: $font-weight-med;
+      .buttons {
+        @extend %flex-sp-bw-center;
+        gap: $min-gap;
+        margin-top: 24px;
+      }
+    }
+  }
+}

@@ -1,11 +1,10 @@
 import CartItem from "./CartItem";
 import { useDispatch } from "react-redux";
-import "./Cart.css";
 
 const Cart = () => {
   const cartDispatch = useDispatch();
   return (
-    <div>
+    <section>
       <div
         className="cart-modal-back"
         onClick={() => {
@@ -15,7 +14,7 @@ const Cart = () => {
       <div className="cart-modal">
         <div className="cart-title">
           <div>YOUR CART</div>
-          <div
+          <div className="x"
             onClick={() => {
               cartDispatch({ type: "toggle" });
             }}
@@ -39,7 +38,7 @@ const Cart = () => {
         <hr />
         <CartItem />
       </div>
-    </div>
+    </section>
   );
 };
 

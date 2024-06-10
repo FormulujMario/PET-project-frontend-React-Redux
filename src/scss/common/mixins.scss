@@ -1,0 +1,16 @@
+@mixin logo-animation($name, $length) {
+  ##{$name} {
+    stroke-dasharray: $length;
+    stroke-dashoffset: $length;
+    animation: #{$name}-line-animation 4s infinite forwards;
+    animation-iteration-count: 1;
+  }
+  @keyframes #{$name}-line-animation {
+    from {
+      stroke-dashoffset: $length;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}

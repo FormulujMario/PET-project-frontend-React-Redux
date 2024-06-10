@@ -1,19 +1,13 @@
-import React from "react";
-
-class PageTitle extends React.Component {
-  render() {
-    if (this.props.title.length > 12) {
-      return (
-        <h1 style={{ justifyContent: "space-between" }}>
-          {this.props.title.split(" ").map((word) => {
-            return <span>{word}</span>;
-          })}
-        </h1>
-      );
-    } else {
-      return <h1 style={{ justifyContent: "center" }}>{this.props.title}</h1>;
-    }
-  }
-}
+const PageTitle = ({ title }) => {
+  return title.length > 12 ? (
+    <h1 style={{ justifyContent: "space-between" }}>
+      {title.split(" ").map((word) => {
+        return <span>{word}</span>;
+      })}
+    </h1>
+  ) : (
+    <h1 style={{ justifyContent: "center" }}>{title}</h1>
+  );
+};
 
 export default PageTitle;

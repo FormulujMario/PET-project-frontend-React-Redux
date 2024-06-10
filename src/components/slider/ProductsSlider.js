@@ -1,8 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import "./ProductsSlider.css";
 
-const ProductsSlider = ({ list, sliderParams }) => { 
+const ProductsSlider = ({ list, sliderParams }) => {
   const product = (element) => {
     let myLink = element.path;
     return (
@@ -10,7 +9,7 @@ const ProductsSlider = ({ list, sliderParams }) => {
         <Link to={myLink}>
           <div className="swiper-slide-item">
             <img src={element.img} alt="" />
-            <div className="swiper-slide-item-title">
+            <div className="title">
               <h4>{element.name}</h4>
               <h4>{element.price}</h4>
             </div>
@@ -25,11 +24,9 @@ const ProductsSlider = ({ list, sliderParams }) => {
     return (
       <swiper-slide>
         <Link to="/shop">
-          <div className="swiper-slide-item-shop-now">
-            <div className="swiper-slide-item-shop-now-img">
-              <img src={element.img} alt=""></img>
-            </div>
-            <span className="shop-now">{element.name}</span>
+          <div className="shop-now">
+            <img src={element.img} alt=""></img>
+            <span>{element.name}</span>
           </div>
         </Link>
       </swiper-slide>

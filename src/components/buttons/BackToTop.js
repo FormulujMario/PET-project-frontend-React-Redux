@@ -1,5 +1,4 @@
 import { BsArrowUp } from "react-icons/bs";
-import "./BackToTop.css";
 
 const BackToTop = () => {
   const backToTopFn = () => {

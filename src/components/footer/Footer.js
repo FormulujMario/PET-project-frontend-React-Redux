@@ -1,7 +1,6 @@
 import BackToTop from "../buttons/BackToTop.js";
-import Subscribe from "./subscribe/Subscribe.js";
-import MainLinks from "./main-links/MainLinks.js";
-import "./Footer.css";
+import Subscribe from "./Subscribe.js";
+import MainLinks from "./MainLinks.js";
 
 const Footer = () => {
   return (

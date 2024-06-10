@@ -1,5 +1,5 @@
+import { MENU_LIST } from "../CONSTANTS.js";
 import { Link } from "react-router-dom";
-import { MENU_LIST } from "../constants.js";
 
 const HeaderMenu = () => {
   return (

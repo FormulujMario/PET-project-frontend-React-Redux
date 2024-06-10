@@ -11,7 +11,7 @@ const ShowFilters = () => {
   );
   const openFiltersDispatch = useDispatch();
   return (
-    <NormalWhiteButton
+    <NormalWhiteButton  
       text={filtersButtonTitleContext}
       icon={<BsArrowRight />}
       click={() => {

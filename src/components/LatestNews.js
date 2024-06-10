@@ -1,4 +1,4 @@
-import { NEWS_LIST } from "./constants.js";
+import { NEWS_LIST } from "./CONSTANTS.js";
 import SliderLatestNews from "./slider/SliderLatestNews.js";
 import NormalWhiteButton from "./buttons/NormalWhiteButton.js";
 import { BsArrowUpRight } from "react-icons/bs";

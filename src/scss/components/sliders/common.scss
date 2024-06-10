@@ -1,0 +1,26 @@
+.swiper {
+  margin-bottom: $default-slider-margin-bottom;
+}
+swiper-container {
+  --swiper-theme-color: $accent-color;
+}
+.swiper-slide-item {
+  @extend %flex-clm;
+  text-transform: $text-uppercase;
+  .title {
+    @extend %flex-sp-bw-center;
+  }
+  img {
+    @extend %slides-paddings;
+    border-radius: $default-border-radius;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+.kabinet-products,
+.bestsellers {
+  .swiper-slide-item img {
+    @extend %outline;
+  }
+}

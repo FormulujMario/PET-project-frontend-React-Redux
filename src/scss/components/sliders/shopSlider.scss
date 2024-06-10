@@ -1,0 +1,10 @@
+.shop-category {
+  .products {
+    @extend %grid-four;
+    gap: 50px 30px;
+    text-transform: $text-uppercase;
+    img {
+      border: $default-border $accent-color;
+    }
+  }
+}

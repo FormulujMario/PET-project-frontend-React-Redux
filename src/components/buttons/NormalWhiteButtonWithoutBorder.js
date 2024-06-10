@@ -1,11 +1,13 @@
-import "./NormalWhiteButtonWithoutBorder.css";
+import { Link } from "react-router-dom";
 
-function NormalWhiteButtonWithoutBorder({ text, icon }) {
+function NormalWhiteButtonWithoutBorder({ text, icon, link }) {
   return (
-    <button className="normal-button white-button-without-border">
+    <Link to={link}>
+    <button className="white-button-without-border">
       {text}
       {icon}
     </button>
+    </Link>
   );
 }
 

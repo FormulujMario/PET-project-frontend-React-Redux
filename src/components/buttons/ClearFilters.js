@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import "./ClearFilters.css";
 
 const ClearFilters = () => {
   const clearFiltersDispatch = useDispatch();
@@ -16,7 +15,7 @@ const ClearFilters = () => {
   };
 
   return (
-    <div className="clear-button">
+    <div className="clear-filters">
       <button onClick={clearFiltersFn}>CLEAR ALL FILTERS</button>
     </div>
   );

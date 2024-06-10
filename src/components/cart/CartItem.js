@@ -1,6 +1,5 @@
 import { useState } from "react";
 import NormalWhiteButton from "../buttons/NormalWhiteButton";
-import "./CartItem.css";
 
 const CartItem = () => {
   const storageArr = JSON.parse(localStorage.cart);
@@ -21,7 +20,7 @@ const CartItem = () => {
   };
   const changeCartQuantity = (item, price, event) => {
     foundItem(item, price);
-    if (event.target.className === "input-number__minus") {
+    if (event.target.className === "minus") {
       if (storageArr[foundItemIndex].quantity !== 1) {
         storageArr[foundItemIndex].quantity -= 1;
         cartUpdate(storageArr);
@@ -60,7 +59,7 @@ const CartItem = () => {
                 <div>{item.name}</div>
                 <div class="input-number">
                   <div
-                    className="input-number__minus"
+                    className="minus"
                     onClick={(event) => {
                       changeCartQuantity(item.name, item.price, event);
                     }}
@@ -68,7 +67,7 @@ const CartItem = () => {
                     -
                   </div>
                   <input
-                    class="input-number__input"
+                    class="input"
                     type="text"
                     pattern="^[0-9]+$"
                     value={
@@ -76,7 +75,7 @@ const CartItem = () => {
                     }
                   />
                   <div
-                    class="input-number__plus"
+                    class="plus"
                     onClick={(event) => {
                       changeCartQuantity(item.name, item.price, event);
                     }}
@@ -85,7 +84,7 @@ const CartItem = () => {
                   </div>
                 </div>
                 <div>{`${item.price * item.quantity} RSD`}</div>
-                <div
+                <div className="x"
                   onClick={() => {
                     deleteItem(item.name, item.price);
                   }}
@@ -122,7 +121,7 @@ const CartItem = () => {
       )}
       {storageArrState.length !== 0 ? (
         <div>
-          <div className="cart-bottom">
+          <div className="total">
             <div>Estimate total:</div>
             <div>{`${totalPrice} RSD`}</div>
           </div>

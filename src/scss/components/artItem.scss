@@ -1,0 +1,40 @@
+.art-item-top {
+  h2 {
+    text-transform: $text-uppercase;
+    width: 50%;
+  }
+}
+.art-item-interview {
+  @extend %flex-sp-bw-start;
+  .soc-net-icons svg {
+    margin-right: 10px;
+  }
+  div {
+    width: 50%;
+  }
+  p {
+    padding-bottom: 50px;
+  }
+  span {
+    opacity: $opacity-med;
+  }
+}
+.art-item-desc {
+  @extend %flex-sp-bw-end;
+  p {
+    opacity: $opacity-med;
+  }
+  div {
+    width: 50%;
+  }
+}
+.prev-next-buttons {
+  @extend %flex-sp-bw-center;
+  margin-top: 50px;
+  .prev-button {
+    justify-self: left;
+  }
+  .next-button {
+    justify-self: right;
+  }
+}

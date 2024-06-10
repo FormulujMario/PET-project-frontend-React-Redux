@@ -11,7 +11,7 @@ const activeCategoryReducer = (
     case "ALL":
       return { ...state, activeCategory: action.payload, visible: "none" };
     case "NOTALL":
-      return { ...state, activeCategory: action.payload, visible: "block" };
+      return { ...state, activeCategory: action.payload, visible: "flex" };
     default:
       return state;
   }

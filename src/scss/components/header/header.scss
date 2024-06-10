@@ -1,0 +1,19 @@
+header {
+  padding: 25px;
+  .menu {
+    @extend %flex-sp-bw-center;
+    @extend %min-min-font;
+    font-family: $additional-font;
+    font-weight: $font-weight-med;
+    cursor: pointer;
+  }
+  ul {
+    @extend %flex-sp-bw-center;
+    gap: 64px;
+    width: 100%;
+  }
+  .lg-cart ul {
+    display: flex;
+    gap: 40px;
+  }
+}

@@ -1,10 +1,8 @@
-import HeaderMenu from "./HeaderMenu";
-import { ghPagesPath } from "../constants.js";
 import { useDispatch } from "react-redux";
-import "./Header.css";
-import { HeaderLogo } from "../header-logo/HeaderLogo.js";
+import HeaderLogo from "./HeaderLogo.js";
+import HeaderMenu from "./HeaderMenu.js";
 
-function Header() {
+const Header = () => {
   const cartDispatch = useDispatch();
   let quantityOfProducts = 0;
   if (localStorage.cart) {
@@ -16,10 +14,8 @@ function Header() {
     <header>
       <section className="menu">
         <HeaderLogo />
-        <div className="menu-list">
-          <HeaderMenu />
-        </div>
-        <div className="language">
+        <HeaderMenu />
+        <div className="lg-cart">
           <ul>
             <li>EN</li>
             <li>
@@ -37,6 +33,6 @@ function Header() {
       </section>
     </header>
   );
-}
+};
 
 export default Header;

@@ -1,0 +1,28 @@
+.logo {
+  height: 60px;
+  .svg-logo {
+    @extend %flex-clm;
+    svg {
+      margin-bottom: -2px;
+    }
+  }
+  $lines: (
+    frame: 196.58724975585938,
+    line-1: 46.22220993041992,
+    line-2: 46.22220993041992,
+    line-3: 19,
+    line-4: 16,
+    line-5: 16,
+    line-6: 18,
+    k: 49.64516830444336,
+    a: 15.838436126708984,
+    b: 30.3105525970459,
+    i: 23.9622802734375,
+    n: 32.548126220703125,
+    e: 18.111099243164062,
+    t: 22.679298400878906,
+  );
+  @each $name, $length in $lines {
+    @include logo-animation($name, $length);
+  }
+}

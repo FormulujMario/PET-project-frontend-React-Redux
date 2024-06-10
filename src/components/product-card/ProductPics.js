@@ -1,5 +1,3 @@
-import "./ProductPics.css";
-
 const ProductPics = ({ current, type, mainImage }) => {
   let picFirst = null;
   let picSecond = null;

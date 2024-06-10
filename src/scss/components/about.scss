@@ -1,0 +1,113 @@
+.about-kabinet {
+  text-transform: uppercase;
+  .history,
+  .video,
+  .awards,
+  .every-detail {
+    margin-top: $default-margin-bottom;
+  }
+  .history {
+    @extend %flex-right;
+    align-items: center;
+    .content-to-right {
+      width: 66%;
+      p {
+        width: 64%;
+        text-align: justify;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .video-preview-container {
+    position: relative;
+    .video-preview {
+      @extend %flex-center;
+      .preview-img {
+        position: relative;
+        width: 100%;
+      }
+      .preview-icon {
+        position: absolute;
+        svg {
+          @extend %svg-scale;
+          fill: $default-color;
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+  }
+  .awards {
+    h2 {
+      text-align: center;
+    }
+    .awards-section {
+      @extend %flex-sp-bw;
+      @extend %h3-low-title;
+      .awards-title {
+        width: 30%;
+      }
+      .awards-table {
+        width: 70%;
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          td {
+            color: $default-text-color;
+            padding: 20px 0px;
+            border-bottom: $default-border #9a9a9a;
+            &:first-child {
+              padding-right: 100px;
+            }
+            &:last-child {
+              opacity: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .every-detail {
+    .main-img-and-text {
+      @extend %flex-sp-bw-center;
+      img {
+        width: 50%;
+        max-height: 700px;
+        border-radius: $default-border-radius;
+      }
+      p {
+        max-width: 50%;
+        text-align: center;
+        padding-left: 80px;
+        padding-right: 60px;
+      }
+    }
+    .other-imgs {
+      @extend %grid-four;
+      margin-top: 20px;
+      gap: 20px;
+      div {
+        height: 450px;
+      }
+      img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: $default-border-radius;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .learn-more-container {
+        position: relative;
+        .learn-more {
+          @extend %flex-center;
+          @extend %empty-slide;
+          .learn-more-img {
+            @extend %bordered;
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+}

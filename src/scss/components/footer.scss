@@ -1,0 +1,87 @@
+.footer-main {
+  background-color: $accent-color;
+  padding: 50px 25px 0 25px;
+  .subscribe-form {
+    @extend %flex-sp-bw-center;
+    border-top: $default-border $default-color;
+    border-bottom: $default-border $default-color;
+    padding: 20px 0 20px 0;
+    text-transform: $text-uppercase;
+    .subscribe-input {
+      @extend %footer-font-size;
+      border: none;
+      background: transparent;
+    }
+    .subscribe-button {
+      @extend %flex-sp-bw-center;
+      @extend %footer-font-size;
+      gap: 15px;
+      border: none;
+      background: transparent;
+      padding-right: 0;
+      svg {
+        transition: transform 1s;
+      }
+      &:hover svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .subscribe .unvisible {
+    display: none;
+  }
+  .thankyou {
+    @extend %footer-font-size;
+    text-align: center;
+    border-top: $default-border $default-color;
+    border-bottom: $default-border $default-color;
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+  .main-links-footer {
+    @extend %flex-sp-bw-start;
+    color: $default-color;
+    margin-top: 30px;
+    .list-menu-footer {
+      @extend %flex-sp-bw-start;
+      @extend %min-min-font;
+      width: 50%;
+      font-family: $additional-font;
+      text-transform: $text-uppercase;
+      ul {
+        margin-top: 5px;
+        margin-bottom: 0;
+        padding-left: 0;
+        font-weight: $font-weight-med;
+        li {
+          opacity: $opacity-med;
+          padding-top: 5px;
+          padding-bottom: 5px;
+        }
+      }
+    }
+    .soc-net-icons {
+      display: flex;
+      justify-content: right;
+      gap: 35px;
+      width: 50%;
+      svg {
+        @extend %svg-scale;
+        width: 36px;
+        height: 36px;
+        color: $default-color;
+      }
+    }
+  }
+  .developed-by {
+    @extend %min-min-font;
+    display: flex;
+    justify-content: end;
+    text-transform: $text-uppercase;
+    font-family: $additional-font;
+    font-weight: $font-weight-med;
+    color: $default-color;
+    opacity: 50%;
+    padding-bottom: 25px;
+  }
+}

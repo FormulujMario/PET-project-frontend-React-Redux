@@ -1,7 +1,6 @@
 import { TabContainer, Nav, Row } from "react-bootstrap";
 import NormalWhiteButton from "../buttons/NormalWhiteButton";
 import { useState } from "react";
-import "./AddToCartForm.css";
 
 const AddToCartForm = ({
   type,
@@ -18,15 +17,14 @@ const AddToCartForm = ({
         {document.location.href.indexOf("beers") == -1 ? null : (
           <TabContainer id="type-of-product" defaultActiveKey={type}>
             <Row>
-              <Nav className="buttons-section">
+              <Nav className="section-title buttons-section">
                 <Nav.Item className="tab-buttons" onClick={changePriceFn}>
                   <Nav.Link
-                    className="normal-button tab-button"
                     eventKey="BOTTLE"
                   >
                     BOTTLE
                   </Nav.Link>
-                  <Nav.Link className="normal-button tab-button" eventKey="CAN">
+                  <Nav.Link eventKey="CAN">
                     CAN
                   </Nav.Link>
                 </Nav.Item>
@@ -38,7 +36,7 @@ const AddToCartForm = ({
       <div className="add-to-cart-input">
         <div class="input-number">
           <div
-            class="input-number__minus"
+            class="minus"
             onClick={() => {
               setInputValue((prev) => {
                 if (prev === 1) {
@@ -52,13 +50,13 @@ const AddToCartForm = ({
             -
           </div>
           <input
-            class="input-number__input"
+            class="input"
             type="text"
             pattern="^[0-9]+$"
             value={inputValue}
           />
           <div
-            class="input-number__plus"
+            class="plus"
             onClick={() => {
               setInputValue((prev) => {
                 return prev + 1;

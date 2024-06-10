@@ -1,5 +1,5 @@
 import PageTitle from "../PageTitle";
-import NewsTabs from "../news-tabs/NewsTabs";
+import NewsTabs from "../NewsTabs";
 
 const News = () => {
   return (

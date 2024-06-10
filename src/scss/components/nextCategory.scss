@@ -1,0 +1,27 @@
+.next-category {
+  display: flex;
+  margin-top: 60px;
+  .title {
+    position: absolute;
+    margin-top: 36px;
+    margin-left: 36px;
+    button {
+      background: transparent;
+      border: none;
+      color: $default-color;
+      h2 {
+        @extend %flex-sp-bw-center;
+        gap: 20px;
+      }
+    }
+  }
+  svg {
+    transition: transform 1s;
+  }
+  &:hover {
+    cursor: pointer;
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}

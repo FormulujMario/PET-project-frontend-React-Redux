@@ -4,12 +4,12 @@ import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import Home from "./pages/Home.js";
 import Shop from "./pages/Shop.js";
-import ShopItem from "./pages/shop-item/ShopItem.js";
-import About from "./pages/about/About.js";
-import Art from "./pages/art/Art.js";
-import ArtItem from "./pages/art-item/ArtItem.js";
+import ShopItem from "./pages/ShopItem.js";
+import About from "./pages/About.js";
+import Art from "./pages/Art.js";
+import ArtItem from "./pages/ArtItem.js";
 import News from "./pages/News.js";
-import Contacts from "./pages/contacts/Contacts.js";
+import Contacts from "./pages/Contacts.js";
 
 const imgsPath = process.env.REACT_APP_IMAGES_PATH;
 export const ghPagesPath = process.env.REACT_APP_GHPAGES_PATH;
@@ -981,6 +981,63 @@ export const QUANTITY = [
     name: 6,
   },
 ];
+// ======================= Awards ========================
+export const dataSource = [
+  {
+    key: "Best Brewmaster in Serbia - 2020",
+    year: "2020",
+    award: "Best Brewmaster in Serbia",
+    company: "Ratebeer",
+  },
+  {
+    key: "Best beer in Serbia - 2020-2016",
+    year: "2020-2016",
+    award: "Best beer in Serbia",
+    company: "Ratebeer",
+  },
+  {
+    key: "Best Brewery in Serbia - 2016",
+    year: "2016",
+    award: "Best Brewery in Serbia",
+    company: "Ratebeer",
+  },
+  {
+    key: "Best Entrepreneur of the Year- nominee 2016",
+    year: "2016",
+    award: "Best Entrepreneur of the Year- nominee 2016",
+    company: "Ernst & Young",
+  },
+  {
+    key: "for the most successful start up in 2016",
+    year: "2016",
+    award: "for the most successful start up in 2016",
+    company: "Serbian Chamber of Commerce",
+  },
+  {
+    key: "Grand prix for the best packaging in Serbia - 2015-2014",
+    year: "2015-2014",
+    award: "Grand prix for the best packaging in Serbia",
+    company: "Pactivity",
+  },
+];
+
+export const columns = [
+  {
+    title: "Year",
+    dataIndex: "year",
+    key: "year",
+  },
+  {
+    title: "Award",
+    dataIndex: "award",
+    key: "award",
+  },
+  {
+    title: "Company",
+    dataIndex: "company",
+    key: "company",
+  },
+];
 // ======================= Gallery =======================
 export const QUESTIONS = [
   "KB: What are the motives for creating this design?",
@@ -1604,25 +1661,24 @@ export const NEWS_TRAVEL = [
   },
 ];
 // ======================= Contacts =======================
-export const CONTACTS = [
-  {
-    name: "Kabinet brewery",
-    email: "kabinet@kabinet.rs",
-    phone: "+381 11 242 44 78",
-    address: "Sopot, Serbia Despota Stevana Lazarevica 11. 11450 Nemenikuce",
-  },
-  {
-    name: "",
-  },
-  {
-    name: "Kabinet lounge",
-    email: "KabinetLounge@kabinet.rs",
-    phone: "+ 381 65 944 95 15",
-    address: "Sopot, Serbia Despota Stevana Lazarevica 11. 11450 Nemenikuce",
-  },
-  {
-    name: "Opening hours",
-    days: "On Fridays, Saturdays and Sundays",
-    time: "from 12:00 PM to 8:00 PM",
-  },
-];
+export const KB_CONTACTS = {
+  name: "Kabinet brewery",
+  email: "kabinet@kabinet.rs",
+  phone: "+381 11 242 44 78",
+  city: "Sopot, Serbia",
+  address: "Despota Stevana Lazarevica 11.",
+  zip: "11450 Nemenikuce",
+};
+export const KL_CONTACTS = {
+  name: "Kabinet lounge",
+  email: "KabinetLounge@kabinet.rs",
+  phone: "+ 381 65 944 95 15",
+  city: "Sopot, Serbia",
+  address: "Despota Stevana Lazarevica 11.",
+  zip: "11450 Nemenikuce",
+};
+export const OPENING_HOURS = {
+  name: "Opening hours",
+  days: "On Fridays, Saturdays and Sundays",
+  time: "from 12:00 PM to 8:00 PM",
+};

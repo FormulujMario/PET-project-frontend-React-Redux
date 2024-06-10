@@ -1,5 +1,3 @@
-import "./ProductTitle.css";
-
 const ProductTitle = ({ product, price }) => {
   return (
     <div className="product-title">

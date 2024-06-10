@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import "./SliderNews.css";
 
 const SliderNews = ({ list }) => {
   const sideSlide = (element) => {
@@ -9,7 +8,7 @@ const SliderNews = ({ list }) => {
           <div className="news-swiper-slide-item-img">
             <img src={element.img} alt="" />
           </div>
-          <div className="swiper-slide-item-title">
+          <div className="title">
             <p>{element.date}</p>
           </div>
           <h4>{element.title}</h4>
@@ -25,7 +24,7 @@ const SliderNews = ({ list }) => {
           <div className="news-swiper-slide-item-img">
             <img src={element.bigImg} alt="" />
           </div>
-          <div className="swiper-slide-item-title">
+          <div className="title">
             <p>{element.date}</p>
           </div>
           <h4>{element.title}</h4>
@@ -64,8 +63,8 @@ const SliderNews = ({ list }) => {
     <div>
       {arrToRender.map((arr) => {
         return (
-          <div className="swiper swiper-latest-news">
-            <div className="news-swiper-wrapper">
+          <div className="swiper swiper-news">
+            <div>
               <swiper-container
                 ref={swiperElRef}
                 slides-per-view={arr.length}

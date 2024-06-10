@@ -1,0 +1,97 @@
+body {
+  font-family: $body-font;
+  color: $default-text-color;
+}
+main {
+  padding: $main-padding;
+}
+h1 {
+  text-transform: $titles-uppercase;
+  display: flex;
+  font-size: 190px;
+  border-top: $default-border $accent-color;
+  border-bottom: $default-border $accent-color;
+  margin-bottom: 30px;
+}
+h2 {
+  text-transform: $titles-uppercase;
+  font-size: 65px;
+  line-height: 78px;
+  margin-bottom: 30px;
+}
+h3 {
+  text-transform: $titles-uppercase;
+  font-size: 32px;
+  line-height: 44.8px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+h4 {
+  text-transform: $titles-uppercase;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 30.8px;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+p {
+  font-size: 22px;
+  line-height: 28.6px;
+}
+button {
+  cursor: pointer;
+}
+img {
+  width: 100%;
+}
+// ===================== Tab buttons & Title ====================
+.section-title {
+  @extend %flex-sp-bw-center;
+  .tab-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    .nav-link {
+      @extend %normal-button;
+      border: $default-border $accent-color;
+      color: $accent-color;
+      opacity: $opacity-max;
+      &.active {
+        opacity: 100%;
+      }
+      &:hover {
+        @extend %everted;
+        opacity: 100%;
+      }
+    }
+  }
+}
+// ======================= Tabs visibility ======================
+.tab-content > .tab-pane {
+  display: none;
+}
+.tab-content > .active {
+  border: none;
+  display: block;
+}
+// ======================= Quantity input =======================
+.input-number {
+  @extend %flex-center;
+  @extend %min-min-font;
+  border: $default-border #e5e8ee;
+  border-radius: $default-border-radius;
+  text-align: center;
+  width: 30%;
+  .input {
+    width: 34%;
+    border: none;
+    padding: 8px;
+    text-align: center;
+  }
+  .minus,
+  .plus {
+    @extend %med-font;
+    width: 32%;
+    cursor: pointer;
+  }
+}

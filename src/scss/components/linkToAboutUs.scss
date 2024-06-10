@@ -1,0 +1,15 @@
+.link-to-about-us {
+  @extend %flex-clm-end;
+  margin-bottom: $default-margin-bottom;
+  img {
+    margin-bottom: 32px;
+  }
+  p {
+    text-transform: $text-uppercase;
+    width: 42%;
+  }
+  .align-right {
+@extend %flex-clm-end;
+    gap: 16px;
+  }
+}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./ProductDescription.css";
 
 const ProductDescription = ({ name, product }) => {
   const [icon, setIcon] = useState("+");
@@ -24,8 +23,8 @@ const ProductDescription = ({ name, product }) => {
     }
   };
   return (
-    <div className="product-description">
-      <div className="product-description-title">
+    <section className="product-description">
+      <div className="title">
         <div>{name}</div>
         <div className="drop-down-icon" onClick={toggleShowDesc}>
           {icon}
@@ -55,7 +54,7 @@ const ProductDescription = ({ name, product }) => {
           })}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 export default ProductDescription;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Tab } from "react-bootstrap";
-import ShopCategories from "../ShopCategories";
+import ShopCategories from "./ShopCategories";
 
 const ShopTabsProductsRow = () => {
   return (

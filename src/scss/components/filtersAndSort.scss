@@ -1,0 +1,35 @@
+.filters-section {
+  margin-top: 30px;
+  border-top: $default-border $accent-color;
+  border-bottom: $default-border $accent-color;
+  .sort-filters {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    .title {
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    div {
+      margin-bottom: 8px;
+    }
+  }
+  .filters-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 65%;
+
+    .checkbox-item {
+      @extend %flex-start-center;
+      gap: 8px;
+      opacity: $opacity-med;
+    }
+  }
+  .sort-wrapper {
+    width: 20%;
+    div {
+      opacity: $opacity-med;
+      cursor: pointer;
+    }
+  }
+}

@@ -3,7 +3,7 @@ import {
   SHOP_MAIN_BEER_PACKS_LIST,
   SHOP_MAIN_MERCH_LIST,
   SHOP_MAIN_PIVOLADA_LIST,
-} from "../components/constants";
+} from "../components/CONSTANTS";
 
 const sliderParams = {
   slidesPerView: "4",

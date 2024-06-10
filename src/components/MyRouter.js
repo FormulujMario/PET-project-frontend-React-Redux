@@ -1,3 +1,4 @@
+import "../scss/App.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import {
   MENU_LIST,
@@ -7,15 +8,14 @@ import {
   SHOP_MAIN_MERCH_LIST,
   SHOP_MAIN_PIVOLADA_LIST,
   GALLERY,
-} from "./constants.js";
+} from "./CONSTANTS.js";
 import NotFound from "./pages/NotFound.js";
 import React from "react";
 import Footer from "./footer/Footer.js";
 import Header from "./header/Header.js";
 import Cart from "./cart/Cart.js";
-import Mobile from "./mobile/Mobile.js";
 import { useSelector } from "react-redux";
-import "../App.css";
+
 
 function MyRouter() {
   const showCart = useSelector((state) => state.cartReducer.showCart);
@@ -61,7 +61,6 @@ function MyRouter() {
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      {window.innerWidth <= 850 ? <Mobile /> : null}
       {showCart ? <Cart /> : null}
       <Header />
       <Routes>

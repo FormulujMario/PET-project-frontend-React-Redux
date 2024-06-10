@@ -1,11 +1,13 @@
-import "./NormalTransparentButton.css";
+import { Link } from "react-router-dom";
 
-function NormalTransparentButton({ text, icon }) {
+function NormalTransparentButton({ text, icon, link }) {
   return (
-    <button className="normal-button transparent-button">
+    <Link to={link}>
+    <button className="transparent-button">
       {text}
       {icon}
     </button>
+    </Link>
   );
 }
 

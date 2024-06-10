@@ -1,15 +1,14 @@
 import { useRef } from "react";
-import "./SliderLatestNews.css";
 
 const SliderLatestNews = ({ list }) => {
   const sideSlide = (element) => {
     return (
       <swiper-slide class="side-slide">
         <div className="swiper-slide-item">
-          <div className="swiper-slide-item-img">
+          <div>
             <img src={element.imgSmall} alt="" />
           </div>
-          <div className="swiper-slide-item-title">
+          <div className="title">
             <p>{element.date}</p>
           </div>
           <h4>{element.title}</h4>
@@ -22,10 +21,10 @@ const SliderLatestNews = ({ list }) => {
     return (
       <swiper-slide class="central-slide">
         <div className="swiper-slide-item">
-          <div className="swiper-slide-item-img">
+          <div>
             <img src={element.imgBig} alt="" />
           </div>
-          <div className="swiper-slide-item-title">
+          <div className="title">
             <p>{element.date}</p>
           </div>
           <h4>{element.title}</h4>
@@ -35,7 +34,7 @@ const SliderLatestNews = ({ list }) => {
   };
   const swiperElRef = useRef(null);
   return (
-    <div className="swiper swiper-latest-news">
+    <div className="swiper-news">
       <div className="swiper-wrapper">
         <swiper-container
           ref={swiperElRef}

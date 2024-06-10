@@ -1,0 +1,21 @@
+.back-to-top {
+  display: flex;
+  justify-content: end;
+  button {
+    @extend %flex-sp-bw;
+    @extend %min-med-font;
+    gap: $min-gap;
+    background-color: transparent;
+    border: none;
+    color: $default-text-color;
+    opacity: 80%;
+    text-transform: $text-uppercase;
+    margin: 60px 25px 25px 0;
+    &:hover {
+      color: $accent-color;
+      svg path {
+        fill-opacity: 1;
+      }
+    }
+  }
+}

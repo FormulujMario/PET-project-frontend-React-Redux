@@ -1,0 +1,13 @@
+.transparent-button {
+  @extend %normal-button;
+  background-color: transparent;
+  border: $default-border $default-color;
+  color: $default-color;
+  &:hover {
+    background-color: $default-color;
+    color: $accent-color;
+    svg path {
+      fill: $accent-color;
+    }
+  }
+}

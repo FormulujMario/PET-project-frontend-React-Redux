@@ -1,0 +1,125 @@
+// =================== Default displays ====================
+// ======== flex ===========================================
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%flex-sp-bw {
+  display: flex;
+  justify-content: space-between;
+}
+%flex-sp-bw-center {
+  @extend %flex-sp-bw;
+  align-items: center;
+}
+%flex-sp-bw-end {
+  @extend %flex-sp-bw;
+  align-items: end;
+}
+%flex-sp-bw-start {
+  @extend %flex-sp-bw;
+  align-items: start;
+}
+%flex-start-center {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+%flex-clm {
+  display: flex;
+  flex-direction: column;
+}
+%flex-clm-center {
+  @extend %flex-clm;
+  align-items: center;
+}
+%flex-clm-end {
+  @extend %flex-clm;
+  justify-content: end;
+}
+%flex-right {
+  display: flex;
+  justify-content: right;
+}
+// ======== grid ===========================================
+%grid-four {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+// =================== Buttons =============================
+%normal-button {
+  @extend %flex-sp-bw-center;
+  gap: 4px;
+  font-family: $body-font;
+  font-size: 16px;
+  text-transform: $text-uppercase;
+  color: inherit;
+  border-radius: 30px;
+  padding: 10px 20px 10px 20px;
+}
+// =================== Sliders =============================
+%slides-paddings {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+%empty-slide {
+  span {
+    position: absolute;
+    text-transform: $text-uppercase;
+  }
+  &:hover:before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: $accent-color;
+    border-radius: $default-border-radius;
+    z-index: 97;
+  }
+  &:hover span {
+    color: $default-color;
+    z-index: 98;
+  }
+}
+%outline {
+  outline: $default-border $accent-color;
+  outline-offset: -1px;
+}
+%bordered {
+  border-radius: $default-border-radius;
+  border: $default-border $accent-color;
+}
+// =================== Fonts ==============================
+%min-min-font {
+  font-size: 14px;
+  line-height: 19.6px;
+}
+%min-med-font {
+  font-size: 18px;
+  line-height: 25.2px;
+}
+%med-font {
+  font-size: 20px;
+  line-height: 26px;
+}
+%h3-low-title {
+  font-size: 32px;
+  line-height: 38.4px;
+}
+%footer-font-size {
+  @extend %h3-low-title;
+  color: $default-color;
+}
+// =================== Others =============================
+%everted {
+  background-color: $accent-color;
+  color: $default-color;
+}
+%svg-scale {
+  transition: transform 0.5s;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+}

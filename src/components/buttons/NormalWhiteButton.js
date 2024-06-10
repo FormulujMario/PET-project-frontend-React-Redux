@@ -1,34 +1,34 @@
-import "./NormalWhiteButton.css";
+import { Button, ConfigProvider } from "antd";
 import { Link } from "react-router-dom";
+import NormalTransparentButton from "./NormalTransparentButton";
 
-function NormalWhiteButton({ text, icon, click, isHidden, href, iconInFront }) {
-  const isIconInFront = () => {
-    if (iconInFront) {
-      return (
-        <>
-          {icon}
-          {text}
-        </>
-      );
-    }
-    return (
-      <>
-        {text}
-        {icon}
-      </>
-    );
-  };
+const NormalWhiteButton = ({
+  text,
+  icon,
+  click,
+  isHidden=false,
+  href,
+  iconPosition="end",
+}) => {
   return (
     <Link to={href}>
-      <button
-        className="normal-button white-button"
+     
+  <div className="cont">
+<Button
+        className="white-button"
+        type="primary"
         style={{ display: isHidden }}
+        icon={icon}
         onClick={click}
+        iconPosition={iconPosition}
       >
-        {isIconInFront()}
-      </button>
+        {text}
+      </Button>
+      </div>
+
+      
     </Link>
   );
-}
+};
 
 export default NormalWhiteButton;

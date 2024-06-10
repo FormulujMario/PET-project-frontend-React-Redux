@@ -3,20 +3,20 @@ import {
   SHOP_MAIN_BEER_PACKS_LIST,
   SHOP_MAIN_MERCH_LIST,
   SHOP_MAIN_PIVOLADA_LIST,
-} from "../constants";
+} from "../CONSTANTS";
 import { useRef, useState } from "react";
 import ProductPics from "./ProductPics";
 import ProductDescription from "./ProductDescripion";
 import ProductTitle from "./ProductTitle";
 import AddToCartForm from "./AddToCartForm";
-import "./ProductCard.css";
 import { useDispatch } from "react-redux";
 
 const ProductCard = () => {
   const cartToStorage = [];
   if (localStorage.cart) {
     cartToStorage.push(JSON.parse(localStorage.cart));
-  }  const cartDispatch = useDispatch()
+  }
+  const cartDispatch = useDispatch();
   let currentProduct = {};
   const pathsToProducts = (arr, path) => {
     arr.map((item) => {
@@ -28,7 +28,8 @@ const ProductCard = () => {
           .replace(/\s+/g, " ")
           .replace(/\s/g, "-");
       if (itemUrl === window.location.pathname) {
-        if (path === "/PET-project-frontend-React-Redux/shop-beers/") {
+        if (path === "/shop-beers/") {
+          // "/PET-project-frontend-React-Redux/shop-beers/"
           currentProduct = {
             name: item.name,
             price: item.price,
@@ -58,28 +59,20 @@ const ProductCard = () => {
     });
   };
   {
-    pathsToProducts(
-      SHOP_MAIN_BEERS_LIST,
-      "/PET-project-frontend-React-Redux/shop-beers/"
-    );
+    pathsToProducts(SHOP_MAIN_BEERS_LIST, "/shop-beers/");
+    // "/PET-project-frontend-React-Redux/shop-beers/"
   }
   {
-    pathsToProducts(
-      SHOP_MAIN_BEER_PACKS_LIST,
-      "/PET-project-frontend-React-Redux/shop-beer-packs/"
-    );
+    pathsToProducts(SHOP_MAIN_BEER_PACKS_LIST, "/shop-beer-packs/");
+    // "/PET-project-frontend-React-Redux/shop-beer-packs/"
   }
   {
-    pathsToProducts(
-      SHOP_MAIN_MERCH_LIST,
-      "/PET-project-frontend-React-Redux/shop-merch/"
-    );
+    pathsToProducts(SHOP_MAIN_MERCH_LIST, "/shop-merch/");
+    // "/PET-project-frontend-React-Redux/shop-merch/"
   }
   {
-    pathsToProducts(
-      SHOP_MAIN_PIVOLADA_LIST,
-      "/PET-project-frontend-React-Redux/shop-pivolada/"
-    );
+    pathsToProducts(SHOP_MAIN_PIVOLADA_LIST, "/shop-pivolada/");
+    // "/PET-project-frontend-React-Redux/shop-pivolada/"
   }
   const [packageType, setPackageType] = useState("BOTTLE");
   const [itemPrice, setItemPrice] = useState(currentProduct.price);
@@ -97,7 +90,7 @@ const ProductCard = () => {
     });
   };
   const addToCart = (img, item, price, quantity, event) => {
-    cartDispatch({type:"toggle"})
+    cartDispatch({ type: "toggle" });
     let foundItem = null;
     if (cartToStorage.length === 0) {
       cartToStorage.push({
@@ -116,8 +109,7 @@ const ProductCard = () => {
         storageToUpdateWithFoundItem = JSON.parse(localStorage.cart).filter(
           (item) => {
             return (
-              typeof item.name !== foundItem.name &&
-              item.price !== foundItem.price
+              item.name !== foundItem.name || item.price !== foundItem.price
             );
           }
         );
@@ -147,7 +139,7 @@ const ProductCard = () => {
     event.preventDefault();
   };
   return (
-    <div className="product-card">
+    <section className="product-card">
       <ProductPics
         current={currentProduct}
         type={packageType}
@@ -191,7 +183,7 @@ const ProductCard = () => {
           </>
         ) : null}
       </div>
-    </div>
+    </section>
   );
 };
 

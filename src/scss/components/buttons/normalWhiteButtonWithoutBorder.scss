@@ -1,0 +1,13 @@
+.white-button-without-border {
+  @extend %normal-button;
+  background-color: $default-color;
+  border: $default-border $default-color;
+  color: $accent-color;
+  &:hover {
+    @extend %everted;
+    border: $default-border $accent-color;
+    svg path {
+      fill: $default-color;
+    }
+  }
+}

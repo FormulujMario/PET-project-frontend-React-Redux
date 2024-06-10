@@ -1,19 +1,16 @@
-import React, { memo, useRef } from "react";
+import React, { useRef } from "react";
 import {
   SHOP_MAIN_BEERS_LIST,
   SHOP_MAIN_BEER_PACKS_LIST,
   SHOP_MAIN_MERCH_LIST,
-} from "../constants";
+} from "../CONSTANTS";
 import { Link } from "react-router-dom";
-import "./ShopSlider.css";
 
-const ShopSlider = ({list}) => { 
-  console.log("shop slider renders")
+const ShopSlider = ({ list }) => {
   let shopPath = null;
   const swiperElRef = useRef(null);
   return (
-    
-    <div className="swiper" >
+    <div className="swiper">
       <div className="swiper-wrapper">
         <swiper-container
           ref={swiperElRef}
@@ -24,9 +21,9 @@ const ShopSlider = ({list}) => {
           loop={list.sliderParams.loop}
           space-between={list.sliderParams.spaceBetween}
         >
-          <div class="shop-category-with-title">
+          <div class="shop-category">
             <h2>{list.categories}</h2>
-            <div class="shop-category">
+            <div class="products">
               {list.state.map((element) => {
                 if (list.state === SHOP_MAIN_BEERS_LIST) {
                   shopPath = "/shop-beers/";
@@ -45,13 +42,11 @@ const ShopSlider = ({list}) => {
                     .replace(/\s+/g, " ")
                     .replace(/\s/g, "-");
                 return (
-                  <Link to={myLink}>
-                    <swiper-slide>
-                      <div class="shop-item">
-                        <div class="shop-item-img">
-                          <img src={element.img} alt="" />
-                        </div>
-                        <div class="shop-item-title">
+                  <swiper-slide>
+                    <Link to={myLink}>
+                      <div class="swiper-slide-item">
+                        <img src={element.img} alt="" />
+                        <div class="title">
                           <h4>{element.name}</h4>
                           <h4>
                             {element.price} {element.currency}
@@ -65,19 +60,17 @@ const ShopSlider = ({list}) => {
                         ) : (
                           <p>{element.description}</p>
                         )}
-                      </div>
-                    </swiper-slide>
-                  </Link>
+                      </div>{" "}
+                    </Link>
+                  </swiper-slide>
                 );
               })}
             </div>
           </div>
         </swiper-container>
       </div>
-      <div className="swiper-button-prev"></div>
-      <div className="swiper-button-next"></div>
     </div>
-  )
+  );
 };
 
 export default React.memo(ShopSlider);

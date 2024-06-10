@@ -1,0 +1,15 @@
+$main-padding: 0 25px 25px 25px;
+$default-border: 1px solid;
+$default-border-radius: 8px;
+$accent-color: #000000;
+$default-color: #ffffff;
+$default-margin-bottom: 150px;
+$default-slider-margin-bottom: 128px;
+$opacity-max: 50%;
+$opacity-med: 70%;
+$min-gap: 10px;
+
+:export {
+  defaultColor: $default-color;
+  accentColor: $accent-color;
+}
