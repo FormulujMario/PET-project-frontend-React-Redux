@@ -12,7 +12,7 @@ const EveryDetail = () => {
     <section className="every-detail">
       <h2>Every detail matters</h2>
       <div className="main-img-and-text">
-        <img src={detailPic} />
+        <img src={detailPic} alt="main image of the section" loading="lazy" />
         <p>
           Each of these types of beer, in addition to it’s unique taste, also
           has a characteristic appearance in the form of a label, which in
@@ -24,18 +24,24 @@ const EveryDetail = () => {
         <div>
           <img
             src={process.env.REACT_APP_IMAGES_PATH + "/Every-detail-1.png"}
+            alt="first piece of art"
+            loading="lazy"
             onClick={(event) => changePic(event)}
           />
         </div>
         <div>
           <img
             src={process.env.REACT_APP_IMAGES_PATH + "/Every-detail-2.png"}
+            alt="second piece of art"
+            loading="lazy"
             onClick={(event) => changePic(event)}
           />
         </div>
         <div>
           <img
             src={process.env.REACT_APP_IMAGES_PATH + "/Every-detail-3.png"}
+            alt="third piece of art"
+            loading="lazy"
             onClick={(event) => changePic(event)}
           />
         </div>
@@ -46,6 +52,7 @@ const EveryDetail = () => {
                 <img
                   src={process.env.REACT_APP_IMAGES_PATH + "/shop-now.png"}
                   alt=""
+                  loading="lazy"
                 ></img>
               </div>
               <span>LEARN MORE</span>

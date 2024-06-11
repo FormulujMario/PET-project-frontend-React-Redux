@@ -19,7 +19,10 @@ const About = () => {
             Kabinet Brewery - the unique <br />
             utopia of the finest taste
           </h2>
-          <img src={process.env.REACT_APP_IMAGES_PATH + "/Beers.png"} />
+          <img
+            src={process.env.REACT_APP_IMAGES_PATH + "/Beers.png"}
+            alt="beers bottles"
+          />
         </section>
         <section className="history">
           <div className="content-to-right">
@@ -38,7 +41,7 @@ const About = () => {
             </p>
             <img
               src={process.env.REACT_APP_IMAGES_PATH + "/About-history.png"}
-              alt=""
+              alt="view to kabinet lounge"
               loading="lazy"
             />
           </div>
@@ -56,7 +59,7 @@ const About = () => {
               <div className="preview-img">
                 <img
                   src={process.env.REACT_APP_IMAGES_PATH + "/Video.png"}
-                  alt=""
+                  alt="video preview"
                   loading="lazy"
                 />
               </div>

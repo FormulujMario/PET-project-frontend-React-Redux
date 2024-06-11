@@ -54,7 +54,7 @@ const CartItem = () => {
             <div>
               <div className="cart-item">
                 <div>
-                  <img src={item.img} />
+                  <img src={item.img} alt={item.name}/>
                 </div>
                 <div>{item.name}</div>
                 <div class="input-number">

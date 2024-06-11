@@ -8,7 +8,7 @@ const ProductsSlider = ({ list, sliderParams }) => {
       <swiper-slide>
         <Link to={myLink}>
           <div className="swiper-slide-item">
-            <img src={element.img} alt="" />
+            <img src={element.img} alt={element.name} />
             <div className="title">
               <h4>{element.name}</h4>
               <h4>{element.price}</h4>

@@ -17,7 +17,12 @@ const ProductPics = ({ current, type, mainImage }) => {
   }
   return (
     <div className="product-imgs">
-      <img ref={mainImage} src={picFirst} alt="" style={styleIfNone} />
+      <img
+        ref={mainImage}
+        src={picFirst}
+        alt={current.name}
+        style={styleIfNone}
+      />
       <img src={picSecond} alt="" />
     </div>
   );

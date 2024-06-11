@@ -45,7 +45,7 @@ const ShopSlider = ({ list }) => {
                   <swiper-slide>
                     <Link to={myLink}>
                       <div class="swiper-slide-item">
-                        <img src={element.img} alt="" />
+                        <img src={element.img} alt={element.name} />
                         <div class="title">
                           <h4>{element.name}</h4>
                           <h4>

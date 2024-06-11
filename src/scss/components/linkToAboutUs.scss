@@ -1,5 +1,5 @@
 .link-to-about-us {
-  @extend %flex-clm-end;
+  @extend %flex-clm;
   margin-bottom: $default-margin-bottom;
   img {
     margin-bottom: 32px;
@@ -9,7 +9,8 @@
     width: 42%;
   }
   .align-right {
-@extend %flex-clm-end;
+    @extend %flex-clm;
+    align-items: end;
     gap: 16px;
   }
 }

@@ -99,7 +99,7 @@ const HeaderLogo = () => {
           </svg>
           <img
             src={process.env.REACT_APP_IMAGES_PATH + "/logo-bottom.png"}
-            alt=""
+            alt="logo"
           />
         </div>
       </a>

@@ -138,7 +138,7 @@ const ArtItem = () => {
           </div>
         </div>
         <div>
-          <img src={currentArtItem.img} alt="" />
+          <img src={currentArtItem.img} alt={currentArtItem.name} />
         </div>
       </section>
       <section className="prev-next-buttons">

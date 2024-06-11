@@ -6,7 +6,7 @@ const SliderLatestNews = ({ list }) => {
       <swiper-slide class="side-slide">
         <div className="swiper-slide-item">
           <div>
-            <img src={element.imgSmall} alt="" />
+            <img src={element.imgSmall} alt={element.title} />
           </div>
           <div className="title">
             <p>{element.date}</p>
@@ -22,7 +22,7 @@ const SliderLatestNews = ({ list }) => {
       <swiper-slide class="central-slide">
         <div className="swiper-slide-item">
           <div>
-            <img src={element.imgBig} alt="" />
+            <img src={element.imgBig} alt={element.title} />
           </div>
           <div className="title">
             <p>{element.date}</p>

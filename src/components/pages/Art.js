@@ -107,7 +107,7 @@ const Art = () => {
                     >
                       <div>
                         <div className="item-img">
-                          <img src={galleryItem.imageItem} alt="" />
+                          <img src={galleryItem.imageItem} alt={galleryItem.nameItem} />
                         </div>
                         <p>
                           {galleryItem.artist} <br /> {galleryItem.nameItem}

@@ -6,7 +6,7 @@ const KabinetLounge = () => {
     <section class="trip-to-kabinet-lounge">
       <img
         src={process.env.REACT_APP_IMAGES_PATH + "/trip-to-kabinet-lounge.png"}
-        alt=""
+        alt="trip to kabinet lounge background"
         loading="lazy"
       />
       <div class="kabinet-lounge-title">

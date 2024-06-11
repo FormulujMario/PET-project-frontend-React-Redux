@@ -19,7 +19,7 @@ const SliderMainPage = () => {
             <a href={ghPagesPath + "/shop-beers/plavo"}>
               <img
                 src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                alt=""
+                alt="plavo beer"
               />
             </a>
             </div>
@@ -29,7 +29,7 @@ const SliderMainPage = () => {
             <a href={ghPagesPath + "/shop-beers/plavo"}>
               <img
                 src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                alt=""
+                alt="plavo beer"
               />
             </a>
             </div>
@@ -39,7 +39,7 @@ const SliderMainPage = () => {
             <a href={ghPagesPath + "/shop-beers/plavo"}>
               <img
                 src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                alt=""
+                alt="plavo beer"
               />
             </a>
             </div>
