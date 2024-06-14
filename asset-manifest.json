@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.bad78d81.css",
-    "main.js": "/static/js/main.ed8ded09.js",
-    "static/js/453.a6033b24.chunk.js": "/static/js/453.a6033b24.chunk.js",
-    "index.html": "/index.html",
-    "main.bad78d81.css.map": "/static/css/main.bad78d81.css.map",
-    "main.ed8ded09.js.map": "/static/js/main.ed8ded09.js.map",
-    "453.a6033b24.chunk.js.map": "/static/js/453.a6033b24.chunk.js.map"
+    "main.css": "/PET-project-frontend-React-Redux/static/css/main.bad78d81.css",
+    "main.js": "/PET-project-frontend-React-Redux/static/js/main.3ad82341.js",
+    "static/js/453.a6033b24.chunk.js": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js",
+    "index.html": "/PET-project-frontend-React-Redux/index.html",
+    "main.bad78d81.css.map": "/PET-project-frontend-React-Redux/static/css/main.bad78d81.css.map",
+    "main.3ad82341.js.map": "/PET-project-frontend-React-Redux/static/js/main.3ad82341.js.map",
+    "453.a6033b24.chunk.js.map": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bad78d81.css",
-    "static/js/main.ed8ded09.js"
+    "static/js/main.3ad82341.js"
   ]
 }
