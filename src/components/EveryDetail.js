@@ -12,7 +12,7 @@ const EveryDetail = () => {
     <section className="every-detail">
       <h2>Every detail matters</h2>
       <div className="main-img-and-text">
-        <img src={detailPic} alt="main image of the section" loading="lazy" />
+        <img src={detailPic} alt="" loading="lazy" />
         <p>
           Each of these types of beer, in addition to it’s unique taste, also
           has a characteristic appearance in the form of a label, which in

@@ -21,9 +21,9 @@ const ShopSlider = ({ list }) => {
           loop={list.sliderParams.loop}
           space-between={list.sliderParams.spaceBetween}
         >
-          <div class="shop-category">
+          <div key={list.categories} className="shop-category">
             <h2>{list.categories}</h2>
-            <div class="products">
+            <div className="products">
               {list.state.map((element) => {
                 if (list.state === SHOP_MAIN_BEERS_LIST) {
                   shopPath = "/shop-beers/";
@@ -42,11 +42,11 @@ const ShopSlider = ({ list }) => {
                     .replace(/\s+/g, " ")
                     .replace(/\s/g, "-");
                 return (
-                  <swiper-slide>
-                    <Link to={myLink}>
-                      <div class="swiper-slide-item">
+                  <swiper-slide key={myLink}>
+                    <Link key={myLink} to={myLink}>
+                      <div className="swiper-slide-item">
                         <img src={element.img} alt={element.name} />
-                        <div class="title">
+                        <div className="title">
                           <h4>{element.name}</h4>
                           <h4>
                             {element.price} {element.currency}

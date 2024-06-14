@@ -1,12 +1,20 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 
-const ProductsSlider = ({ list, sliderParams }) => {
+const KBProductsModuleSlider = ({ list}) => {
+  const sliderParams = {
+    slidesPerView: "4",
+    navigation: "true",
+    pagination: "false",
+    direction: "horizontal",
+    loop: "false",
+    spaceBetween: "30",
+  };
   const product = (element) => {
     let myLink = element.path;
     return (
-      <swiper-slide>
-        <Link to={myLink}>
+      <swiper-slide key={myLink}>
+        <Link key={myLink} to={myLink}>
           <div className="swiper-slide-item">
             <img src={element.img} alt={element.name} />
             <div className="title">
@@ -22,8 +30,8 @@ const ProductsSlider = ({ list, sliderParams }) => {
 
   const shopNow = (element) => {
     return (
-      <swiper-slide>
-        <Link to="/shop">
+      <swiper-slide key={element.name}>
+        <Link key={element.name} to="/shop">
           <div className="shop-now">
             <img src={element.img} alt=""></img>
             <span>{element.name}</span>
@@ -56,4 +64,4 @@ const ProductsSlider = ({ list, sliderParams }) => {
   );
 };
 
-export default ProductsSlider;
+export default KBProductsModuleSlider;

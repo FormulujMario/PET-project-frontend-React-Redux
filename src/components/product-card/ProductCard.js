@@ -54,26 +54,22 @@ const ProductCard = () => {
             description: item.description,
           };
         }
-        return currentProduct;
       }
+      return currentProduct;
     });
   };
-  {
-    pathsToProducts(SHOP_MAIN_BEERS_LIST, "/shop-beers/");
-    // "/PET-project-frontend-React-Redux/shop-beers/"
-  }
-  {
-    pathsToProducts(SHOP_MAIN_BEER_PACKS_LIST, "/shop-beer-packs/");
-    // "/PET-project-frontend-React-Redux/shop-beer-packs/"
-  }
-  {
-    pathsToProducts(SHOP_MAIN_MERCH_LIST, "/shop-merch/");
-    // "/PET-project-frontend-React-Redux/shop-merch/"
-  }
-  {
-    pathsToProducts(SHOP_MAIN_PIVOLADA_LIST, "/shop-pivolada/");
-    // "/PET-project-frontend-React-Redux/shop-pivolada/"
-  }
+  pathsToProducts(SHOP_MAIN_BEERS_LIST, "/shop-beers/");
+  // "/PET-project-frontend-React-Redux/shop-beers/"
+
+  pathsToProducts(SHOP_MAIN_BEER_PACKS_LIST, "/shop-beer-packs/");
+  // "/PET-project-frontend-React-Redux/shop-beer-packs/"
+
+  pathsToProducts(SHOP_MAIN_MERCH_LIST, "/shop-merch/");
+  // "/PET-project-frontend-React-Redux/shop-merch/"
+
+  pathsToProducts(SHOP_MAIN_PIVOLADA_LIST, "/shop-pivolada/");
+  // "/PET-project-frontend-React-Redux/shop-pivolada/"
+
   const [packageType, setPackageType] = useState("BOTTLE");
   const [itemPrice, setItemPrice] = useState(currentProduct.price);
   const mainImage = useRef();

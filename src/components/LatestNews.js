@@ -1,13 +1,13 @@
 import { NEWS_LIST } from "./CONSTANTS.js";
-import SliderLatestNews from "./slider/SliderLatestNews.js";
+import LatestNewsSlider from "./slider/LatestNewsSlider.js";
 import NormalWhiteButton from "./buttons/NormalWhiteButton.js";
 import { BsArrowUpRight } from "react-icons/bs";
 
 const LatestNews = () => {
   const news = NEWS_LIST;
   return (
-    <section class="latest-news">
-      <div class="section-title">
+    <section className="latest-news">
+      <div className="section-title">
         <h2>LATEST NEWS</h2>
         <NormalWhiteButton
           text="SEE ALL"
@@ -15,7 +15,7 @@ const LatestNews = () => {
           href="/news"
         />
       </div>
-      <SliderLatestNews list={news} />
+      <LatestNewsSlider list={news} />
     </section>
   );
 };

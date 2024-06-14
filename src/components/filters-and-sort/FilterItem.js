@@ -1,8 +1,8 @@
-import { Checkbox } from 'antd';
+import { Checkbox } from "antd";
 
 const FilterItem = ({
   filtersList,
-  section,
+  checkboxesRefs,
   filtersArr,
   filterFunction,
   filterKey,
@@ -10,27 +10,28 @@ const FilterItem = ({
 }) => {
   const onChangeFilter = () => {
     filtersArr[filterKey] = [];
-    const checked = document.querySelectorAll(
-      `.${filterKey}-${section} input:checked`
-    );
-    Array(...checked).map((inputChecked) => {
-      return filtersArr[filterKey].push(inputChecked.name);
+    checkboxesRefs.current[filterKey].map((el) => {
+      el.input.checked === true && filtersArr[filterKey].push(el.input.name);
     });
     filterFunction();
   };
-
   return (
-    <div className={`${filterKey} ${filterKey}-${section}`}>
+    <div>
       <p className="title">{title}</p>
       {filtersList.map((element) => {
+        let index = element.key;
         return (
-          <div className='checkbox-item'>
+          <div key={element.id} className="checkbox-item">
             <Checkbox
+              key={element.name}
+              ref={(element) =>
+                (checkboxesRefs.current[filterKey][index] = element)
+              }
               id={element.id}
               name={element.id}
               onChange={onChangeFilter}
             />
-            <label for={element.id}>{element.name}</label>
+            <label htmlFor={element.id}>{element.name}</label>
           </div>
         );
       })}

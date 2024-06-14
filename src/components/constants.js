@@ -57,18 +57,18 @@ export const BESTSELLERS_LIST = [
     path: "/shop-beers/porter",
   },
   {
-    name: "Plavo",
-    price: "230 RSD",
-    description: "IPA / abv 6.2% / ibu 26 / 0.33l",
-    img: imgsPath + "/Plavo.png",
-    path: "/shop-beers/plavo",
+    name: "Konfuzije",
+    price: "260 RSD",
+    description: "lager / abv 6.3% / ibu 60 / 0.33l",
+    img: imgsPath + "/Konfuzije.png",
+    path: "/shop-beers/konfuzije",
   },
   {
-    name: "Porter",
-    price: "235 RSD",
-    description: "IPA / abv 6.0% / ibu 30 / 0.33l",
-    img: imgsPath + "/Porter.png",
-    path: "/shop-beers/porter",
+    name: "Bang",
+    price: "250 RSD",
+    description: "lager / abv 6.3% / ibu 60 / 0.33l",
+    img: imgsPath + "/Bang.png",
+    path: "/shop-beers/bang",
   },
 ];
 export const KABINET_PRODUCTS_BEERS_LIST = [
@@ -156,20 +156,20 @@ export const NEWS_LIST = [
   {
     date: "03 mar 2022",
     title: "Spring is almost here, it is the time for discounts!",
-    imgSmall: "pics/news/2022-03-03-Spring.png",
-    imgBig: "",
+    img: "pics/news/2022-03-03-Spring.png",
+    bigImg: "",
   },
   {
     date: "02 FeB 2022",
     title: "Seventh Birthday Kabinet Brewery!",
-    imgSmall: "",
-    imgBig: "pics/news/2022-02-02-Birthday.png",
+    img: "",
+    bigImg: "pics/news/2022-02-02-Birthday.png",
   },
   {
     date: "02 FeB 2022",
     title: "III birthday of our bread with wild yeast!",
-    imgSmall: "pics/news/2022-05-05-Birthday.png",
-    imgBig: "",
+    img: "pics/news/2022-05-05-Birthday.png",
+    bigImg: "",
   },
 ];
 // ======================= Footer =======================
@@ -237,21 +237,25 @@ export const FOOTER_MENU_LIST = [
 ];
 export const SOC_NET_ICONS = [
   {
+    key: "Facebook",
     name: "Facebook",
     svg: <FaFacebookF />,
     link: "",
   },
   {
+    key: "Instagram",
     name: "Instagram",
     svg: <FaInstagram />,
     link: "",
   },
   {
+    key: "Twitter",
     name: "Twitter",
     svg: <FaTwitter />,
     link: "",
   },
   {
+    key: "LinkedIn",
     name: "LinkedIn",
     svg: <FaLinkedinIn />,
     link: "",
@@ -887,22 +891,26 @@ export const SHOP_MAIN_MERCH_LIST = [
 // ======================= Shop filters =======================
 export const SORT_BY = [
   {
+    key: 0,
     property: "Popularity",
     className: "popularity",
     connectedTo: "popularity",
   },
   {
+    key: 1,
     property: "Average rating",
     className: "average-rating",
     connectedTo: "averageRating",
   },
-  { property: "Newness", className: "newness", connectedTo: "added" },
+  { key: 2, property: "Newness", className: "newness", connectedTo: "added" },
   {
+    key: 3,
     property: "Low to high price",
     className: "low-to-high-price",
     connectedTo: "price",
   },
   {
+    key: 4,
     property: "High to low price",
     className: "high-to-low-price",
     connectedTo: "price",
@@ -910,34 +918,42 @@ export const SORT_BY = [
 ];
 export const STYLE = [
   {
+    key: 0,
     id: "ale",
     name: "Ale",
   },
   {
+    key: 1,
     id: "lager",
     name: "Lager",
   },
   {
+    key: 2,
     id: "ipa",
     name: "Ipa",
   },
   {
+    key: 3,
     id: "sour",
     name: "Sour",
   },
   {
+    key: 4,
     id: "dark",
     name: "Dark",
   },
   {
+    key: 5,
     id: "lable",
     name: "Lable",
   },
   {
+    key: 6,
     id: "herb-spice-fruit",
     name: "Herb/Spice/Fruit",
   },
   {
+    key: 7,
     id: "hoppy",
     name: "Hoppy",
   },
@@ -945,38 +961,46 @@ export const STYLE = [
 
 export const ALCOHOL = [
   {
+    key: 8,
     id: "zero-five",
     name: "0% - 5%",
   },
   {
+    key: 9,
     id: "five-seven",
     name: "5% - 7%",
   },
   {
+    key: 10,
     id: "over-seven",
     name: "Over 7%",
   },
 ];
 export const COLOR = [
   {
+    key: 11,
     id: "to-fifteen-ebc",
     name: "To 15 EBC",
   },
   {
+    key: 12,
     id: "fifteen-fourty-ebc",
     name: "15 - 40 EBC",
   },
   {
+    key: 13,
     id: "over-fourty-ebc",
     name: "Over 40 EBC",
   },
 ];
 export const QUANTITY = [
   {
+    key: 14,
     id: "four",
     name: 4,
   },
   {
+    key: 15,
     id: "six",
     name: 6,
   },
@@ -1151,7 +1175,7 @@ export const GALLERY = [
   {
     img: imgsPath + "/Gallery-9.png",
     artist: "Mikkeller – Keith Shore,",
-    name: "Vista II",
+    name: "Vista III",
     element: <ArtItem />,
     interview: [
       "KS: Idea was that through graphical interpretation you feel the power and the quality of Vertigo beer and that the visual clearly illustrates the name of the beer.",
@@ -1489,87 +1513,104 @@ export const GALLERY = [
 // ======================= News =======================
 export const NEWS = [
   {
+    key: 1,
     img: imgsPath + "/News-1.png",
     date: "02 FeB 2022",
     title: "Spring is almost here, it is the time for discounts!",
   },
   {
+    key: 2,
     bigImg: imgsPath + "/News-2.png",
     date: "02 FeB 2022",
     title: "Seventh Birthday Kabinet Brewery!",
   },
   {
+    key: 3,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 4,
     img: imgsPath + "/News-3.png",
     date: "02 FeB 2022",
     title: "III birthday of our bread with wild yeast",
   },
   {
+    key: 5,
     img: imgsPath + "/News-4.png",
     date: "04 may 2022",
     title: "Vegetarian crunchy Samosas – Ms Nami and Restaurant Istok",
   },
   {
+    key: 6,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 7,
     img: imgsPath + "/News-5.png",
     date: "04 may 2022",
     title: "Stuffed dry peppers – Homa Restaurant",
   },
   {
+    key: 8,
     img: imgsPath + "/News-6.png",
     date: "28 apr 2022",
     title: "Lentils with grilled leeks – Endorfin gastro pub",
   },
   {
+    key: 9,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 10,
     bigImg: imgsPath + "/News-7.png",
     date: "28 apr 2022",
     title:
       "Nachos with Guacamole & tomato salsa- Hotel Dukley Gardens, Montenegro",
   },
   {
+    key: 11,
     bigImg: imgsPath + "/News-8.png",
     date: "28 apr 2022",
     title: "Vision of a new road ahead of us- Đorđe Vasić",
   },
   {
+    key: 12,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 13,
     img: imgsPath + "/News-9.png",
     date: "10 apr 2022",
     title: "Creativity is a cure for this world – Tadija Janićijević",
   },
   {
+    key: 14,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 15,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 16,
     img: imgsPath + "/News-10.png",
     date: "10 apr 2022",
     title: "The virtual outing- Bratislav Milenković",
   },
   {
+    key: 17,
     img: imgsPath + "/News-11.png",
     date: "10 apr 2022",
     title: "Dreaming – Valentina Brostean",
@@ -1577,22 +1618,26 @@ export const NEWS = [
 ];
 export const NEWS_NEWS = [
   {
+    key: 1,
     img: imgsPath + "/News-10.png",
     date: "10 apr 2022",
     title: "The virtual outing- Bratislav Milenković",
   },
   {
+    key: 2,
     bigImg: imgsPath + "/News-7.png",
     date: "28 apr 2022",
     title:
       "Nachos with Guacamole & tomato salsa- Hotel Dukley Gardens, Montenegro",
   },
   {
+    key: 3,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 4,
     img: imgsPath + "/News-3.png",
     date: "02 FeB 2022",
     title: "III birthday of our bread with wild yeast",
@@ -1600,27 +1645,32 @@ export const NEWS_NEWS = [
 ];
 export const NEWS_PRESS = [
   {
+    key: 1,
     bigImg: imgsPath + "/News-7.png",
     date: "28 apr 2022",
     title:
       "Nachos with Guacamole & tomato salsa- Hotel Dukley Gardens, Montenegro",
   },
   {
+    key: 2,
     img: imgsPath + "/News-3.png",
     date: "02 FeB 2022",
     title: "III birthday of our bread with wild yeast",
   },
   {
+    key: 3,
     img: imgsPath + "/News-1.png",
     date: "02 FeB 2022",
     title: "Spring is almost here, it is the time for discounts!",
   },
   {
+    key: 4,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 5,
     bigImg: imgsPath + "/News-2.png",
     date: "02 FeB 2022",
     title: "Seventh Birthday Kabinet Brewery!",
@@ -1628,16 +1678,19 @@ export const NEWS_PRESS = [
 ];
 export const NEWS_VIRTUAL = [
   {
+    key: 1,
     img: imgsPath + "/News-5.png",
     date: "04 may 2022",
     title: "Stuffed dry peppers – Homa Restaurant",
   },
   {
+    key: 2,
     img: "",
     date: "",
     title: "",
   },
   {
+    key: 3,
     img: imgsPath + "/News-3.png",
     date: "02 FeB 2022",
     title: "III birthday of our bread with wild yeast",
@@ -1645,16 +1698,19 @@ export const NEWS_VIRTUAL = [
 ];
 export const NEWS_TRAVEL = [
   {
+    key: 1,
     img: imgsPath + "/News-9.png",
     date: "10 apr 2022",
     title: "Creativity is a cure for this world – Tadija Janićijević",
   },
   {
+    key: 2,
     img: imgsPath + "/News-4.png",
     date: "04 may 2022",
     title: "Vegetarian crunchy Samosas – Ms Nami and Restaurant Istok",
   },
   {
+    key: 3,
     bigImg: imgsPath + "/News-8.png",
     date: "28 apr 2022",
     title: "Vision of a new road ahead of us- Đorđe Vasić",

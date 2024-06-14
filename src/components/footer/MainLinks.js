@@ -28,17 +28,18 @@ const MainLinks = () => {
       <div className="list-menu-footer">
         {FOOTER_MENU_LIST.map((element) => {
           return (
-            <div>
+            <div key={element.name}>
               <span>{element.name}</span>
               <ul>
                 {element.list.map((subelement) => {
                   return (
                     <li
+                      key={subelement.name}
                       onClick={() => {
                         changeCategory(subelement);
                       }}
                     >
-                      <Link to={subelement.link}>{subelement.name}</Link>
+                      <Link key={subelement.name} to={subelement.link}>{subelement.name}</Link>
                     </li>
                   );
                 })}
@@ -49,7 +50,7 @@ const MainLinks = () => {
       </div>
       <div className="soc-net-icons">
         {SOC_NET_ICONS.map((icon) => {
-          return icon.svg;
+          return <div key={icon.key}>{icon.svg}</div>;
         })}
       </div>
     </section>

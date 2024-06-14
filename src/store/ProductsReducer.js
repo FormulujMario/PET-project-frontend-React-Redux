@@ -74,7 +74,7 @@ export const productsReducer = (state = lists, action) => {
             : list;
         }),
       };
-    case "setCreared":
+    case "setCleared":
       return {
         ...state,
         lists: state.lists.map((list) => {

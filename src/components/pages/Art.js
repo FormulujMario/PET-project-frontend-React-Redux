@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import PageTitle from "../PageTitle";
-import { GALLERY} from "../CONSTANTS";
+import { GALLERY } from "../CONSTANTS";
 
-const Art = () => { 
+const Art = () => {
   const pathsToArtItem = (item) => {
     let fullPathArt =
       "/art/" +
@@ -78,48 +78,49 @@ const Art = () => {
     return arrForRender;
   };
   createArrForGalleryRender(GALLERY);
-
+  let indexOfRenderingArr=-1;
   return (
     <main>
       <PageTitle title="ART GALLERY" />
       {arrForRender.map((arr) => {
+         indexOfRenderingArr++
         return (
-          <div className="gallery-container">
+          <div key={`art-gallery-${indexOfRenderingArr}`} className="gallery-container">
             {arr.map((item) => {
               galleryItemRender(item, i);
               i++;
-              {
-                if (!galleryItem.imageItem) {
-                  return (
-                    <div
-                      className={`item-without-pic ${galleryItem.classItem}`}
-                    >
-                      <p>{galleryItem.nameItem}</p>
-                    </div>
-                  );
-                } else {
-                  let myLink = pathsToArtItem(item);
-
-                  return (
-                    <Link
-                      className={`gallery-item ${galleryItem.classItem}`}
-                      to={myLink.fullPathArt}
-                    >
-                      <div>
-                        <div className="item-img">
-                          <img src={galleryItem.imageItem} alt={galleryItem.nameItem} />
-                        </div>
-                        <p>
-                          {galleryItem.artist} <br /> {galleryItem.nameItem}
-                        </p>
+              if (!galleryItem.imageItem) {
+                return (
+                  <div key={galleryItem.nameItem} className={`item-without-pic ${galleryItem.classItem}`}>
+                    <p>{galleryItem.nameItem}</p>
+                  </div>
+                );
+              } else {
+                let myLink = pathsToArtItem(item);
+                return (
+                  <Link key={galleryItem.nameItem}
+                    className={`gallery-item ${galleryItem.classItem}`}
+                    to={myLink.fullPathArt}
+                  >
+                    <div>
+                      <div className="item-img">
+                        <img
+                          src={galleryItem.imageItem}
+                          alt={galleryItem.nameItem}
+                        />
                       </div>
-                    </Link>
-                  );
-                }
+                      <p>
+                        {galleryItem.artist} <br /> {galleryItem.nameItem}
+                      </p>
+                    </div>
+                  </Link>
+                );
               }
             })}
           </div>
+         
         );
+      
       })}
     </main>
   );

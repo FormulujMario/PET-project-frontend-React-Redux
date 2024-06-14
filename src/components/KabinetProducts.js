@@ -4,17 +4,9 @@ import {
   KABINET_PRODUCTS_MERCH_LIST,
   KABINET_PRODUCTS_PIVOLADA_LIST,
 } from "./CONSTANTS.js";
-import ProductsSlider from "./slider/ProductsSlider.js";
+import KBProductsModuleSlider from "./slider/KBProductsModuleSlider.js";
 
 const KabinetProducts = () => {
-  const sliderParams = {
-    slidesPerView: "4",
-    navigation: "true",
-    pagination: "false",
-    direction: "horizontal",
-    loop: "false",
-    spaceBetween: "30",
-  };
   const beersList = KABINET_PRODUCTS_BEERS_LIST;
   const merchList = KABINET_PRODUCTS_MERCH_LIST;
   const pivoladaList = KABINET_PRODUCTS_PIVOLADA_LIST;
@@ -43,13 +35,13 @@ const KabinetProducts = () => {
         <Row>
           <Tab.Content>
             <Tab.Pane eventKey="BEERS">
-              <ProductsSlider list={beersList} sliderParams={sliderParams} />
+              <KBProductsModuleSlider list={beersList} />
             </Tab.Pane>
             <Tab.Pane eventKey="MERCH">
-              <ProductsSlider list={merchList} sliderParams={sliderParams} />
+              <KBProductsModuleSlider list={merchList} />
             </Tab.Pane>
             <Tab.Pane eventKey="PIVOLADA">
-              <ProductsSlider list={pivoladaList} sliderParams={sliderParams} />
+              <KBProductsModuleSlider list={pivoladaList} />
             </Tab.Pane>
           </Tab.Content>
         </Row>

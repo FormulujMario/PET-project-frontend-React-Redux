@@ -3,7 +3,7 @@ import { ghPagesPath } from "../CONSTANTS.js";
 
 register();
 
-const SliderMainPage = () => {
+const MainPageSlider = () => {
   return (
     <section className="swiper-main-page">
       <div className="swiper-wrapper">
@@ -50,4 +50,4 @@ const SliderMainPage = () => {
   );
 };
 
-export default SliderMainPage;
+export default MainPageSlider;

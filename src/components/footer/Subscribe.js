@@ -23,6 +23,7 @@ const Subscribe = () => {
             type="email"
             placeholder="EMAIL ADRESS"
             required
+             autoComplete="on"
           />
         </Form.Group>
         <button className="subscribe-button" type="submit">

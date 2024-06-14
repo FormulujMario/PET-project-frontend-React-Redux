@@ -2,7 +2,7 @@ const PageTitle = ({ title }) => {
   return title.length > 12 ? (
     <h1 style={{ justifyContent: "space-between" }}>
       {title.split(" ").map((word) => {
-        return <span>{word}</span>;
+        return <span key={word}>{word}</span>;
       })}
     </h1>
   ) : (

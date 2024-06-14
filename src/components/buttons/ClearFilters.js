@@ -1,19 +1,23 @@
 import { useDispatch } from "react-redux";
 
-const ClearFilters = () => {
+const ClearFilters = ({ setFilters, checkboxesRefs }) => {
   const clearFiltersDispatch = useDispatch();
   const clearFiltersFn = () => {
-    Array(...document.querySelectorAll(".shop-section input:checked")).map(
-      (input) => {
-        return (input.checked = false);
-      }
-    );
+    const emptyFilters = { style: [], alcohol: [], color: [], quantity: [] };
+    const filtersList = ["style", "alcohol", "color", "quantity"];
+    filtersList.map((el) => {
+      checkboxesRefs.current[el].map((elem) => {
+        if (elem !== null && elem.input.checked === true) {
+          elem.input.click();
+        }
+      });
+    });
+    setFilters(emptyFilters);
     const clear = () => {
-      clearFiltersDispatch({ type: "setCreared" });
+      clearFiltersDispatch({ type: "setCleared" });
     };
     clear();
   };
-
   return (
     <div className="clear-filters">
       <button onClick={clearFiltersFn}>CLEAR ALL FILTERS</button>

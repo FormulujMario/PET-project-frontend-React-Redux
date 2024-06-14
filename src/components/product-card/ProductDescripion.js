@@ -50,7 +50,7 @@ const ProductDescription = ({ name, product }) => {
 
           {nutritionRecurseFn(product.nutrition)}
           {nutritionArr.map((item) => {
-            return <div className="main-description">{item}</div>;
+            return <div key={item} className="main-description">{item}</div>;
           })}
         </div>
       )}

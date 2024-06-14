@@ -51,13 +51,13 @@ const CartItem = () => {
       {storageArrState.length !== 0 ? (
         storageArrState.map((item) => {
           return (
-            <div>
+            <div key={`${item.name}-${item.price}`}>
               <div className="cart-item">
                 <div>
                   <img src={item.img} alt={item.name}/>
                 </div>
                 <div>{item.name}</div>
-                <div class="input-number">
+                <div className="input-number">
                   <div
                     className="minus"
                     onClick={(event) => {
@@ -67,15 +67,17 @@ const CartItem = () => {
                     -
                   </div>
                   <input
-                    class="input"
+                  name="quantity in cart"
+                    className="input"
                     type="text"
                     pattern="^[0-9]+$"
                     value={
                       storageArrState[storageArrState.indexOf(item)].quantity
                     }
+                    readOnly
                   />
                   <div
-                    class="plus"
+                    className="plus"
                     onClick={(event) => {
                       changeCartQuantity(item.name, item.price, event);
                     }}
@@ -97,8 +99,8 @@ const CartItem = () => {
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                      fillRule="evenodd"
+                      clipRule="evenodd"
                       d="M18.9204 1.9034L19.3331 1.49119L18.5077 0.666748L18.0949 1.07897L9.98802 9.17564L1.90522 1.10304L1.49248 0.690822L0.667001 1.51526L1.07974 1.92748L9.16254 10.0001L1.07973 18.0727L0.666992 18.4849L1.49247 19.3094L1.90521 18.8971L9.98802 10.8245L18.0949 18.9212L18.5077 19.3334L19.3331 18.509L18.9204 18.0968L10.8135 10.0001L18.9204 1.9034Z"
                       fill="black"
                     />

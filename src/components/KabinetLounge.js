@@ -3,14 +3,14 @@ import NormalWhiteButtonWithoutBorder from "./buttons/NormalWhiteButtonWithoutBo
 
 const KabinetLounge = () => {
   return (
-    <section class="trip-to-kabinet-lounge">
+    <section className="trip-to-kabinet-lounge">
       <img
         src={process.env.REACT_APP_IMAGES_PATH + "/trip-to-kabinet-lounge.png"}
         alt="trip to kabinet lounge background"
         loading="lazy"
       />
-      <div class="kabinet-lounge-title">
-        <div class="title">
+      <div className="kabinet-lounge-title">
+        <div className="title">
           <h2>
             KABINET LOUNGE
             <br />A PLACE FOR ALL
@@ -18,13 +18,13 @@ const KabinetLounge = () => {
             THE SENSES
           </h2>
         </div>
-        <div class="description">
+        <div className="description">
           <p>
             While your imagination flourishes, the flavors inspire you to try
             one of over 20 unique beers. On top of that, experience slowly
             cooked dishes, with the stamp of our experienced chef Max.
           </p>
-          <div class="buttons">
+          <div className="buttons">
             <NormalTransparentButton text="VIEW MORE" link="/contacts" />
             <NormalWhiteButtonWithoutBorder text="ONLINE RESERVATION" link="/contacts" />
           </div>

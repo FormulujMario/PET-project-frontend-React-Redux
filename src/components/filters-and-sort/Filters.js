@@ -1,35 +1,27 @@
-import FilterItem from "./FilterItem.js";
-import { STYLE, ALCOHOL, COLOR, QUANTITY } from "../CONSTANTS.js";
 import { useDispatch } from "react-redux";
+import { STYLE, ALCOHOL, COLOR, QUANTITY } from "../CONSTANTS.js";
+import FilterItem from "./FilterItem.js";
 
-const Filters = ({
-  productsList,
-  style,
-  alcohol,
-  color,
-  quantity,
-  section,
-}) => {
-  const filters = { style: [], alcohol: [], color: [], quantity: [] };
+const Filters = ({ filters, productsList, filtersTypes, checkboxesRefs }) => {
   const filterDispatch = useDispatch();
+  const filtersProductsArr = [
+    { style: STYLE },
+    { alcohol: ALCOHOL },
+    { color: COLOR },
+    { quantity: QUANTITY },
+  ];
+  const ifZeroFn = (arr) => {
+    arr.map((obj) => {
+      for (const [key, value] of Object.entries(obj)) {
+        if (filters[key].length === 0) {
+          filters[key] = value.map((element) => element.id);
+        }
+      }
+    });
+  };
   const filterFunction = () => {
     const filtered = productsList.filter((element) => {
-      if (filters.style.length === 0) {
-        filters.style = STYLE.map((element) => element.id);
-      }
-
-      if (filters.alcohol.length === 0) {
-        filters.alcohol = ALCOHOL.map((element) => element.id);
-      }
-
-      if (filters.color.length === 0) {
-        filters.color = COLOR.map((element) => element.id);
-      }
-
-      if (filters.quantity.length === 0) {
-        filters.quantity = QUANTITY.map((element) => element.id);
-      }
-
+      ifZeroFn(filtersProductsArr);
       return (
         (filters.style.includes(element.style) &&
           filters.alcohol.includes(element.alcoholFilter) &&
@@ -48,54 +40,33 @@ const Filters = ({
 
   return (
     <div className="filters-wrapper">
-      {style ? (
-        <FilterItem
-          filtersList={STYLE}
-          section={section}
-          filtersArr={filters}
-          filterKey={"style"}
-          filterFunction={filterFunction}
-          title={"Style"}
-        />
-      ) : (
-        ""
-      )}
-      {alcohol ? (
-        <FilterItem
-          filtersList={ALCOHOL}
-          section={section}
-          filtersArr={filters}
-          filterKey={"alcohol"}
-          filterFunction={filterFunction}
-          title={"Alcohol"}
-        />
-      ) : (
-        ""
-      )}
-      {color ? (
-        <FilterItem
-          filtersList={COLOR}
-          section={section}
-          filtersArr={filters}
-          filterKey={"color"}
-          filterFunction={filterFunction}
-          title={"Color"}
-        />
-      ) : (
-        ""
-      )}
-      {quantity ? (
-        <FilterItem
-          filtersList={QUANTITY}
-          section={section}
-          filtersArr={filters}
-          filterKey={"quantity"}
-          filterFunction={filterFunction}
-          title={"Quantity"}
-        />
-      ) : (
-        ""
-      )}
+      {filtersTypes.map((type) => {
+        const filterTypeProps = { filtersList: [], filterKey: "", title: "" };
+        filtersProductsArr.map((obj) => {
+          for (const [key, value] of Object.entries(obj)) {
+            if (type[key]) {
+              filterTypeProps.filtersList = value;
+              filterTypeProps.filterKey = key;
+              filterTypeProps.title = key;
+            }
+          }
+          return filterTypeProps;
+        });
+
+        if (filterTypeProps.filterKey) {
+          return (
+            <FilterItem
+              key={filterTypeProps.title}
+              filtersArr={filters}
+              filterFunction={filterFunction}
+              checkboxesRefs={checkboxesRefs}
+              filtersList={filterTypeProps.filtersList}
+              filterKey={filterTypeProps.filterKey}
+              title={filterTypeProps.title}
+            />
+          );
+        } else return null;
+      })}
     </div>
   );
 };

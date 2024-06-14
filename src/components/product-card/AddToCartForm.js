@@ -14,7 +14,7 @@ const AddToCartForm = ({
   return (
     <form>
       <div className="type-of-product">
-        {document.location.href.indexOf("beers") == -1 ? null : (
+        {document.location.href.indexOf("beers") === -1 ? null : (
           <TabContainer id="type-of-product" defaultActiveKey={type}>
             <Row>
               <Nav className="section-title buttons-section">
@@ -34,9 +34,9 @@ const AddToCartForm = ({
         )}
       </div>
       <div className="add-to-cart-input">
-        <div class="input-number">
+        <div className="input-number">
           <div
-            class="minus"
+            className="minus"
             onClick={() => {
               setInputValue((prev) => {
                 if (prev === 1) {
@@ -50,13 +50,15 @@ const AddToCartForm = ({
             -
           </div>
           <input
-            class="input"
+          name="quantity in product card"
+            className="input"
             type="text"
             pattern="^[0-9]+$"
             value={inputValue}
+            readOnly
           />
           <div
-            class="plus"
+            className="plus"
             onClick={() => {
               setInputValue((prev) => {
                 return prev + 1;

@@ -8,8 +8,8 @@ const HeaderMenu = () => {
         {MENU_LIST.map((item) => {
           return (
             item.link !== "/" && (
-              <li>
-                <Link to={item.link}>{item.name}</Link>
+              <li key={item.name}>
+                <Link key={item.name} to={item.link}>{item.name}</Link>
               </li>
             )
           );

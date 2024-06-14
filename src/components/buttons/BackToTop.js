@@ -9,7 +9,7 @@ const BackToTop = () => {
     });
   };
   return (
-    <section class="back-to-top">
+    <section className="back-to-top">
       <button onClick={backToTopFn}>
         BACK TO TOP
         <BsArrowUp />

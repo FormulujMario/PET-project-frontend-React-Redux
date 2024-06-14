@@ -1,10 +1,24 @@
+import { useSelector } from "react-redux";
+import { useRef, useState } from "react";
 import { SORT_BY } from "../CONSTANTS.js";
 import Sort from "./Sort.js";
 import Filters from "./Filters.js";
 import ClearFilters from "../buttons/ClearFilters.js";
-import { useSelector } from "react-redux";
 
 const FiltersSection = () => {
+  const [filters, setFilters] = useState({
+    style: [],
+    alcohol: [],
+    color: [],
+    quantity: [],
+  });
+  const checkboxesRefs = useRef({
+    style: [],
+    alcohol: [],
+    color: [],
+    quantity: [],
+  });
+  const sortRef = useRef([])
   const activeCategoryContext = useSelector(
     (state) => state.activeCategoryReducer.activeCategory
   );
@@ -14,9 +28,12 @@ const FiltersSection = () => {
   );
   if (activeCategoryContext !== "ALL") {
     return products.map((list) => {
+      const filtersTypes = [{style:list.style}, {alcohol:list.alcohol}, {color:list.color}, {quantity:list.quantity}]
+
       if (list.categories === activeCategoryContext) {
         return (
           <div
+            key={activeCategoryContext}
             className="filters-section"
             style={{ display: filtersButtonTitleContext }}
           >
@@ -25,18 +42,20 @@ const FiltersSection = () => {
                 list={SORT_BY}
                 state={list.state}
                 section={list.sectionSort}
+                sortRef={sortRef}
               />
               <Filters
+                filters={filters}
                 productsList={list.productsList}
-                section={list.sectionFilter}
-                quantity={list.quantity}
-                style={list.style}
-                color={list.color}
-                alcohol={list.alcohol}
+                filtersTypes={filtersTypes}
+                checkboxesRefs={checkboxesRefs}
               />
             </div>
             {(list.quantity || list.style || list.color || list.alcohol) && (
-              <ClearFilters productsList={list.productsList} />
+              <ClearFilters
+                checkboxesRefs={checkboxesRefs}
+                setFilters={setFilters}
+              />
             )}
           </div>
         );

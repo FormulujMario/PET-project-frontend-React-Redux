@@ -1,5 +1,5 @@
 import PageTitle from "../PageTitle.js";
-import SliderMainPage from "../slider/SliderMainPage.js";
+import MainPageSlider from "../slider/MainPageSlider.js";
 import Bestsellers from "../Bestsellers.js";
 import LinkToAboutUs from "../LinkToAboutUs.js";
 import KabinetProducts from "../KabinetProducts.js";
@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <main>
       <PageTitle title="CRAFT BREWERY" />
-      <SliderMainPage />
+      <MainPageSlider />
       <Bestsellers />
       <LinkToAboutUs />
       <KabinetProducts />

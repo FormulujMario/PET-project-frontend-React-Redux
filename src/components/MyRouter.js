@@ -16,7 +16,6 @@ import Header from "./header/Header.js";
 import Cart from "./cart/Cart.js";
 import { useSelector } from "react-redux";
 
-
 function MyRouter() {
   const showCart = useSelector((state) => state.cartReducer.showCart);
   const pathsTemplate = (item) => {
@@ -65,12 +64,18 @@ function MyRouter() {
       <Header />
       <Routes>
         {MENU_LIST.map((item) => {
-          return <Route path={item.link} element={item.element} />;
+          return (
+            <Route key={item.name} path={item.link} element={item.element} />
+          );
         })}
         {FOOTER_MENU_LIST.map((item) => {
           return item.list.map((subelement) => {
             return (
-              <Route path={subelement.link} element={subelement.element} />
+              <Route
+                key={subelement.name}
+                path={subelement.link}
+                element={subelement.element}
+              />
             );
           });
         })}
@@ -80,6 +85,7 @@ function MyRouter() {
             productProperties = pathsToProducts(list, item);
             return (
               <Route
+                key={`${item.name}-${item.price}`}
                 path={productProperties.fullPath}
                 element={productProperties.element}
               />
@@ -90,32 +96,37 @@ function MyRouter() {
           let artItemProperties = pathsToArtItem(item);
           return (
             <Route
+              key={`${item.artist}-${item.name}`}
               path={artItemProperties.fullPathArt}
               element={item.element}
             />
           );
         })}
         <Route
+          key="shop-beer-packs"
           exact
           path="/shop-beer-packs/"
           element={<Navigate to="/shop" replace />}
         />
         <Route
+          key="shop-beers"
           exact
           path="/shop-beers/"
           element={<Navigate to="/shop" replace />}
         />
         <Route
+          key="shop-merch"
           exact
           path="/shop-merch/"
           element={<Navigate to="/shop" replace />}
         />
         <Route
+          key="shop-pivolada"
           exact
           path="/shop-pivolada/"
           element={<Navigate to="/shop" replace />}
         />
-        <Route path="*" element={<NotFound />} />
+        <Route key="not-found" path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

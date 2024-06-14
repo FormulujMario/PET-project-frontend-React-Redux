@@ -13,9 +13,9 @@ const Contacts = () => {
           width="100%"
           height="600"
           style={{ borderRadius: "8px", filter: "grayscale(100%)" }}
-          allowfullscreen=""
+          allowFullScreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </section>
       <section className="contact-info">

@@ -6,7 +6,7 @@ import {
   NEWS_VIRTUAL,
   NEWS_TRAVEL,
 } from "./CONSTANTS.js";
-import SliderNews from "./slider/SliderNews.js";
+import NewsContainer from "./NewsContainer.js";
 
 const NewsTabs = () => {
   return (
@@ -42,19 +42,19 @@ const NewsTabs = () => {
         <Row>
           <Tab.Content>
             <Tab.Pane eventKey="ALL">
-              <SliderNews list={NEWS} />
+              <NewsContainer list={NEWS} />
             </Tab.Pane>
             <Tab.Pane eventKey="NEWS">
-              <SliderNews list={NEWS_NEWS} />
+              <NewsContainer list={NEWS_NEWS} />
             </Tab.Pane>
             <Tab.Pane eventKey="PRESS">
-              <SliderNews list={NEWS_PRESS} />
+              <NewsContainer list={NEWS_PRESS} />
             </Tab.Pane>
             <Tab.Pane eventKey="VIRTUAL EXHIBITION">
-              <SliderNews list={NEWS_VIRTUAL} />
+              <NewsContainer list={NEWS_VIRTUAL} />
             </Tab.Pane>
             <Tab.Pane eventKey="WE TRAVEL WITH RECIPES">
-              <SliderNews list={NEWS_TRAVEL} />
+              <NewsContainer list={NEWS_TRAVEL} />
             </Tab.Pane>
           </Tab.Content>
         </Row>

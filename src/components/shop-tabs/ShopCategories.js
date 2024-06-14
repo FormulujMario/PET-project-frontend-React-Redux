@@ -7,9 +7,9 @@ const ShopCategories = () => {
   const productsOfActiveCategory = useSelector(activeCategoryList);
   return productsOfActiveCategory.products.map((list) => {
     return list.state.length === 0 ? (
-      <p>No such products</p>
+      <p>No products</p>
     ) : (
-      <ShopSlider list={list} />
+      <ShopSlider key={`${list.categories} products in ${productsOfActiveCategory.active}`} list={list} />
     );
   });
 };

@@ -1,13 +1,12 @@
 import { useDispatch } from "react-redux";
 
-const Sort = ({ list, state, section }) => {
+const Sort = ({ list, state, section, sortRef }) => {
   const sortDispatch = useDispatch();
   const onclickSortBy = (event) => {
-    const sortingNamesArr = [...document.querySelectorAll(`.${section} div`)];
-    sortingNamesArr.map((sortingName) => {
-      return sortingName.className === event.currentTarget.className
-        ? (sortingName.style.color = "#000")
-        : (sortingName.style.color = "#000000b2");
+    sortRef.current.map((el) => {
+      return el.className === event.currentTarget.className
+        ? (el.style.color = "#000")
+        : (el.style.color = "#000000b2");
     });
     const classNameForSorting = (element) => {
       return element.className === event.currentTarget.className;
@@ -32,8 +31,14 @@ const Sort = ({ list, state, section }) => {
     <div className={`sort-wrapper ${section}`}>
       <p className="title">Sort by</p>
       {list.map((element) => {
+        let index = element.key;
         return (
-          <div className={element.className} onClick={onclickSortBy}>
+          <div
+            key={element.property}
+            ref={(element) => (sortRef.current[index] = element)}
+            className={element.className}
+            onClick={onclickSortBy}
+          >
             {element.property}
           </div>
         );

@@ -1,7 +1,7 @@
 import { BESTSELLERS_LIST } from "./CONSTANTS.js";
 import NormalWhiteButton from "./buttons/NormalWhiteButton.js";
 import { BsArrowUpRight } from "react-icons/bs";
-import ProductsSlider from "./slider/ProductsSlider.js";
+import KBProductsModuleSlider from "./slider/KBProductsModuleSlider.js";
 
 
 const Bestsellers = () => {
@@ -24,7 +24,7 @@ const Bestsellers = () => {
           href="/shop"
         />
       </div>
-      <ProductsSlider list={bestsellers} sliderParams={sliderParams} />
+      <KBProductsModuleSlider list={bestsellers} sliderParams={sliderParams} />
     </section>
   );
 };

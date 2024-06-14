@@ -37,7 +37,7 @@ const ArtItem = () => {
 
         let prevItem = arr[currentArtItem.itemIndex - 1];
         if (arr.indexOf(prevItem) >= 0) {
-          if (prevItem.artist == "") {
+          if (prevItem.artist === "") {
             prevItem = arr[currentArtItem.itemIndex - 2];
           }
           prevItemPath = `/art/${pathsTemplate(
@@ -47,16 +47,15 @@ const ArtItem = () => {
 
         let nextItem = arr[currentArtItem.itemIndex + 1];
         if (arr.indexOf(nextItem) < arr.length && arr.indexOf(nextItem) > 0) {
-          if (nextItem.artist == "") {
+          if (nextItem.artist === "") {
             nextItem = arr[currentArtItem.itemIndex + 2];
           }
           nextItemPath = `/art/${pathsTemplate(
             nextItem.artist
           )}-${pathsTemplate(nextItem.name)}`;
         }
-
-        return { currentArtItem, prevItemPath, nextItemPath };
       }
+      return { currentArtItem, prevItemPath, nextItemPath };
     });
   };
 
@@ -114,7 +113,7 @@ const ArtItem = () => {
         <div>
           {QUESTIONS.map((question) => {
             return (
-              <p>
+              <p key={question}>
                 <b>{question}</b>
                 <br />
                 <br />

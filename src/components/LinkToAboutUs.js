@@ -3,8 +3,8 @@ import { BsArrowUpRight } from "react-icons/bs";
 
 function LinkToAboutUs() {
   return (
-    <section class="link-to-about-us">
-      <div class="section-title">
+    <section className="link-to-about-us">
+      <div className="section-title">
         <h2>
           BEER CREATES
           <br />
@@ -18,7 +18,7 @@ function LinkToAboutUs() {
         alt=""
         loading="lazy"
       />
-      <div class="align-right">
+      <div className="align-right">
         <p>
           We are searching for new and unusual tastes, while aiming to offer the
           highest quality craft beers from the selected ingredients, thus we

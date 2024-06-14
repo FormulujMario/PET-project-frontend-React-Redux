@@ -47,10 +47,10 @@ img {
 // ===================== Tab buttons & Title ====================
 .section-title {
   @extend %flex-sp-bw-center;
+  margin-bottom: 30px;
   .tab-buttons {
     display: flex;
     gap: 12px;
-    margin-bottom: 30px;
     .nav-link {
       @extend %normal-button;
       border: $default-border $accent-color;
