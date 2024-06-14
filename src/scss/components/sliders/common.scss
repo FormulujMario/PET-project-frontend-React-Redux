@@ -6,12 +6,14 @@ swiper-container {
 }
 .swiper-slide-item {
   @extend %flex-clm;
+
   text-transform: $text-uppercase;
   .title {
     @extend %flex-sp-bw-center;
   }
   img {
     @extend %slides-paddings;
+    height: 50%;
     border-radius: $default-border-radius;
   }
   p {

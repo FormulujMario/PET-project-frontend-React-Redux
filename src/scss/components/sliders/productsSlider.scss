@@ -2,12 +2,13 @@
   @extend %flex-center;
   @extend %empty-slide;
   flex-direction: column;
+
   cursor: pointer;
   img {
     @extend %slides-paddings;
     @extend %bordered;
     position: relative;
     width: 365px;
-    height: 417px;
+    height: 50%;
   }
 }
