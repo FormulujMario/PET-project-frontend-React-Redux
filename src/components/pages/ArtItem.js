@@ -21,7 +21,6 @@ const ArtItem = () => {
   const pathsToArtItem = (arr) => {
     arr.map((item) => {
       const itemUrl = `${ghPagesPath}art/${pathsTemplate(
-        // `${ghPagesPath}/art/${pathsTemplate(
         item.artist
       )}-${pathsTemplate(item.name)}`;
       if (itemUrl === window.location.pathname) {

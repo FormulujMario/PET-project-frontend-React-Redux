@@ -3,6 +3,7 @@ import {
   SHOP_MAIN_BEER_PACKS_LIST,
   SHOP_MAIN_MERCH_LIST,
   SHOP_MAIN_PIVOLADA_LIST,
+  ghPagesPath,
 } from "../CONSTANTS";
 import { useRef, useState } from "react";
 import ProductPics from "./ProductPics";
@@ -28,8 +29,7 @@ const ProductCard = () => {
           .replace(/\s+/g, " ")
           .replace(/\s/g, "-");
       if (itemUrl === window.location.pathname) {
-        if (path === "/shop-beers/") {
-          // "/PET-project-frontend-React-Redux/shop-beers/"
+        if (path === `${ghPagesPath}shop-beers/`) {
           currentProduct = {
             name: item.name,
             price: item.price,
@@ -58,18 +58,10 @@ const ProductCard = () => {
       return currentProduct;
     });
   };
-  pathsToProducts(SHOP_MAIN_BEERS_LIST, "/shop-beers/");
-  // "/PET-project-frontend-React-Redux/shop-beers/"
-
-  pathsToProducts(SHOP_MAIN_BEER_PACKS_LIST, "/shop-beer-packs/");
-  // "/PET-project-frontend-React-Redux/shop-beer-packs/"
-
-  pathsToProducts(SHOP_MAIN_MERCH_LIST, "/shop-merch/");
-  // "/PET-project-frontend-React-Redux/shop-merch/"
-
-  pathsToProducts(SHOP_MAIN_PIVOLADA_LIST, "/shop-pivolada/");
-  // "/PET-project-frontend-React-Redux/shop-pivolada/"
-
+  pathsToProducts(SHOP_MAIN_BEERS_LIST, `${ghPagesPath}shop-beers/`);
+  pathsToProducts(SHOP_MAIN_BEER_PACKS_LIST, `${ghPagesPath}shop-beer-packs/`);
+  pathsToProducts(SHOP_MAIN_MERCH_LIST, `${ghPagesPath}shop-merch/`);
+  pathsToProducts(SHOP_MAIN_PIVOLADA_LIST, `${ghPagesPath}shop-pivolada/`);
   const [packageType, setPackageType] = useState("BOTTLE");
   const [itemPrice, setItemPrice] = useState(currentProduct.price);
   const mainImage = useRef();
