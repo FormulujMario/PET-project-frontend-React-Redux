@@ -9,7 +9,17 @@ $opacity-max: 50%;
 $opacity-med: 70%;
 $min-gap: 10px;
 
+$breakpoint_xxl: 1200px;
+$breakpoint_xl: 1024px;
+$breakpoint_md: 767px;
+$breakpoint_sm: 576px;
+
+
 :export {
   defaultColor: $default-color;
   accentColor: $accent-color;
+  breakpoint_xxl: 1200;
+breakpoint_xl: 1024;
+breakpoint_md: 767;
+breakpoint_sm: 576;
 }

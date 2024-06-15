@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HeaderMenu = () => {
   return (
-    <nav>
+    <nav className="desktop-menu">
       <ul>
         {MENU_LIST.map((item) => {
           return (

@@ -1,0 +1,14 @@
+@include mobile {
+  .kabinet-products {
+    .section-title {
+      display: block;
+      h2 {
+        margin-bottom: $default-items-margin-bottom-mobile;
+      }
+      .tab-buttons {
+        margin-bottom: $default-items-margin-bottom-mobile;
+        justify-content: center;
+      }
+    }
+  }
+}

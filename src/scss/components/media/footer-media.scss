@@ -1,0 +1,50 @@
+@include mobile {
+  .footer-main {
+    padding: 30px 25px 0 25px;
+    .subscribe-form {
+      display: block;
+      padding: 10px 0 10px 0;
+      .subscribe-input {
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+      }
+      .subscribe-button {
+        width: 100%;
+        font-size: 14px;
+        justify-content: center;
+        svg {
+          display: none;
+        }
+      }
+    }
+    .thankyou {
+      font-size: 16px;
+    }
+    .main-links-footer {
+      .list-menu-footer {
+        display: block;
+        text-align: center;
+        width: 95%;
+        span {
+          font-size: 18px;
+        }
+        ul {
+          margin-bottom: 20px;
+          li {
+            font-size: 12px;
+          }
+        }
+      }
+      .soc-net-icons {
+        display: block;
+        width: 5%;
+        svg {
+          width: 16px;
+          height: 16px;
+          margin-bottom: $default-items-margin-bottom-mobile;
+        }
+      }
+    }
+  }
+}

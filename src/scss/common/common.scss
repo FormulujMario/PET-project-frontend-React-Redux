@@ -95,3 +95,15 @@ img {
     cursor: pointer;
   }
 }
+// ======================= Mobile menu =======================
+.mobile-menu {
+  .title {
+    @extend %flex-sp-bw-center;
+    opacity: $opacity-med;
+    padding-bottom: 20px;
+  }
+  ul {
+    @extend %flex-clm;
+    gap: 20px;
+  }
+}

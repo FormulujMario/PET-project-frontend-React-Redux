@@ -1,0 +1,14 @@
+@include mobile {
+  .link-to-about-us {
+    margin-bottom: $default-margin-bottom-mobile;
+    img {
+      margin-bottom: 15px;
+    }
+    p {
+      width: 100%;
+    }
+    .align-right {
+      gap: 10px;
+    }
+  }
+}

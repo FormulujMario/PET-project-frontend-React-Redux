@@ -6,6 +6,9 @@ header {
     font-family: $additional-font;
     font-weight: $font-weight-med;
     cursor: pointer;
+    .mobile-menu-logo {
+      display: none;
+    }
   }
   ul {
     @extend %flex-sp-bw-center;

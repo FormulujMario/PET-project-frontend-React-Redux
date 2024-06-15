@@ -1,0 +1,8 @@
+@include mobile {
+  .swiper-main-page {
+    margin-bottom: $default-margin-bottom-mobile;
+    img {
+      padding-bottom: 0px;
+    }
+  }
+}

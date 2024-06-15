@@ -15,9 +15,13 @@ import Footer from "./footer/Footer.js";
 import Header from "./header/Header.js";
 import Cart from "./cart/Cart.js";
 import { useSelector } from "react-redux";
+import HeaderMenuMobile from "./header/HeaderMenuMobile.js";
 
 function MyRouter() {
   const showCart = useSelector((state) => state.cartReducer.showCart);
+  const showMobileMenu = useSelector(
+    (state) => state.MobileMenuReducer.showMenu
+  );
   const pathsTemplate = (item) => {
     return item
       .toLowerCase()
@@ -60,7 +64,8 @@ function MyRouter() {
 
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      {showCart ? <Cart /> : null}
+      {showMobileMenu && <HeaderMenuMobile />}
+      {showCart && <Cart />}
       <Header />
       <Routes>
         {MENU_LIST.map((item) => {

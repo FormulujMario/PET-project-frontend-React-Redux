@@ -1,9 +1,11 @@
 import { useDispatch } from "react-redux";
 import HeaderLogo from "./HeaderLogo.js";
 import HeaderMenu from "./HeaderMenu.js";
+import { MdOutlineMenu } from "react-icons/md";
 
 const Header = () => {
-  const cartDispatch = useDispatch();
+  const dispatch = useDispatch();
+
   let quantityOfProducts = 0;
   if (localStorage.cart) {
     quantityOfProducts = JSON.parse(localStorage.cart).length;
@@ -15,6 +17,13 @@ const Header = () => {
       <section className="menu">
         <HeaderLogo />
         <HeaderMenu />
+        <MdOutlineMenu
+        className="mobile-menu-logo"
+          size={40}
+          onClick={() => {
+            dispatch({ type: "menuToggle" });
+          }}
+        />
         <div className="lg-cart">
           <ul>
             <li>EN</li>
@@ -22,7 +31,7 @@ const Header = () => {
               <div
                 className="cart-icon"
                 onClick={() => {
-                  cartDispatch({ type: "toggle" });
+                  dispatch({ type: "toggle" });
                 }}
               >
                 <div>CART {quantityOfProducts}</div>

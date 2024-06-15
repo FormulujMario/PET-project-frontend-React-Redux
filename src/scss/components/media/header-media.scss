@@ -1,0 +1,12 @@
+@include mobile {
+  header {
+    .menu {
+      .desktop-menu {
+        display: none;
+      }
+      .mobile-menu-logo {
+        display: block;
+      }
+    }
+  }
+}
