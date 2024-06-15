@@ -53,10 +53,10 @@ const CartItem = () => {
           return (
             <div key={`${item.name}-${item.price}`}>
               <div className="cart-item">
-                <div>
+                <div className="image">
                   <img src={item.img} alt={item.name}/>
                 </div>
-                <div>{item.name}</div>
+                <div className="name">{item.name}</div>
                 <div className="input-number">
                   <div
                     className="minus"
@@ -85,8 +85,8 @@ const CartItem = () => {
                     +
                   </div>
                 </div>
-                <div>{`${item.price * item.quantity} RSD`}</div>
-                <div className="x"
+                <div className="price">{`${item.price * item.quantity} RSD`}</div>
+                <div className="x xItem"
                   onClick={() => {
                     deleteItem(item.name, item.price);
                   }}
