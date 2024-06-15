@@ -16,7 +16,6 @@ const Header = () => {
     <header>
       <section className="menu">
         <HeaderLogo />
-        <HeaderMenu />
         <MdOutlineMenu
         className="mobile-menu-logo"
           size={40}
@@ -24,6 +23,7 @@ const Header = () => {
             dispatch({ type: "menuToggle" });
           }}
         />
+        <HeaderMenu />
         <div className="lg-cart">
           <ul>
             <li>EN</li>

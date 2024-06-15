@@ -1,0 +1,24 @@
+@include mobile {
+  .gallery-container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "a b"
+      "a c"
+      "d e"
+      "f g"
+      "h g"
+      "i j"
+      "k l"
+      "m n";
+    margin-top: 20px;
+    .gallery-item {
+      justify-content: center;
+      align-items: center;
+      .item-img {
+        img {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
