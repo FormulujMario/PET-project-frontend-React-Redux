@@ -43,7 +43,7 @@ $default-items-margin-bottom-mobile: 10px;
   h2 {
     font-size: 25px;
     line-height: 30px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
   }
   h3 {
     font-size: 20px;
@@ -68,9 +68,12 @@ $default-items-margin-bottom-mobile: 10px;
     }
   }
   .section-title {
-    margin-bottom: $default-items-margin-bottom-mobile;
+    margin-bottom: 0px;
   }
   .input-number {
     width: 50%;
+  }
+  button {
+    margin-bottom: $default-items-margin-bottom-mobile;
   }
 }

@@ -1,0 +1,65 @@
+@include mobile {
+  .about-kabinet {
+    .history,
+    .video,
+    .awards,
+    .every-detail {
+      margin-top: $default-margin-bottom-mobile;
+    }
+    .history {
+      .content-to-right {
+        width: 100%;
+        p {
+          width: 100%;
+        }
+      }
+    }
+    .video-preview-container {
+      .video-preview {
+        .preview-icon {
+          svg {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+    }
+    .awards {
+      .awards-section {
+        display: block;
+        .awards-table {
+          width: 100%;
+          table {
+            td {
+              &:first-child {
+              }
+              &:last-child {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+    .every-detail {
+      .main-img-and-text {
+        display: block;
+        img {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        p {
+          max-width: 100%;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+      .other-imgs {
+        grid-template-columns: 1fr 1fr;
+        div {
+          height: 250px;
+        }
+      }
+    }
+  }
+}
