@@ -10,7 +10,7 @@ import NewsContainer from "./NewsContainer.js";
 
 const NewsTabs = () => {
   return (
-    <section>
+    <section className="section-news">
       <TabContainer id="news-section" defaultActiveKey="ALL">
         <Row>
           <Nav className="section-title">

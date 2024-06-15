@@ -15,11 +15,13 @@ const NewsSlider = ({ arr }) => {
         space-between="2%"
       >
         {arr.map((element) => {
-          return element.bigImg ? (
-            <CentralSlide key={`item-${element.key}`} element={element} />
-          ) : (
-            <SideSlide key={`item-${element.key}`} element={element} />
-          );
+          if (element.title) {
+            return element.bigImg ? (
+              <CentralSlide key={`item-${element.key}`} element={element} />
+            ) : (
+              <SideSlide key={`item-${element.key}`} element={element} />
+            );
+          }
         })}
       </swiper-container>
     </div>

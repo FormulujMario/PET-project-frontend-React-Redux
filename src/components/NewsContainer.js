@@ -1,7 +1,12 @@
 import NewsSlider from "./slider/NewsSlider";
+import scssVars from "./../scss/App.scss";
 
 const NewsContainer = ({ list }) => {
+  const windowInnerWidth = document.documentElement.clientWidth;
   let i = 3;
+  if (windowInnerWidth < scssVars.breakpoint_sm) {
+    i = 2;
+  }
   const toggleQ = (ind) => {
     return ind === 3 ? (i = 4) : (i = 3);
   };
@@ -20,7 +25,9 @@ const NewsContainer = ({ list }) => {
         arrToRender.push(copyOfNewsArr);
         restOfNews.splice(0, i);
       }
-      toggleQ(i);
+      if (windowInnerWidth >= scssVars.breakpoint_sm) {
+        toggleQ(i);
+      }
       newsRender(restOfNews);
     }
 
@@ -33,9 +40,7 @@ const NewsContainer = ({ list }) => {
     <div>
       {arrToRender.map((arr) => {
         indexOfRenderingArr++;
-        return (
-          <NewsSlider key={`news-${indexOfRenderingArr}`} arr={arr}/>
-        );
+        return <NewsSlider key={`news-${indexOfRenderingArr}`} arr={arr} />;
       })}
     </div>
   );

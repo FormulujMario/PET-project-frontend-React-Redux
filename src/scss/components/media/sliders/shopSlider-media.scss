@@ -1,8 +1,5 @@
 @include mobile {
   .shop-category {
-    h2 {
-      margin-bottom: 10px;
-    }
     .products {
       grid-template-columns: 1fr 1fr;
       gap: 30px 30px;

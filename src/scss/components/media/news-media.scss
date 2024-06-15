@@ -1,0 +1,16 @@
+@include mobile {
+  .section-news {
+    .section-title {
+      display: block;
+      div {
+        margin-bottom: 20px;
+      }
+      .tab-buttons {
+        flex-wrap: wrap;
+        .nav-link {
+          padding: 5px 10px 5px 10px;
+        }
+      }
+    }
+  }
+}

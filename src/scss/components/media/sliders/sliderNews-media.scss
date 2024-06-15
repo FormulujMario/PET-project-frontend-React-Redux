@@ -1,10 +1,16 @@
 @include mobile {
   .swiper-news {
     .side-slide {
-      width: 50% !important;
+      width: 49% !important;
     }
     .central-slide {
-      width: 50% !important;
+      width: 49% !important;
+    }
+    img {
+      padding-bottom: 0px;
+    }
+    p {
+      margin-bottom: 0px;
     }
   }
 }
