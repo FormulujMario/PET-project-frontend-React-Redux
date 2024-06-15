@@ -1,0 +1,26 @@
+@include mobile {
+  .art-item-interview {
+    display: block;
+    .soc-net-icons svg {
+      margin-bottom: 20px;
+    }
+    div {
+      width: 100%;
+    }
+  }
+  .art-item-desc {
+    display: block;
+    p {
+      margin-bottom: 10px;
+    }
+    div {
+      width: 100%;
+    }
+  }
+  .prev-next-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+  }
+}

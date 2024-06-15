@@ -31,10 +31,4 @@
 .prev-next-buttons {
   @extend %flex-sp-bw-center;
   margin-top: 50px;
-  .prev-button {
-    justify-self: left;
-  }
-  .next-button {
-    justify-self: right;
-  }
 }
