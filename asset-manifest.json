@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/PET-project-frontend-React-Redux/static/css/main.b5adcb6c.css",
-    "main.js": "/PET-project-frontend-React-Redux/static/js/main.7ed13a95.js",
+    "main.css": "/PET-project-frontend-React-Redux/static/css/main.3e920d05.css",
+    "main.js": "/PET-project-frontend-React-Redux/static/js/main.5a1c5a56.js",
     "static/js/453.a6033b24.chunk.js": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js",
     "index.html": "/PET-project-frontend-React-Redux/index.html",
-    "main.b5adcb6c.css.map": "/PET-project-frontend-React-Redux/static/css/main.b5adcb6c.css.map",
-    "main.7ed13a95.js.map": "/PET-project-frontend-React-Redux/static/js/main.7ed13a95.js.map",
+    "main.3e920d05.css.map": "/PET-project-frontend-React-Redux/static/css/main.3e920d05.css.map",
+    "main.5a1c5a56.js.map": "/PET-project-frontend-React-Redux/static/js/main.5a1c5a56.js.map",
     "453.a6033b24.chunk.js.map": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b5adcb6c.css",
-    "static/js/main.7ed13a95.js"
+    "static/css/main.3e920d05.css",
+    "static/js/main.5a1c5a56.js"
   ]
 }
