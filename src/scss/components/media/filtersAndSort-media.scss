@@ -1,0 +1,23 @@
+@include mobile {
+  .filters-section {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    .sort-filters {
+      display: block;
+      .title {
+        margin-bottom: 6px;
+      }
+    }
+    .filters-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .sort-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0px 10px;
+    }
+  }
+}
