@@ -1,4 +1,8 @@
+import scssVars from "./../../scss/App.scss";
+
 const ProductPics = ({ current, type, mainImage }) => {
+  const windowInnerWidth = document.documentElement.clientWidth;
+  const mobile = scssVars.breakpoint_sm;
   let picFirst = null;
   let picSecond = null;
   let styleIfNone = null;
@@ -23,8 +27,10 @@ const ProductPics = ({ current, type, mainImage }) => {
         alt={current.name}
         style={styleIfNone}
       />
-      <img src={picSecond} alt="" />
+      {windowInnerWidth >=  mobile && <img src={picSecond} alt="" />}
     </div>
+     
+        
   );
 };
 export default ProductPics;

@@ -1,0 +1,31 @@
+@include mobile {
+  .product-card {
+    margin-bottom: 30px;
+    .product-imgs {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .product-info {
+      width: 100%;
+      .product-title {
+        padding-left: 20px;
+      }
+      .beers-main-properties {
+        padding-left: 20px;
+      }
+      .product-top-description {
+        padding-left: 20px;
+        margin-bottom: 10px;
+      }
+    }
+    .add-to-cart-button-container {
+      width: 50%;
+    }
+    .product-description {
+      .additional-info {
+        font-size: 12px;
+        line-height: 17px;
+      }
+    }
+  }
+}

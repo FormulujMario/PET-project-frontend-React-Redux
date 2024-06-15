@@ -1,3 +1,4 @@
+import scssVars from "./../../scss/App.scss";
 import {
   SHOP_MAIN_BEERS_LIST,
   SHOP_MAIN_BEER_PACKS_LIST,
@@ -12,7 +13,9 @@ import ProductTitle from "./ProductTitle";
 import AddToCartForm from "./AddToCartForm";
 import { useDispatch } from "react-redux";
 
+
 const ProductCard = () => {
+  const windowInnerWidth = document.documentElement.clientWidth;
   const cartToStorage = [];
   if (localStorage.cart) {
     cartToStorage.push(JSON.parse(localStorage.cart));
@@ -128,17 +131,23 @@ const ProductCard = () => {
   };
   return (
     <section className="product-card">
-      <ProductPics
+      {windowInnerWidth >= scssVars.breakpoint_sm && <ProductPics
         current={currentProduct}
         type={packageType}
         mainImage={mainImage}
-      />
+      />}
+      
       <div className="product-info">
         <ProductTitle product={currentProduct} price={itemPrice} />
         {currentProduct.style && currentProduct.alcohol ? (
           <p className="beers-main-properties">{`${currentProduct.style} / abv ${currentProduct.alcohol}% / ibu ${currentProduct.color} / ${currentProduct.volume}l`}</p>
         ) : null}
         <p className="product-top-description">{currentProduct.description}</p>
+        {windowInnerWidth < scssVars.breakpoint_sm && <ProductPics
+        current={currentProduct}
+        type={packageType}
+        mainImage={mainImage}
+      />}
         <AddToCartForm
           type={packageType}
           changePriceFn={changePrice}
