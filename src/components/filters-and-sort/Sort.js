@@ -12,7 +12,7 @@ const Sort = ({ list, state, section, sortRef }) => {
       return element.className === event.currentTarget.className;
     };
     const propertyForSorting = list.find(classNameForSorting).connectedTo;
-    const sortedBeers = state.slice().sort(function (a, b) {
+    const sortedBeers = Object.entries(state)[0][1].slice().sort(function (a, b) {
       return event.currentTarget.className === "low-to-high-price"
         ? a.price - b.price
         : b[propertyForSorting] - a[propertyForSorting];

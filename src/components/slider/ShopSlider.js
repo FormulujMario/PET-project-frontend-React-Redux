@@ -1,9 +1,4 @@
 import React, { useRef } from "react";
-import {
-  SHOP_MAIN_BEERS_LIST,
-  SHOP_MAIN_BEER_PACKS_LIST,
-  SHOP_MAIN_MERCH_LIST,
-} from "../CONSTANTS";
 import { Link } from "react-router-dom";
 
 const ShopSlider = ({ list }) => {
@@ -24,12 +19,12 @@ const ShopSlider = ({ list }) => {
           <div key={list.categories} className="shop-category">
             <h2>{list.categories}</h2>
             <div className="products">
-              {list.state.map((element) => {
-                if (list.state === SHOP_MAIN_BEERS_LIST) {
+              {Object.entries(list.state)[0][1].map((element) => {
+                if (Object.entries(list.state)[0][0] === "beers") {
                   shopPath = "/shop-beers/";
-                } else if (list.state === SHOP_MAIN_BEER_PACKS_LIST) {
+                } else if (Object.entries(list.state)[0][0] === "beerPacks") {
                   shopPath = "/shop-beer-packs/";
-                } else if (list.state === SHOP_MAIN_MERCH_LIST) {
+                } else if (Object.entries(list.state)[0][0] === "merch") {
                   shopPath = "/shop-merch/";
                 } else {
                   shopPath = "/shop-pivolada/";

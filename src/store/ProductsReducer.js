@@ -19,7 +19,7 @@ const lists = {
     {
       categories: "BEERS",
       sliderParams: sliderParams,
-      state: SHOP_MAIN_BEERS_LIST,
+      state: { beers: SHOP_MAIN_BEERS_LIST },
       productsList: SHOP_MAIN_BEERS_LIST,
       sectionSort: "sort-beers",
       sectionFilter: "beers",
@@ -31,7 +31,7 @@ const lists = {
     {
       categories: "BEER-PACKS",
       sliderParams: sliderParams,
-      state: SHOP_MAIN_BEER_PACKS_LIST,
+      state: { beerPacks: SHOP_MAIN_BEER_PACKS_LIST },
       productsList: SHOP_MAIN_BEER_PACKS_LIST,
       sectionSort: "sort-beerpacks",
       sectionFilter: "beer-packs",
@@ -40,14 +40,14 @@ const lists = {
     {
       categories: "PIVOLADA",
       sliderParams: sliderParams,
-      state: SHOP_MAIN_PIVOLADA_LIST,
+      state: { pivolada: SHOP_MAIN_PIVOLADA_LIST },
       productsList: SHOP_MAIN_PIVOLADA_LIST,
       sectionSort: "sort-pivolada",
     },
     {
       categories: "MERCH",
       sliderParams: sliderParams,
-      state: SHOP_MAIN_MERCH_LIST,
+      state: { merch: SHOP_MAIN_MERCH_LIST },
       productsList: SHOP_MAIN_MERCH_LIST,
       sectionSort: "sort-merch",
     },
@@ -60,8 +60,9 @@ export const productsReducer = (state = lists, action) => {
       return {
         ...state,
         lists: state.lists.map((list) => {
+          const listStateKey = Object.entries(list.state)[0][0];
           return list.sectionSort === action.payload.section
-            ? { ...list, state: action.payload.sortedArr }
+            ? { ...list, state: { [listStateKey]: action.payload.sortedArr } }
             : list;
         }),
       };
@@ -69,8 +70,12 @@ export const productsReducer = (state = lists, action) => {
       return {
         ...state,
         lists: state.lists.map((list) => {
+          const listStateKey = Object.entries(list.state)[0][0];
           return list.productsList === action.payload.productsList
-            ? { ...list, state: action.payload.filtereddArr }
+            ? {
+                ...list,
+                state: { [listStateKey]: action.payload.filtereddArr },
+              }
             : list;
         }),
       };
@@ -78,7 +83,8 @@ export const productsReducer = (state = lists, action) => {
       return {
         ...state,
         lists: state.lists.map((list) => {
-          return { ...list, state: list.productsList };
+          const listStateKey = Object.entries(list.state)[0][0];
+          return { ...list, state: { [listStateKey]: list.productsList } };
         }),
       };
     default:
