@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/PET-project-frontend-React-Redux/static/css/main.ec72c67f.css",
-    "main.js": "/PET-project-frontend-React-Redux/static/js/main.3cb4848f.js",
+    "main.js": "/PET-project-frontend-React-Redux/static/js/main.7129199b.js",
     "static/js/453.a6033b24.chunk.js": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js",
     "index.html": "/PET-project-frontend-React-Redux/index.html",
     "main.ec72c67f.css.map": "/PET-project-frontend-React-Redux/static/css/main.ec72c67f.css.map",
-    "main.3cb4848f.js.map": "/PET-project-frontend-React-Redux/static/js/main.3cb4848f.js.map",
+    "main.7129199b.js.map": "/PET-project-frontend-React-Redux/static/js/main.7129199b.js.map",
     "453.a6033b24.chunk.js.map": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ec72c67f.css",
-    "static/js/main.3cb4848f.js"
+    "static/js/main.7129199b.js"
   ]
 }
