@@ -11,6 +11,7 @@ const AddToCartForm = ({
   addToCartFn,
 }) => {
   const [inputValue, setInputValue] = useState(1);
+  const href = window.location.href;
   return (
     <form>
       <div className="type-of-product">
@@ -75,6 +76,7 @@ const AddToCartForm = ({
               mainImage.current.src,
               product.name,
               price,
+              href,
               inputValue,
               event
             );

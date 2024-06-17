@@ -1,9 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import NormalWhiteButton from "../buttons/NormalWhiteButton";
+import { useDispatch } from "react-redux";
+import { TfiClose } from "react-icons/tfi";
 
 const CartItem = () => {
   const storageArr = JSON.parse(localStorage.cart);
   const [storageArrState, setStorageArrState] = useState(storageArr);
+  const [orderComplitedText, setOrderComplitedText] = useState();
+  const cartDispatch = useDispatch();
   let totalPrice = null;
   let foundItemIndex = null;
   const foundItem = (item, price) => {
@@ -35,17 +40,14 @@ const CartItem = () => {
     storageArr.splice(foundItemIndex, 1);
     cartUpdate(storageArr);
   };
-
-  storageArr.map((product) => {
-    totalPrice += product.price * product.quantity;
-    return totalPrice;
-  });
-  const [orderComplitedText, setOrderComplitedText] = useState();
   const orderComplited = () => {
     cartUpdate([]);
     setOrderComplitedText("Thank you for your order");
   };
-
+  storageArr.map((product) => {
+    totalPrice += product.price * product.quantity;
+    return totalPrice;
+  });
   return (
     <div>
       {storageArrState.length !== 0 ? (
@@ -54,9 +56,25 @@ const CartItem = () => {
             <div key={`${item.name}-${item.price}`}>
               <div className="cart-item">
                 <div className="image">
-                  <img src={item.img} alt={item.name}/>
+                  <Link
+                    to={item.href}
+                    onClick={() => {
+                      cartDispatch({ type: "toggle" });
+                    }}
+                  >
+                    <img src={item.img} alt={item.name} />
+                  </Link>
                 </div>
-                <div className="name">{item.name}</div>
+                <div className="name">
+                  <Link
+                    to={item.href}
+                    onClick={() => {
+                      cartDispatch({ type: "toggle" });
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                </div>
                 <div className="input-number">
                   <div
                     className="minus"
@@ -67,7 +85,7 @@ const CartItem = () => {
                     -
                   </div>
                   <input
-                  name="quantity in cart"
+                    name="quantity in cart"
                     className="input"
                     type="text"
                     pattern="^[0-9]+$"
@@ -85,26 +103,16 @@ const CartItem = () => {
                     +
                   </div>
                 </div>
-                <div className="price">{`${item.price * item.quantity} RSD`}</div>
-                <div className="x xItem"
+                <div className="price">{`${
+                  item.price * item.quantity
+                } RSD`}</div>
+                <div
+                  className="x xItem"
                   onClick={() => {
                     deleteItem(item.name, item.price);
                   }}
                 >
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M18.9204 1.9034L19.3331 1.49119L18.5077 0.666748L18.0949 1.07897L9.98802 9.17564L1.90522 1.10304L1.49248 0.690822L0.667001 1.51526L1.07974 1.92748L9.16254 10.0001L1.07973 18.0727L0.666992 18.4849L1.49247 19.3094L1.90521 18.8971L9.98802 10.8245L18.0949 18.9212L18.5077 19.3334L19.3331 18.509L18.9204 18.0968L10.8135 10.0001L18.9204 1.9034Z"
-                      fill="black"
-                    />
-                  </svg>
+                  <TfiClose size={20} />
                 </div>
               </div>
               <hr />

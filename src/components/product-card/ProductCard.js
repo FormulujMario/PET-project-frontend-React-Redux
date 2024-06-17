@@ -80,7 +80,7 @@ const ProductCard = () => {
       }
     });
   };
-  const addToCart = (img, item, price, quantity, event) => {
+  const addToCart = (img, item, price, href, quantity, event) => {
     cartDispatch({ type: "toggle" });
     let foundItem = null;
     if (cartToStorage.length === 0) {
@@ -88,6 +88,7 @@ const ProductCard = () => {
         img: img,
         name: item,
         price: price,
+        href: href,
         quantity: quantity,
       });
       localStorage.setItem("cart", JSON.stringify(cartToStorage));
@@ -108,6 +109,7 @@ const ProductCard = () => {
           img: img,
           name: item,
           price: price,
+          href: href,
           quantity: quantity + foundItem.quantity,
         });
         localStorage.clear();
@@ -121,6 +123,7 @@ const ProductCard = () => {
           img: img,
           name: item,
           price: price,
+          href: href,
           quantity: quantity,
         });
         localStorage.clear();

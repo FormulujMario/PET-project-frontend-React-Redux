@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { MENU_LIST } from "../CONSTANTS.js";
 import { Link } from "react-router-dom";
-import { AiOutlineClose } from "react-icons/ai";
+import { TfiClose } from "react-icons/tfi";
 import { PiBeerBottle } from "react-icons/pi";
 
 const HeaderMenuMobile = () => {
@@ -23,7 +23,7 @@ const HeaderMenuMobile = () => {
               dispatch({ type: "menuToggle" });
             }}
           >
-            <AiOutlineClose size={30} />
+            <TfiClose size={20}/>
           </div>
         </div>
         <nav>
