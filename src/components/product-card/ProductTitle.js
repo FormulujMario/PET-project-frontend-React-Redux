@@ -1,10 +1,16 @@
-const ProductTitle = ({ product, price }) => {
+import { useSelector } from "react-redux";
+
+const ProductTitle = () => {
+  const currentProduct = useSelector(
+    (state) => state.packageTypeReducer.product
+  );
+  const itemPrice = useSelector((state) => state.packageTypeReducer.itemPrice);
   return (
     <div className="product-title">
-      <h2>{product.name}</h2>
+      <h2>{currentProduct.name}</h2>
       <div>
-        <span>{price}</span>
-        {product.currency}
+        <span>{itemPrice}</span>
+        {currentProduct.currency}
       </div>
     </div>
   );

@@ -1,23 +1,25 @@
 import { useDispatch } from "react-redux";
+import scssVars from "./../../scss/App.scss";
 
 const Sort = ({ list, state, section, sortRef }) => {
   const sortDispatch = useDispatch();
   const onclickSortBy = (event) => {
     sortRef.current.map((el) => {
       return el.className === event.currentTarget.className
-        ? (el.style.color = "#000")
-        : (el.style.color = "#000000b2");
+        ? (el.style.opacity = "100%")
+        : (el.style.opacity = scssVars.opacityMax);
     });
     const classNameForSorting = (element) => {
       return element.className === event.currentTarget.className;
     };
     const propertyForSorting = list.find(classNameForSorting).connectedTo;
-    const sortedBeers = Object.entries(state)[0][1].slice().sort(function (a, b) {
-      return event.currentTarget.className === "low-to-high-price"
-        ? a.price - b.price
-        : b[propertyForSorting] - a[propertyForSorting];
-    });
-
+    const sortedBeers = Object.entries(state)[0][1]
+      .slice()
+      .sort(function (a, b) {
+        return event.currentTarget.className === "low-to-high-price"
+          ? a.price - b.price
+          : b[propertyForSorting] - a[propertyForSorting];
+      });
     const sort = () => {
       sortDispatch({
         type: "setSorted",

@@ -5,18 +5,15 @@ const ClearFilters = ({ setFilters, checkboxesRefs }) => {
   const clearFiltersFn = () => {
     const emptyFilters = { style: [], alcohol: [], color: [], quantity: [] };
     const filtersList = ["style", "alcohol", "color", "quantity"];
-    filtersList.map((el) => {
-      checkboxesRefs.current[el].map((elem) => {
-        if (elem !== null && elem.input.checked === true) {
-          elem.input.click();
+    filtersList.forEach((el) => {
+      checkboxesRefs.current[el].forEach((element) => {
+        if (element !== null && element.input.checked === true) {
+          element.input.click();
         }
       });
     });
     setFilters(emptyFilters);
-    const clear = () => {
-      clearFiltersDispatch({ type: "setCleared" });
-    };
-    clear();
+    clearFiltersDispatch({ type: "setCleared" });
   };
   return (
     <div className="clear-filters">

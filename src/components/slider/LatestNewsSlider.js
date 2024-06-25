@@ -1,30 +1,20 @@
+import scssVars from "./../../scss/App.scss";
 import { useRef } from "react";
 import { CentralSlide, SideSlide } from "./NewsSlides";
-import scssVars from "./../../scss/App.scss";
 
 const LatestNewsSlider = ({ list }) => {
   const windowInnerWidth = document.documentElement.clientWidth;
-  let sliderParams = null;
+  let sliderParams = {
+    slidesPerView: "3",
+    navigation: "false",
+    pagination: "false",
+    direction: "horizontal",
+    loop: "false",
+    spaceBetween: "2%",
+  };
   if (windowInnerWidth < scssVars.breakpoint_sm) {
-    sliderParams = {
-      slidesPerView: "2",
-      navigation: "false",
-      pagination: "false",
-      direction: "horizontal",
-      loop: "false",
-      spaceBetween: "2%",
-    };
-  } else {
-    sliderParams = {
-      slidesPerView: "3",
-      navigation: "false",
-      pagination: "false",
-      direction: "horizontal",
-      loop: "false",
-      spaceBetween: "2%",
-    };
+    sliderParams.slidesPerView = "2";
   }
-
   const swiperElRef = useRef(null);
   return (
     <div className="swiper-news">

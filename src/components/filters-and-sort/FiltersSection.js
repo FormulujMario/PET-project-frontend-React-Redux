@@ -18,24 +18,28 @@ const FiltersSection = () => {
     color: [],
     quantity: [],
   });
-  const sortRef = useRef([])
+  const sortRef = useRef([]);
   const activeCategoryContext = useSelector(
     (state) => state.activeCategoryReducer.activeCategory
   );
   const products = useSelector((state) => state.productsReducer.lists);
-  const filtersButtonTitleContext = useSelector(
+  const filtersButtonTitle = useSelector(
     (state) => state.filtersButtonReducer.filters
   );
   if (activeCategoryContext !== "ALL") {
     return products.map((list) => {
-      const filtersTypes = [{style:list.style}, {alcohol:list.alcohol}, {color:list.color}, {quantity:list.quantity}]
-
+      const filtersTypes = [
+        { style: list.style },
+        { alcohol: list.alcohol },
+        { color: list.color },
+        { quantity: list.quantity },
+      ];
       if (list.categories === activeCategoryContext) {
         return (
           <div
             key={activeCategoryContext}
             className="filters-section"
-            style={{ display: filtersButtonTitleContext }}
+            style={{ display: filtersButtonTitle }}
           >
             <div className="sort-filters">
               <Sort
@@ -59,6 +63,8 @@ const FiltersSection = () => {
             )}
           </div>
         );
+      } else {
+        return null;
       }
     });
   }

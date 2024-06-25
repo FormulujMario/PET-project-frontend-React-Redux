@@ -20,6 +20,7 @@ export const activeCategoryList = createSelector(
         allProducts.push(list);
         productsOfActiveCategory = { active: "ALL", products: allProducts };
       }
+      return productsOfActiveCategory;
     });
     return productsOfActiveCategory;
   }

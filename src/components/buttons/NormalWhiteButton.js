@@ -1,5 +1,5 @@
-import { Button } from "antd";
 import { Link } from "react-router-dom";
+import { Button } from "antd";
 
 const NormalWhiteButton = ({
   text,
@@ -11,18 +11,16 @@ const NormalWhiteButton = ({
 }) => {
   return (
     <Link to={href}>
-      <div className="cont">
-        <Button
-          className="white-button"
-          type="primary"
-          style={{ display: isHidden }}
-          icon={icon}
-          onClick={click}
-          iconPosition={iconPosition}
-        >
-          {text}
-        </Button>
-      </div>
+      <Button
+        className="white-button"
+        type="primary"
+        style={{ display: isHidden }}
+        icon={icon}
+        onClick={click}
+        iconPosition={iconPosition}
+      >
+        {text}
+      </Button>
     </Link>
   );
 };

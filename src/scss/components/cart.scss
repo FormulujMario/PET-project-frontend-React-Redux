@@ -1,68 +1,70 @@
-.cart-modal-back {
-  position: fixed;
-  z-index: 99;
-  width: 47%;
-  height: 100%;
-  background-color: #00000033;
-}
-.cart-modal {
-  position: fixed;
-  z-index: 99;
-  width: 53%;
-  height: 100%;
-  overflow-y: auto;
-  left: 47%;
-  background-color: $default-color;
-  padding: 50px 15px 25px 25px;
-  text-transform: $text-uppercase;
-  font-weight: 500;
-  .x {
-    cursor: pointer;
+.cart {
+  .modal-back {
+    position: fixed;
+    z-index: 99;
+    width: 47%;
+    height: 100%;
+    background-color: #00000033;
   }
-  .cart-title {
-    @extend %flex-sp-bw-center;
-    @extend %h3-low-title;
-    padding-bottom: 20px;
-  }
-  .cart-item {
-    @extend %min-med-font;
-    display: grid;
-    grid-template-columns: 20% 30% 25% 15% 5%;
-    justify-items: start;
-    align-items: center;
-    gap: 16px;
-    img {
-      object-fit: cover;
-      width: 100%;
+  .modal {
+    position: fixed;
+    z-index: 99;
+    width: 53%;
+    height: 100%;
+    overflow-y: auto;
+    left: 47%;
+    background-color: $default-color;
+    padding: 50px 15px 25px 25px;
+    text-transform: $text-uppercase;
+    font-weight: 500;
+    .x {
+      cursor: pointer;
     }
-    .input-number {
-      justify-self: end;
-      width: 60%;
+    .title {
+      @extend %flex-sp-bw-center;
+      @extend %h3-low-title;
+      padding-bottom: 20px;
     }
-  }
-  .total {
-    @extend %flex-sp-bw-center;
-    margin-top: 25px;
-    font-size: 22px;
-    line-height: 26.4px;
-  }
-  .checkout-button-container {
-    @extend %flex-center;
-    margin-top: 20px;
-    * {
-      width: 100%;
+    .cart-item {
+      @extend %min-med-font;
+      display: grid;
+      grid-template-columns: 19% 29% 24% 14% 4%;
+      justify-items: start;
+      align-items: center;
+      gap: 16px;
+      img {
+        object-fit: cover;
+        width: 100%;
+      }
+      .input-number {
+        justify-self: end;
+        width: 60%;
+      }
     }
-    button {
-      @extend %everted;
-      height: 45px;
-      justify-content: center;
+    .total {
+      @extend %flex-sp-bw-center;
+      margin-top: 25px;
+      font-size: 22px;
+      line-height: 26.4px;
     }
-  }
-  .empty-cart {
-    @extend %flex-clm-center;
-    margin: 40px;
-    img {
-      width: 40%;
+    .checkout-button-container {
+      @extend %flex-center;
+      margin-top: 20px;
+      * {
+        width: 100%;
+      }
+      button {
+        @extend %everted;
+        height: 45px;
+        justify-content: center;
+      }
+    }
+    .empty-cart {
+      @extend %flex-clm-center;
+      margin: 40px;
+      img {
+        width: 40%;
+      }
     }
   }
 }

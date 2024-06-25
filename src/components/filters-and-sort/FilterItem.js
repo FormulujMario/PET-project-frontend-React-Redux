@@ -10,7 +10,7 @@ const FilterItem = ({
 }) => {
   const onChangeFilter = () => {
     filtersArr[filterKey] = [];
-    checkboxesRefs.current[filterKey].map((el) => {
+    checkboxesRefs.current[filterKey].forEach((el) => {
       el.input.checked === true && filtersArr[filterKey].push(el.input.name);
     });
     filterFunction();

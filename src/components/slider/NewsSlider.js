@@ -21,6 +21,8 @@ const NewsSlider = ({ arr }) => {
             ) : (
               <SideSlide key={`item-${element.key}`} element={element} />
             );
+          } else {
+            return null;
           }
         })}
       </swiper-container>

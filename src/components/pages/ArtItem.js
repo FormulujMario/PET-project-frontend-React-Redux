@@ -1,5 +1,5 @@
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import NormalWhiteButton from "../buttons/NormalWhiteButton.js";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import {
   GALLERY,
   QUESTIONS,
@@ -8,6 +8,11 @@ import {
 } from "../CONSTANTS.js";
 
 const ArtItem = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
   let currentArtItem = {};
   let prevItemPath = "";
   let nextItemPath = "";
@@ -33,61 +38,40 @@ const ArtItem = () => {
           description: item.description,
           site: item.site,
         };
-
         let prevItem = arr[currentArtItem.itemIndex - 1];
+        const prevOrNextItemURL = (atrist, name) => {
+          return `/art/${pathsTemplate(atrist)}-${pathsTemplate(name)}`;
+        };
         if (arr.indexOf(prevItem) >= 0) {
-          if (prevItem.artist === "") {
+          if (!prevItem.artist) {
             prevItem = arr[currentArtItem.itemIndex - 2];
           }
-          prevItemPath = `/art/${pathsTemplate(
-            prevItem.artist
-          )}-${pathsTemplate(prevItem.name)}`;
+          prevItemPath = prevOrNextItemURL(prevItem.artist, prevItem.name);
         }
-
         let nextItem = arr[currentArtItem.itemIndex + 1];
         if (arr.indexOf(nextItem) < arr.length && arr.indexOf(nextItem) > 0) {
-          if (nextItem.artist === "") {
+          if (!nextItem.artist) {
             nextItem = arr[currentArtItem.itemIndex + 2];
           }
-          nextItemPath = `/art/${pathsTemplate(
-            nextItem.artist
-          )}-${pathsTemplate(nextItem.name)}`;
+          nextItemPath = prevOrNextItemURL(nextItem.artist, nextItem.name);
         }
       }
       return { currentArtItem, prevItemPath, nextItemPath };
     });
   };
-
-  const isPrevItem = () => {
-    if (prevItemPath) {
-      return (
-        <div className="prev-button">
+  const prevOrNextButton = (itemClass, text, icon, path, iconPosition) => {
+    return (
+      <div className={`${itemClass}-button`}>
+        {path && (
           <NormalWhiteButton
-            text="PREVIOUS ART"
-            icon={<BsArrowLeft />}
-            href={prevItemPath}
-            iconPosition="start"
+            text={text}
+            icon={icon}
+            href={path}
+            iconPosition={iconPosition}
           />
-        </div>
-      );
-    } else {
-      return <div className="prev-button"></div>;
-    }
-  };
-  const isNextItem = () => {
-    if (nextItemPath) {
-      return (
-        <div className="next-button">
-          <NormalWhiteButton
-            text="NEXT ART"
-            icon={<BsArrowRight />}
-            href={nextItemPath}
-          />
-        </div>
-      );
-    } else {
-      return <div className="next-button"></div>;
-    }
+        )}
+      </div>
+    );
   };
   pathsToArtItem(GALLERY);
   return (
@@ -140,8 +124,14 @@ const ArtItem = () => {
         </div>
       </section>
       <section className="prev-next-buttons">
-        {isPrevItem()}
-        {isNextItem()}
+        {prevOrNextButton(
+          "prev",
+          "PREVIOUS ART",
+          <BsArrowLeft />,
+          prevItemPath,
+          "start"
+        )}
+        {prevOrNextButton("next", "NEXT ART", <BsArrowRight />, nextItemPath)}
       </section>
     </main>
   );

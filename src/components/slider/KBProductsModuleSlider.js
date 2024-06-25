@@ -1,30 +1,19 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
 import scssVars from "./../../scss/App.scss";
+import { Link } from "react-router-dom";
 
 const KBProductsModuleSlider = ({ list }) => {
   const windowInnerWidth = document.documentElement.clientWidth;
-  let sliderParams = null;
+  let sliderParams = {
+    slidesPerView: "4",
+    navigation: "true",
+    pagination: "false",
+    direction: "horizontal",
+    loop: "false",
+    spaceBetween: "30",
+  };
   if (windowInnerWidth < scssVars.breakpoint_sm) {
-    sliderParams = {
-      slidesPerView: "2",
-      navigation: "true",
-      pagination: "false",
-      direction: "horizontal",
-      loop: "false",
-      spaceBetween: "30",
-    };
-  } else {
-    sliderParams = {
-      slidesPerView: "4",
-      navigation: "true",
-      pagination: "false",
-      direction: "horizontal",
-      loop: "false",
-      spaceBetween: "30",
-    };
+    sliderParams.slidesPerView = "2";
   }
-
   const product = (element) => {
     let myLink = element.path;
     return (
@@ -42,7 +31,6 @@ const KBProductsModuleSlider = ({ list }) => {
       </swiper-slide>
     );
   };
-
   const shopNow = (element) => {
     return (
       <swiper-slide key={element.name}>
@@ -55,12 +43,10 @@ const KBProductsModuleSlider = ({ list }) => {
       </swiper-slide>
     );
   };
-  // const swiperElRef = useRef(null);
   return (
     <div className="swiper">
       <div className="swiper-wrapper">
         <swiper-container
-          // ref={swiperElRef}
           slides-per-view={sliderParams.slidesPerView}
           navigation={sliderParams.navigation}
           pagination={sliderParams.pagination}

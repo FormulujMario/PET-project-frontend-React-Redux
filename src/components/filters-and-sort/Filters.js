@@ -11,7 +11,7 @@ const Filters = ({ filters, productsList, filtersTypes, checkboxesRefs }) => {
     { quantity: QUANTITY },
   ];
   const ifZeroFn = (arr) => {
-    arr.map((obj) => {
+    arr.forEach((obj) => {
       for (const [key, value] of Object.entries(obj)) {
         if (filters[key].length === 0) {
           filters[key] = value.map((element) => element.id);
@@ -29,13 +29,10 @@ const Filters = ({ filters, productsList, filtersTypes, checkboxesRefs }) => {
         filters.quantity.includes(element.quantityFilter)
       );
     });
-    const filter = () => {
-      filterDispatch({
-        type: "setFiltered",
-        payload: { productsList: productsList, filtereddArr: filtered },
-      });
-    };
-    filter();
+    filterDispatch({
+      type: "setFiltered",
+      payload: { productsList: productsList, filtereddArr: filtered },
+    });
   };
 
   return (
@@ -52,7 +49,6 @@ const Filters = ({ filters, productsList, filtersTypes, checkboxesRefs }) => {
           }
           return filterTypeProps;
         });
-
         if (filterTypeProps.filterKey) {
           return (
             <FilterItem

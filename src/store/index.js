@@ -4,6 +4,7 @@ import { cartReducer } from "./CartReducer";
 import { productsReducer } from "./ProductsReducer";
 import { filtersButtonReducer } from "./FiltersButtonReducer";
 import { MobileMenuReducer } from "./MibileMenuReducer";
+import { packageTypeReducer } from "./PackageTypeReducer";
 
 const rootReducer = combineReducers({
   activeCategoryReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   filtersButtonReducer,
   productsReducer,
   MobileMenuReducer,
+  packageTypeReducer,
 });
 export const store = createStore(
   rootReducer,

@@ -1,6 +1,6 @@
+import { useDispatch } from "react-redux";
 import { FOOTER_MENU_LIST, SOC_NET_ICONS } from "../CONSTANTS";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 const MainLinks = () => {
   const activeCategoryDispatch = useDispatch();
@@ -39,7 +39,9 @@ const MainLinks = () => {
                         changeCategory(subelement);
                       }}
                     >
-                      <Link key={subelement.name} to={subelement.link}>{subelement.name}</Link>
+                      <Link key={subelement.name} to={subelement.link}>
+                        {subelement.name}
+                      </Link>
                     </li>
                   );
                 })}

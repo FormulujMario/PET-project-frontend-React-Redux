@@ -1,48 +1,51 @@
 @include mobile {
-  .cart-modal-back {
-    width: 10%;
-  }
-  .cart-modal {
-    width: 90%;
-    left: 10%;
-    .cart-title {
-      font-size: 20px;
-      line-height: 25px;
+  .cart {
+    .modal-back {
+      width: 10%;
     }
-    .cart-item {
-      font-size: 15px;
-      line-height: 17px;
-      grid-template-columns: 1fr 1fr 10%;
-      grid-template-areas:
-        "image name ."
-        "inputNumber price xItem";
-      grid-template-rows: auto;
-      .image {
-        grid-area: image;
+    .modal {
+      width: 90%;
+      left: 10%;
+      .title {
+        font-size: 20px;
+        line-height: 25px;
       }
-      .name {
-        grid-area: name;
+      .cart-item {
+        font-size: 15px;
+        line-height: 17px;
+        grid-template-columns: 1fr 1fr 10%;
+        grid-template-areas:
+          "image name ."
+          "inputNumber price xItem";
+        grid-template-rows: auto;
+        .image {
+          grid-area: image;
+        }
+        .name {
+          grid-area: name;
+        }
+        .input-number {
+          grid-area: inputNumber;
+          width: 100%;
+        }
+        .price {
+          grid-area: price;
+        }
+        .xItem {
+          grid-area: xItem;
+          margin-right: 0;
+        }
       }
-      .input-number {
-        grid-area: inputNumber;
-        width: 100%;
+      .total {
+        font-size: 16px;
+        line-height: 20px;
       }
-      .price {
-        grid-area: price;
-      }
-      .xItem {
-        grid-area: xItem;
-      }
-    }
-    .total {
-      font-size: 16px;
-      line-height: 20px;
-    }
-    .empty-cart {
-      gap: 10px;
-      text-align: center;
-      img {
-        width: 70%;
+      .empty-cart {
+        gap: 10px;
+        text-align: center;
+        img {
+          width: 70%;
+        }
       }
     }
   }

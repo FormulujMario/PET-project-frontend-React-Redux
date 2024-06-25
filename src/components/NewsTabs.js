@@ -1,4 +1,5 @@
 import { TabContainer, Tab, Nav, Row } from "react-bootstrap";
+import NewsContainer from "./NewsContainer.js";
 import {
   NEWS,
   NEWS_NEWS,
@@ -6,7 +7,6 @@ import {
   NEWS_VIRTUAL,
   NEWS_TRAVEL,
 } from "./CONSTANTS.js";
-import NewsContainer from "./NewsContainer.js";
 
 const NewsTabs = () => {
   return (
@@ -24,10 +24,7 @@ const NewsTabs = () => {
               <Nav.Link className="tab-button" eventKey="PRESS">
                 PRESS
               </Nav.Link>
-              <Nav.Link
-                className="tab-button"
-                eventKey="VIRTUAL EXHIBITION"
-              >
+              <Nav.Link className="tab-button" eventKey="VIRTUAL EXHIBITION">
                 VIRTUAL EXHIBITION
               </Nav.Link>
               <Nav.Link

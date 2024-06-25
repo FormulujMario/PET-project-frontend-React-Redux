@@ -1,16 +1,22 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import NormalWhiteButton from "../buttons/NormalWhiteButton";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import InputProductsNumber from "../InputProductsNumber";
 import { TfiClose } from "react-icons/tfi";
+import NormalWhiteButton from "../buttons/NormalWhiteButton";
 
 const CartItem = () => {
   const storageArr = JSON.parse(localStorage.cart);
   const [storageArrState, setStorageArrState] = useState(storageArr);
-  const [orderComplitedText, setOrderComplitedText] = useState();
+  const [orderCompletedText, setOrderCompletedText] = useState();
   const cartDispatch = useDispatch();
   let totalPrice = null;
   let foundItemIndex = null;
+  const cartUpdate = (storageArr) => {
+    const storageArrToChange = [...storageArr];
+    setStorageArrState(storageArrToChange);
+    localStorage.setItem("cart", JSON.stringify(storageArr));
+  };
   const foundItem = (item, price) => {
     const foundItem = storageArr.find((product) => {
       return product.name === item && product.price === price;
@@ -18,31 +24,30 @@ const CartItem = () => {
     foundItemIndex = storageArr.indexOf(foundItem);
     return foundItemIndex;
   };
-  const cartUpdate = (storageArr) => {
-    const storageArrToChange = [...storageArr];
-    setStorageArrState(storageArrToChange);
-    localStorage.setItem("cart", JSON.stringify(storageArr));
-  };
   const changeCartQuantity = (item, price, event) => {
     foundItem(item, price);
-    if (event.target.className === "minus") {
-      if (storageArr[foundItemIndex].quantity !== 1) {
-        storageArr[foundItemIndex].quantity -= 1;
-        cartUpdate(storageArr);
-      }
-    } else {
-      storageArr[foundItemIndex].quantity += 1;
-      cartUpdate(storageArr);
+    if (
+      event.target.className === "minus" &&
+      storageArr[foundItemIndex].quantity !== 1
+    ) {
+      storageArr[foundItemIndex].quantity -= 1;
     }
+    if (
+      event.target.className === "plus" &&
+      storageArr[foundItemIndex].quantity !== 150
+    ) {
+      storageArr[foundItemIndex].quantity += 1;
+    }
+    cartUpdate(storageArr);
   };
   const deleteItem = (item, price) => {
     foundItem(item, price);
     storageArr.splice(foundItemIndex, 1);
     cartUpdate(storageArr);
   };
-  const orderComplited = () => {
+  const orderCompleted = () => {
     cartUpdate([]);
-    setOrderComplitedText("Thank you for your order");
+    setOrderCompletedText("Thank you for your order");
   };
   storageArr.map((product) => {
     totalPrice += product.price * product.quantity;
@@ -75,34 +80,18 @@ const CartItem = () => {
                     {item.name}
                   </Link>
                 </div>
-                <div className="input-number">
-                  <div
-                    className="minus"
-                    onClick={(event) => {
-                      changeCartQuantity(item.name, item.price, event);
-                    }}
-                  >
-                    -
-                  </div>
-                  <input
-                    name="quantity in cart"
-                    className="input"
-                    type="text"
-                    pattern="^[0-9]+$"
-                    value={
-                      storageArrState[storageArrState.indexOf(item)].quantity
-                    }
-                    readOnly
-                  />
-                  <div
-                    className="plus"
-                    onClick={(event) => {
-                      changeCartQuantity(item.name, item.price, event);
-                    }}
-                  >
-                    +
-                  </div>
-                </div>
+                <InputProductsNumber
+                  onClickMinus={(event) => {
+                    changeCartQuantity(item.name, item.price, event);
+                  }}
+                  inputName="quantity in cart"
+                  value={
+                    storageArrState[storageArrState.indexOf(item)].quantity
+                  }
+                  onClickPlus={(event) => {
+                    changeCartQuantity(item.name, item.price, event);
+                  }}
+                />
                 <div className="price">{`${
                   item.price * item.quantity
                 } RSD`}</div>
@@ -126,10 +115,10 @@ const CartItem = () => {
             src={process.env.REACT_APP_IMAGES_PATH + "/empty-cart.png"}
             alt=""
           />
-          <div>{orderComplitedText}</div>
+          <div>{orderCompletedText}</div>
         </div>
       )}
-      {storageArrState.length !== 0 ? (
+      {storageArrState.length !== 0 && (
         <div>
           <div className="total">
             <div>Estimate total:</div>
@@ -137,12 +126,12 @@ const CartItem = () => {
           </div>
           <div className="checkout-button-container">
             <NormalWhiteButton
-              click={orderComplited}
+              click={orderCompleted}
               text="CONTINUE TO CHECKOUT"
             />
           </div>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };

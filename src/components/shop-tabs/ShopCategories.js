@@ -1,7 +1,6 @@
-import { memo } from "react";
+import { useSelector } from "react-redux";
 import { activeCategoryList } from "../../store/selectors.js";
 import ShopSlider from "../slider/ShopSlider.js";
-import { useSelector } from "react-redux";
 
 const ShopCategories = () => {
   const productsOfActiveCategory = useSelector(activeCategoryList);
@@ -14,4 +13,4 @@ const ShopCategories = () => {
   });
 };
 
-export default memo(ShopCategories);
+export default ShopCategories;

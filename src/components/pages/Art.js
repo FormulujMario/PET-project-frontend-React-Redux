@@ -1,23 +1,23 @@
-import { Link } from "react-router-dom";
-import PageTitle from "../PageTitle";
 import { GALLERY } from "../CONSTANTS";
+import PageTitle from "../PageTitle";
+import { Link } from "react-router-dom";
 
 const Art = () => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
   const pathsToArtItem = (item) => {
-    let fullPathArt =
-      "/art/" +
-      item.artist
-        .toLowerCase()
-        .replace(/[^\w ]/g, "")
-        .replace(/\s+/g, " ")
-        .replace(/\s/g, "-") +
-      "-" +
-      item.name
+    let nameToURL = (name) => {
+      return name
         .toLowerCase()
         .replace(/[^\w ]/g, "")
         .replace(/\s+/g, " ")
         .replace(/\s/g, "-");
-
+    };
+    let fullPathArt =
+      "/art/" + nameToURL(item.artist) + "-" + nameToURL(item.name);
     return { fullPathArt };
   };
   const classesArr = [
@@ -39,24 +39,16 @@ const Art = () => {
   let galleryItem = null;
   let i = 0;
   const galleryItemRender = (item, ind) => {
-    if (classesArr[ind]) {
-      galleryItem = {
-        classItem: classesArr[ind],
-        nameItem: item.name,
-        imageItem: item.img,
-        artist: item.artist,
-      };
-    } else {
+    if (!classesArr[ind]) {
       i = 0;
-      galleryItem = {
-        classItem: classesArr[i],
-        nameItem: item.name,
-        imageItem: item.img,
-        artist: item.artist,
-        element: item.element,
-      };
+      ind = i;
     }
-    return galleryItem;
+    return (galleryItem = {
+      classItem: classesArr[ind],
+      nameItem: item.name,
+      imageItem: item.img,
+      artist: item.artist,
+    });
   };
   let copyOfGalleryArr = null;
   let arrForRender = [];
@@ -78,27 +70,34 @@ const Art = () => {
     return arrForRender;
   };
   createArrForGalleryRender(GALLERY);
-  let indexOfRenderingArr=-1;
+  let indexOfRenderingArr = -1;
   return (
     <main>
       <PageTitle title="ART GALLERY" />
       {arrForRender.map((arr) => {
-         indexOfRenderingArr++
+        indexOfRenderingArr++;
         return (
-          <div key={`art-gallery-${indexOfRenderingArr}`} className="gallery-container">
+          <div
+            key={`art-gallery-${indexOfRenderingArr}`}
+            className="gallery-container"
+          >
             {arr.map((item) => {
               galleryItemRender(item, i);
               i++;
               if (!galleryItem.imageItem) {
                 return (
-                  <div key={galleryItem.nameItem} className={`item-without-pic ${galleryItem.classItem}`}>
+                  <div
+                    key={galleryItem.nameItem}
+                    className={`item-without-pic ${galleryItem.classItem}`}
+                  >
                     <p>{galleryItem.nameItem}</p>
                   </div>
                 );
               } else {
                 let myLink = pathsToArtItem(item);
                 return (
-                  <Link key={galleryItem.nameItem}
+                  <Link
+                    key={galleryItem.nameItem}
                     className={`gallery-item ${galleryItem.classItem}`}
                     to={myLink.fullPathArt}
                   >
@@ -118,9 +117,7 @@ const Art = () => {
               }
             })}
           </div>
-         
         );
-      
       })}
     </main>
   );

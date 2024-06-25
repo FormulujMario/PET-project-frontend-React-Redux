@@ -9,7 +9,9 @@ const HeaderMenu = () => {
           return (
             item.link !== "/" && (
               <li key={item.name}>
-                <Link key={item.name} to={item.link}>{item.name}</Link>
+                <Link key={item.name} to={item.link}>
+                  {item.name}
+                </Link>
               </li>
             )
           );

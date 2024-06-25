@@ -18,7 +18,7 @@ const Contacts = () => {
         ></iframe>
       </section>
       <section className="contact-info">
-        <div>
+        <div className="left-part">
           <div>
             <h3>{KB_CONTACTS.name}</h3>
             <div className="main-info">

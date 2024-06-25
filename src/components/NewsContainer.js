@@ -1,5 +1,5 @@
-import NewsSlider from "./slider/NewsSlider";
 import scssVars from "./../scss/App.scss";
+import NewsSlider from "./slider/NewsSlider";
 
 const NewsContainer = ({ list }) => {
   const windowInnerWidth = document.documentElement.clientWidth;
@@ -30,11 +30,9 @@ const NewsContainer = ({ list }) => {
       }
       newsRender(restOfNews);
     }
-
     return arrToRender;
   };
   newsRender(list);
-
   let indexOfRenderingArr = -1;
   return (
     <div>

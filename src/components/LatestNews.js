@@ -1,7 +1,7 @@
 import { NEWS_LIST } from "./CONSTANTS.js";
-import LatestNewsSlider from "./slider/LatestNewsSlider.js";
 import NormalWhiteButton from "./buttons/NormalWhiteButton.js";
 import { BsArrowUpRight } from "react-icons/bs";
+import LatestNewsSlider from "./slider/LatestNewsSlider.js";
 
 const LatestNews = () => {
   const news = NEWS_LIST;

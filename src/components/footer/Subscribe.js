@@ -1,6 +1,6 @@
-import { BsArrowRight } from "react-icons/bs";
-import { Form } from "react-bootstrap";
 import { useState } from "react";
+import { Form } from "react-bootstrap";
+import { BsArrowRight } from "react-icons/bs";
 
 const Subscribe = () => {
   const newsletterClients = [];
@@ -23,7 +23,7 @@ const Subscribe = () => {
             type="email"
             placeholder="EMAIL ADRESS"
             required
-             autoComplete="on"
+            autoComplete="on"
           />
         </Form.Group>
         <button className="subscribe-button" type="submit">

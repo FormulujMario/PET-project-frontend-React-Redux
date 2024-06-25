@@ -1,6 +1,6 @@
-import { BsArrowRight } from "react-icons/bs";
-import { FOOTER_MENU_LIST } from "./CONSTANTS";
 import { useDispatch, useSelector } from "react-redux";
+import { FOOTER_MENU_LIST } from "./CONSTANTS";
+import { BsArrowRight } from "react-icons/bs";
 
 const NextCategory = () => {
   const activeCategoryDispatch = useDispatch();
@@ -43,8 +43,10 @@ const NextCategory = () => {
       />
       <div className="title">
         <button>
-          <h2>{firstButtonTitle}
-          <BsArrowRight /></h2>
+          <h2>
+            {firstButtonTitle}
+            <BsArrowRight />
+          </h2>
         </button>
       </div>
     </section>

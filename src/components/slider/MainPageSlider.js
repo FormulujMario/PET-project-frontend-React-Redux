@@ -15,33 +15,33 @@ const MainPageSlider = () => {
           loop="true"
         >
           <swiper-slide>
-          <div className="swiper-slide-item">
-            <a href={ghPagesPath + "/shop-beers/plavo"}>
-              <img
-                src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                alt="plavo beer"
-              />
-            </a>
+            <div className="swiper-slide-item">
+              <a href={ghPagesPath + "/shop-beers/plavo"}>
+                <img
+                  src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
+                  alt="plavo beer"
+                />
+              </a>
             </div>
           </swiper-slide>
           <swiper-slide>
-          <div className="swiper-slide-item">
-            <a href={ghPagesPath + "/shop-beers/plavo"}>
-              <img
-                src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                alt="plavo beer"
-              />
-            </a>
+            <div className="swiper-slide-item">
+              <a href={ghPagesPath + "/shop-beers/plavo"}>
+                <img
+                  src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
+                  alt="plavo beer"
+                />
+              </a>
             </div>
           </swiper-slide>
           <swiper-slide>
-          <div className="swiper-slide-item">
-            <a href={ghPagesPath + "/shop-beers/plavo"}>
-              <img
-                src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                alt="plavo beer"
-              />
-            </a>
+            <div className="swiper-slide-item">
+              <a href={ghPagesPath + "/shop-beers/plavo"}>
+                <img
+                  src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
+                  alt="plavo beer"
+                />
+              </a>
             </div>
           </swiper-slide>
         </swiper-container>

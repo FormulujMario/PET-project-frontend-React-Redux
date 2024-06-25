@@ -3,21 +3,21 @@ import { BsArrowRight } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 
 const ShowFilters = () => {
-  const activeCategoryContextButton = useSelector(
+  const buttonVisibility = useSelector(
     (state) => state.activeCategoryReducer.visible
   );
-  const filtersButtonTitleContext = useSelector(
+  const filtersButtonTitle = useSelector(
     (state) => state.filtersButtonReducer.filtersButtonTitle
   );
   const openFiltersDispatch = useDispatch();
   return (
-    <NormalWhiteButton  
-      text={filtersButtonTitleContext}
+    <NormalWhiteButton
+      text={filtersButtonTitle}
       icon={<BsArrowRight />}
       click={() => {
-        openFiltersDispatch({ type: filtersButtonTitleContext });
+        openFiltersDispatch({ type: filtersButtonTitle });
       }}
-      isHidden={activeCategoryContextButton}
+      isHidden={buttonVisibility}
     />
   );
 };

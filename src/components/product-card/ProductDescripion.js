@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import { useState } from "react";
 
-const ProductDescription = ({ name, product }) => {
+const ProductDescription = ({ name }) => {
+  const currentProduct = useSelector(
+    (state) => state.packageTypeReducer.product
+  );
   const [icon, setIcon] = useState("+");
   const [showInfo, setShowInfo] = useState("additional-info hidden");
   const toggleShowDesc = () => {
@@ -33,12 +37,12 @@ const ProductDescription = ({ name, product }) => {
 
       {name === "PRODUCT DESCRIPTION" ? (
         <div className={showInfo}>
-          <p className="main-properties">{`${product.style} / abv ${product.alcohol}% / ibu ${product.color} / ${product.volume}l`}</p>
-          <p className="main-description">{product.description}</p>
+          <p className="main-properties">{`${currentProduct.style} / abv ${currentProduct.alcohol}% / ibu ${currentProduct.color} / ${currentProduct.volume}l`}</p>
+          <p className="main-description">{currentProduct.description}</p>
         </div>
       ) : name === "INGREDIENTS" ? (
         <div className={showInfo}>
-          <p className="main-description">{product.ingredients}</p>
+          <p className="main-description">{currentProduct.ingredients}</p>
         </div>
       ) : (
         <div className={`grid-container ${showInfo}`}>
@@ -47,10 +51,13 @@ const ProductDescription = ({ name, product }) => {
           </div>
           <div className="main-description">Per 100mls</div>
           <div className="main-description">Per 330mls</div>
-
-          {nutritionRecurseFn(product.nutrition)}
+          {nutritionRecurseFn(currentProduct.nutrition)}
           {nutritionArr.map((item) => {
-            return <div key={item} className="main-description">{item}</div>;
+            return (
+              <div key={item} className="main-description">
+                {item}
+              </div>
+            );
           })}
         </div>
       )}
