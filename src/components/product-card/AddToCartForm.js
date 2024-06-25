@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
+import { toggleShow } from "../../store/ShowCartSlice";
+import { changePrice } from "../../store/PackageTypeSlice";
 import { useState } from "react";
 import { TabContainer, Nav, Row } from "react-bootstrap";
 import InputProductsNumber from "../InputProductsNumber";
@@ -16,7 +18,7 @@ const AddToCartForm = () => {
   const [inputValue, setInputValue] = useState(1);
   const href = window.location.href;
   const addToCart = (img, item, price, href, quantity, event) => {
-    cartDispatch({ type: "toggle" });
+    cartDispatch(toggleShow());
     let foundItem = null;
     if (localStorage.cart) {
       foundItem = JSON.parse(localStorage.cart).find((storageItem) => {
@@ -67,10 +69,7 @@ const AddToCartForm = () => {
                 <Nav.Item
                   className="tab-buttons"
                   onClick={(event) =>
-                    packageTypeDispatch({
-                      type: "change price",
-                      bottleOrCan: event.target.textContent,
-                    })
+                    packageTypeDispatch(changePrice(event.target.textContent))
                   }
                 >
                   <Nav.Link eventKey="BOTTLE">BOTTLE</Nav.Link>

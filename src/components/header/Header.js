@@ -1,4 +1,6 @@
 import { useDispatch } from "react-redux";
+import { menuToggle } from "../../store/ShowMobileMenuSlice.js";
+import { toggleShow } from "../../store/ShowCartSlice";
 import HeaderLogo from "./HeaderLogo.js";
 import { MdOutlineMenu } from "react-icons/md";
 import HeaderMenu from "./HeaderMenu.js";
@@ -19,7 +21,7 @@ const Header = () => {
           className="mobile-menu-logo"
           size={40}
           onClick={() => {
-            dispatch({ type: "menuToggle" });
+            dispatch(menuToggle());
           }}
         />
         <HeaderMenu />
@@ -30,7 +32,7 @@ const Header = () => {
               <div
                 className="cart-icon"
                 onClick={() => {
-                  dispatch({ type: "toggle" });
+                  dispatch(toggleShow());
                 }}
               >
                 <div>CART {quantityOfProducts}</div>

@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { menuToggle } from "../../store/ShowMobileMenuSlice.js";
 import { TfiClose } from "react-icons/tfi";
 import { MENU_LIST } from "../CONSTANTS.js";
 import { PiBeerBottle } from "react-icons/pi";
@@ -11,7 +12,7 @@ const HeaderMenuMobile = () => {
       <div
         className="menu-modal-back"
         onClick={() => {
-          dispatch({ type: "menuToggle" });
+          dispatch(menuToggle());
         }}
       ></div>
       <div className="menu-modal">
@@ -20,7 +21,7 @@ const HeaderMenuMobile = () => {
           <div
             className="x"
             onClick={() => {
-              dispatch({ type: "menuToggle" });
+              dispatch(menuToggle());
             }}
           >
             <TfiClose size={20} />
@@ -34,7 +35,7 @@ const HeaderMenuMobile = () => {
                   <li
                     key={item.name}
                     onClick={() => {
-                      dispatch({ type: "menuToggle" });
+                      dispatch(menuToggle());
                     }}
                   >
                     <PiBeerBottle />

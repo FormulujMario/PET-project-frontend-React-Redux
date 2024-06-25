@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { toggleShow } from "../../store/ShowCartSlice";
 import { TfiClose } from "react-icons/tfi";
 import CartItem from "./CartItem";
 
@@ -9,7 +10,7 @@ const Cart = () => {
       <div
         className="modal-back"
         onClick={() => {
-          cartDispatch({ type: "toggle" });
+          cartDispatch(toggleShow());
         }}
       ></div>
       <div className="modal">
@@ -18,7 +19,7 @@ const Cart = () => {
           <div
             className="x"
             onClick={() => {
-              cartDispatch({ type: "toggle" });
+              cartDispatch(toggleShow());
             }}
           >
             <TfiClose size={20} />

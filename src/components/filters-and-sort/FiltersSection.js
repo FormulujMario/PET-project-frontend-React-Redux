@@ -24,7 +24,7 @@ const FiltersSection = () => {
   );
   const products = useSelector((state) => state.productsReducer.lists);
   const filtersButtonTitle = useSelector(
-    (state) => state.filtersButtonReducer.filters
+    (state) => state.filtersReducer.filters
   );
   if (activeCategoryContext !== "ALL") {
     return products.map((list) => {
@@ -45,12 +45,13 @@ const FiltersSection = () => {
               <Sort
                 list={SORT_BY}
                 state={list.state}
-                section={list.sectionSort}
+                category={list.categories}
                 sortRef={sortRef}
               />
               <Filters
                 filters={filters}
                 productsList={list.productsList}
+                category={list.categories}
                 filtersTypes={filtersTypes}
                 checkboxesRefs={checkboxesRefs}
               />

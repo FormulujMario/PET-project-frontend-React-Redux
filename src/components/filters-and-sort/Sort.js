@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
+import { setSorted } from "../../store/ProductsSlice";
 import scssVars from "./../../scss/App.scss";
 
-const Sort = ({ list, state, section, sortRef }) => {
+const Sort = ({ list, state, category, sortRef }) => {
   const sortDispatch = useDispatch();
   const onclickSortBy = (event) => {
     sortRef.current.map((el) => {
@@ -13,24 +14,19 @@ const Sort = ({ list, state, section, sortRef }) => {
       return element.className === event.currentTarget.className;
     };
     const propertyForSorting = list.find(classNameForSorting).connectedTo;
-    const sortedBeers = Object.entries(state)[0][1]
-      .slice()
-      .sort(function (a, b) {
-        return event.currentTarget.className === "low-to-high-price"
-          ? a.price - b.price
-          : b[propertyForSorting] - a[propertyForSorting];
-      });
+    const sortedBeers = state.slice().sort(function (a, b) {
+      return event.currentTarget.className === "low-to-high-price"
+        ? a.price - b.price
+        : b[propertyForSorting] - a[propertyForSorting];
+    });
     const sort = () => {
-      sortDispatch({
-        type: "setSorted",
-        payload: { section: section, sortedArr: sortedBeers },
-      });
+      sortDispatch(setSorted({ category: category, sortedArr: sortedBeers }));
     };
     sort();
   };
 
   return (
-    <div className={`sort-wrapper ${section}`}>
+    <div className={`sort-wrapper ${category}`}>
       <p className="title">Sort by</p>
       {list.map((element) => {
         let index = element.key;

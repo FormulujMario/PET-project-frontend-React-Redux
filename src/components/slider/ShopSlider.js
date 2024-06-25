@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import { sliderParams } from "../../store/ProductsSlice";
 
 const ShopSlider = ({ list }) => {
   const swiperElRef = useRef(null);
@@ -8,18 +9,18 @@ const ShopSlider = ({ list }) => {
       <div className="swiper-wrapper">
         <swiper-container
           ref={swiperElRef}
-          slides-per-view={list.sliderParams.slidesPerView}
-          navigation={list.sliderParams.navigation}
-          pagination={list.sliderParams.pagination}
-          direction={list.sliderParams.direction}
-          loop={list.sliderParams.loop}
-          space-between={list.sliderParams.spaceBetween}
+          slides-per-view={sliderParams.slidesPerView}
+          navigation={sliderParams.navigation}
+          pagination={sliderParams.pagination}
+          direction={sliderParams.direction}
+          loop={sliderParams.loop}
+          space-between={sliderParams.spaceBetween}
         >
           <div key={list.categories} className="shop-category">
             <h2>{list.categories}</h2>
             <div className="products">
-              {Object.entries(list.state)[0][1].length !== 0 ? (
-                Object.entries(list.state)[0][1].map((element) => {
+                 {list.state.length !== 0 ? (
+                list.state.map((element) => {
                   let myLink =
                     list.url +
                     element.name

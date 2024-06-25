@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toggleShow } from "../../store/ShowCartSlice";
 import { Link } from "react-router-dom";
 import InputProductsNumber from "../InputProductsNumber";
 import { TfiClose } from "react-icons/tfi";
@@ -64,7 +65,7 @@ const CartItem = () => {
                   <Link
                     to={item.href}
                     onClick={() => {
-                      cartDispatch({ type: "toggle" });
+                      cartDispatch(toggleShow());
                     }}
                   >
                     <img src={item.img} alt={item.name} />
@@ -74,7 +75,7 @@ const CartItem = () => {
                   <Link
                     to={item.href}
                     onClick={() => {
-                      cartDispatch({ type: "toggle" });
+                      cartDispatch(toggleShow());
                     }}
                   >
                     {item.name}

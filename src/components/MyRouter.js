@@ -12,7 +12,7 @@ function MyRouter() {
   const showCart = useSelector((state) => state.cartReducer.showCart);
   const lists = useSelector((state) => state.productsReducer.lists);
   const showMobileMenu = useSelector(
-    (state) => state.MobileMenuReducer.showMenu
+    (state) => state.mobileMenuReducer.showMenu
   );
   const pathsTemplate = (item) => {
     return item

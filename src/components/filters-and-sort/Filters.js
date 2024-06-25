@@ -1,8 +1,15 @@
 import { useDispatch } from "react-redux";
+import { setFiltered } from "../../store/ProductsSlice.js";
 import { STYLE, ALCOHOL, COLOR, QUANTITY } from "../CONSTANTS.js";
 import FilterItem from "./FilterItem.js";
 
-const Filters = ({ filters, productsList, filtersTypes, checkboxesRefs }) => {
+const Filters = ({
+  filters,
+  productsList,
+  category,
+  filtersTypes,
+  checkboxesRefs,
+}) => {
   const filterDispatch = useDispatch();
   const filtersProductsArr = [
     { style: STYLE },
@@ -29,10 +36,7 @@ const Filters = ({ filters, productsList, filtersTypes, checkboxesRefs }) => {
         filters.quantity.includes(element.quantityFilter)
       );
     });
-    filterDispatch({
-      type: "setFiltered",
-      payload: { productsList: productsList, filtereddArr: filtered },
-    });
+    filterDispatch(setFiltered({ category: category, filtereddArr: filtered }));
   };
 
   return (

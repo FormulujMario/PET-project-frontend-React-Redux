@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { activeCategoryToggle } from "../store/ActiveCategorySlice";
 import { FOOTER_MENU_LIST } from "./CONSTANTS";
 import { BsArrowRight } from "react-icons/bs";
 
@@ -21,13 +22,9 @@ const NextCategory = () => {
       );
     });
   const randomIndex = Math.floor(Math.random() * shopArr.length);
-  const firstButtonTitle = shopArr[randomIndex];
+  const firstButtonTitle = shopArr[randomIndex].replace(" ", "-");
   const changeCategory = () => {
-    activeCategoryDispatch({
-      type: "NOTALL",
-      payload: firstButtonTitle.replace(" ", "-"),
-      visible: firstButtonTitle.filterButton,
-    });
+    activeCategoryDispatch(activeCategoryToggle(firstButtonTitle));
     window.scrollTo({
       top: 0,
       left: 0,

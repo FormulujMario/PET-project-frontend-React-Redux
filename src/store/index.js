@@ -1,20 +1,24 @@
-import { createStore, combineReducers } from "redux";
-import activeCategoryReducer from "./ActiveCategoryReducer";
-import { cartReducer } from "./CartReducer";
-import { productsReducer } from "./ProductsReducer";
-import { filtersButtonReducer } from "./FiltersButtonReducer";
-import { MobileMenuReducer } from "./MibileMenuReducer";
-import { packageTypeReducer } from "./PackageTypeReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import activeCategoryReducer from "./ActiveCategorySlice";
+import cartReducer from "./ShowCartSlice";
+import filtersReducer from "./FiltersSlice";
+import productsReducer from "./ProductsSlice";
+import mobileMenuReducer from "./ShowMobileMenuSlice";
+import packageTypeReducer from "./PackageTypeSlice";
 
-const rootReducer = combineReducers({
-  activeCategoryReducer,
-  cartReducer,
-  filtersButtonReducer,
-  productsReducer,
-  MobileMenuReducer,
-  packageTypeReducer,
+export const store = configureStore({
+  reducer: {
+    activeCategoryReducer,
+    cartReducer,
+    filtersReducer,
+    productsReducer,
+    mobileMenuReducer,
+    packageTypeReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredPaths: ["productsReducer.lists", "packageTypeReducer.product"],
+      },
+    }),
 });
-export const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);

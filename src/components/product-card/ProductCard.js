@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { setPrice } from "../../store/PackageTypeSlice";
 import scssVars from "./../../scss/App.scss";
 import ProductPics from "./ProductPics";
 import ProductTitle from "./ProductTitle";
@@ -27,28 +28,21 @@ const ProductCard = () => {
             .replace(/\s/g, "-");
         if (itemUrl === window.location.pathname) {
           currentProduct = item;
-          dispatch({
-            type: "set price",
-            product: currentProduct,
-          });
+          dispatch(setPrice(currentProduct));
         }
         return currentProduct;
       });
   });
   return (
     <section className="product-card">
-      {windowInnerWidth >= scssVars.breakpoint_sm && (
-        <ProductPics />
-      )}
+      {windowInnerWidth >= scssVars.breakpoint_sm && <ProductPics />}
       <div className="product-info">
         <ProductTitle />
         {currentProduct.style && currentProduct.alcohol ? (
           <p className="beers-main-properties">{`${currentProduct.style} / abv ${currentProduct.alcohol}% / ibu ${currentProduct.color} / ${currentProduct.volume}l`}</p>
         ) : null}
         <p className="product-top-description">{currentProduct.description}</p>
-        {windowInnerWidth < scssVars.breakpoint_sm && (
-          <ProductPics />
-        )}
+        {windowInnerWidth < scssVars.breakpoint_sm && <ProductPics />}
         <AddToCartForm />
         <hr />
         {window.location.pathname.indexOf("beers") !== -1 && (

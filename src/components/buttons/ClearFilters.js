@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { setCleared } from "../../store/ProductsSlice";
 
 const ClearFilters = ({ setFilters, checkboxesRefs }) => {
   const clearFiltersDispatch = useDispatch();
@@ -13,7 +14,7 @@ const ClearFilters = ({ setFilters, checkboxesRefs }) => {
       });
     });
     setFilters(emptyFilters);
-    clearFiltersDispatch({ type: "setCleared" });
+    clearFiltersDispatch(setCleared());
   };
   return (
     <div className="clear-filters">

@@ -15,8 +15,7 @@ export const activeCategoryList = createSelector(
           active: activeCategory,
           products: allProducts,
         };
-      }
-      if (activeCategory === "ALL") {
+      } else {
         allProducts.push(list);
         productsOfActiveCategory = { active: "ALL", products: allProducts };
       }

@@ -1,21 +1,13 @@
 import { useDispatch } from "react-redux";
+import { activeCategoryToggle } from "../../store/ActiveCategorySlice";
 import { FOOTER_MENU_LIST, SOC_NET_ICONS } from "../CONSTANTS";
 import { Link } from "react-router-dom";
 
 const MainLinks = () => {
   const activeCategoryDispatch = useDispatch();
   const changeCategory = (subelement) => {
-    if (subelement.activeKey) {
-      subelement.activeKey !== "ALL"
-        ? activeCategoryDispatch({
-            type: "NOTALL",
-            payload: subelement.activeKey,
-          })
-        : activeCategoryDispatch({
-            type: "ALL",
-            payload: subelement.activeKey,
-          });
-    }
+    subelement.activeKey &&
+      activeCategoryDispatch(activeCategoryToggle(subelement.activeKey));
     window.scrollTo({
       top: 0,
       left: 0,

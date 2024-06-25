@@ -1,13 +1,14 @@
+import { useDispatch, useSelector } from "react-redux";
+import { filtersToggle } from "../../store/FiltersSlice.js";
 import NormalWhiteButton from "./NormalWhiteButton.js";
 import { BsArrowRight } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
 
 const ShowFilters = () => {
   const buttonVisibility = useSelector(
     (state) => state.activeCategoryReducer.visible
   );
   const filtersButtonTitle = useSelector(
-    (state) => state.filtersButtonReducer.filtersButtonTitle
+    (state) => state.filtersReducer.filtersButtonTitle
   );
   const openFiltersDispatch = useDispatch();
   return (
@@ -15,7 +16,7 @@ const ShowFilters = () => {
       text={filtersButtonTitle}
       icon={<BsArrowRight />}
       click={() => {
-        openFiltersDispatch({ type: filtersButtonTitle });
+        openFiltersDispatch(filtersToggle());
       }}
       isHidden={buttonVisibility}
     />
