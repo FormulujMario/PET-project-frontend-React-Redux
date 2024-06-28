@@ -11,7 +11,7 @@ import ArtItem from "./pages/ArtItem.js";
 import News from "./pages/News.js";
 import Contacts from "./pages/Contacts.js";
 
-const imgsPath = process.env.REACT_APP_IMAGES_PATH;
+export const imgsPath = process.env.REACT_APP_IMAGES_PATH;
 export const ghPagesPath = process.env.REACT_APP_GHPAGES_PATH;
 // ======================= Menu header =======================
 export const MENU_LIST = [

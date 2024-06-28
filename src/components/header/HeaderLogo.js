@@ -1,4 +1,4 @@
-import { ghPagesPath } from "../CONSTANTS";
+import { ghPagesPath, imgsPath } from "../CONSTANTS";
 import scssVars from "./../../scss/common/vars.scss";
 
 const HeaderLogo = () => {
@@ -71,10 +71,7 @@ const HeaderLogo = () => {
               </clipPath>
             </defs>
           </svg>
-          <img
-            src={process.env.REACT_APP_IMAGES_PATH + "/logo-bottom.png"}
-            alt="logo"
-          />
+          <img src={imgsPath + "/logo-bottom.png"} alt="logo" />
         </div>
       </a>
     </div>

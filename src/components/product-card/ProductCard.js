@@ -1,6 +1,6 @@
 import scrollUp from "../scrollUp";
 import { useDispatch } from "react-redux";
-import { listOfCategories } from "../CONSTANTS"; 
+import { ghPagesPath, listOfCategories } from "../CONSTANTS";
 import rewrite from "../rewrite";
 import { setPrice } from "../../store/PackageTypeSlice";
 import scssVars from "./../../scss/App.scss";
@@ -17,7 +17,7 @@ const ProductCard = () => {
   listOfCategories.lists.forEach((list) => {
     window.location.pathname.includes(list.url) &&
       list.productsList.map((item) => {
-        const itemUrl = list.url + rewrite(item.name);
+        const itemUrl = ghPagesPath.slice(0, -1) + list.url + rewrite(item.name);
         if (itemUrl === window.location.pathname) {
           currentProduct = item;
           dispatch(setPrice(currentProduct));

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import scssVars from "./../../scss/App.scss";
+import { imgsPath } from "../CONSTANTS";
 
 const ProductPics = () => {
   const currentProduct = useSelector(
@@ -19,7 +20,7 @@ const ProductPics = () => {
       picFirst = currentProduct.canImg;
       picSecond = currentProduct.img;
     } else {
-      picFirst = process.env.REACT_APP_IMAGES_PATH + "/CanBackground.png";
+      picFirst = imgsPath + "/CanBackground.png";
       picSecond = currentProduct.img;
       styleIfNone = { display: "none" };
     }

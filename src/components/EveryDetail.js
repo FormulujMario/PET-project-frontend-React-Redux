@@ -1,9 +1,10 @@
+import { imgsPath } from "./CONSTANTS";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const EveryDetail = () => {
   const [detailPic, setDetailPic] = useState(
-    process.env.REACT_APP_IMAGES_PATH + "/Every-detail-2.png"
+    imgsPath + "/Every-detail-2.png"
   );
   const changePic = (event) => {
     setDetailPic(event.target.src);
@@ -23,7 +24,7 @@ const EveryDetail = () => {
       <div className="other-imgs">
         <div>
           <img
-            src={process.env.REACT_APP_IMAGES_PATH + "/Every-detail-1.png"}
+            src={imgsPath + "/Every-detail-1.png"}
             alt="first piece of art"
             loading="lazy"
             onClick={(event) => changePic(event)}
@@ -31,7 +32,7 @@ const EveryDetail = () => {
         </div>
         <div>
           <img
-            src={process.env.REACT_APP_IMAGES_PATH + "/Every-detail-2.png"}
+            src={imgsPath + "/Every-detail-2.png"}
             alt="second piece of art"
             loading="lazy"
             onClick={(event) => changePic(event)}
@@ -39,7 +40,7 @@ const EveryDetail = () => {
         </div>
         <div>
           <img
-            src={process.env.REACT_APP_IMAGES_PATH + "/Every-detail-3.png"}
+            src={imgsPath + "/Every-detail-3.png"}
             alt="third piece of art"
             loading="lazy"
             onClick={(event) => changePic(event)}
@@ -50,7 +51,7 @@ const EveryDetail = () => {
             <div className="learn-more">
               <div className="learn-more-img">
                 <img
-                  src={process.env.REACT_APP_IMAGES_PATH + "/shop-now.png"}
+                  src={imgsPath + "/shop-now.png"}
                   alt=""
                   loading="lazy"
                 ></img>

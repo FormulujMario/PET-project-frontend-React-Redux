@@ -4,6 +4,7 @@ import { toggleShow } from "../../store/ShowCartSlice";
 import { Link } from "react-router-dom";
 import InputProductsNumber from "../InputProductsNumber";
 import { TfiClose } from "react-icons/tfi";
+import { imgsPath } from "../CONSTANTS";
 import NormalWhiteButton from "../buttons/NormalWhiteButton";
 
 const CartItem = () => {
@@ -112,10 +113,7 @@ const CartItem = () => {
       ) : (
         <div className="empty-cart">
           <div>Cart is empty</div>
-          <img
-            src={process.env.REACT_APP_IMAGES_PATH + "/empty-cart.png"}
-            alt=""
-          />
+          <img src={imgsPath + "/empty-cart.png"} alt="" />
           <div>{orderCompletedText}</div>
         </div>
       )}

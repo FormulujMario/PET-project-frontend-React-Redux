@@ -1,3 +1,4 @@
+import { imgsPath } from "./CONSTANTS";
 import NormalWhiteButton from "./buttons/NormalWhiteButton";
 import { BsArrowUpRight } from "react-icons/bs";
 
@@ -12,9 +13,7 @@ function LinkToAboutUs() {
         </h2>
       </div>
       <img
-        src={
-          process.env.REACT_APP_IMAGES_PATH + "/link-to-about-us-main-page.png"
-        }
+        src={imgsPath + "/link-to-about-us-main-page.png"}
         alt=""
         loading="lazy"
       />

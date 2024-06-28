@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { imgsPath } from "../components/CONSTANTS";
 
 const initialState = {
   package: "BOTTLE",
@@ -18,8 +19,7 @@ const PackageTypeSlice = createSlice({
         state.itemPrice = product.canPrice;
         product.canImg
           ? (state.mainImage = product.canImg)
-          : (state.mainImage =
-              process.env.REACT_APP_IMAGES_PATH + "/CanBackground.png");
+          : (state.mainImage = imgsPath + "/CanBackground.png");
       } else {
         state.itemPrice = product.price;
         state.mainImage = product.img;
@@ -32,8 +32,7 @@ const PackageTypeSlice = createSlice({
         state.itemPrice = state.product.canPrice;
         state.product.canImg
           ? (state.mainImage = state.product.canImg)
-          : (state.mainImage =
-              process.env.REACT_APP_IMAGES_PATH + "/CanBackground.png");
+          : (state.mainImage = imgsPath + "/CanBackground.png");
       } else {
         state.itemPrice = state.product.price;
         state.mainImage = state.product.img;

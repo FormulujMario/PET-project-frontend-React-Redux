@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BsCheckCircleFill, BsPlayCircle } from "react-icons/bs";
 import PageTitle from "../PageTitle";
 import { Table } from "antd";
-import { columns, dataSource } from "../CONSTANTS";
+import { columns, dataSource, imgsPath } from "../CONSTANTS";
 import EveryDetail from "../EveryDetail";
 
 const About = () => {
@@ -19,10 +19,7 @@ const About = () => {
             Kabinet Brewery - the unique <br />
             utopia of the finest taste
           </h2>
-          <img
-            src={process.env.REACT_APP_IMAGES_PATH + "/Beers.png"}
-            alt="beers bottles"
-          />
+          <img src={imgsPath + "/Beers.png"} alt="beers bottles" />
         </section>
         <section className="history">
           <div className="content-to-right">
@@ -40,7 +37,7 @@ const About = () => {
               beers hit the market in mid-2014.
             </p>
             <img
-              src={process.env.REACT_APP_IMAGES_PATH + "/About-history.png"}
+              src={imgsPath + "/About-history.png"}
               alt="view to kabinet lounge"
               loading="lazy"
             />
@@ -58,7 +55,7 @@ const About = () => {
             <div className="video-preview">
               <div className="preview-img">
                 <img
-                  src={process.env.REACT_APP_IMAGES_PATH + "/Video.png"}
+                  src={imgsPath + "/Video.png"}
                   alt="video preview"
                   loading="lazy"
                 />

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { activeCategoryToggle } from "../store/ActiveCategorySlice";
-import { FOOTER_MENU_LIST } from "./CONSTANTS";
+import { FOOTER_MENU_LIST, imgsPath } from "./CONSTANTS";
 import { BsArrowRight } from "react-icons/bs";
 
 const NextCategory = () => {
@@ -33,11 +33,7 @@ const NextCategory = () => {
   };
   return (
     <section className="next-category" onClick={changeCategory}>
-      <img
-        src={process.env.REACT_APP_IMAGES_PATH + "/Beers.png"}
-        alt=""
-        loading="lazy"
-      />
+      <img src={imgsPath + "/Beers.png"} alt="" loading="lazy" />
       <div className="title">
         <button>
           <h2>

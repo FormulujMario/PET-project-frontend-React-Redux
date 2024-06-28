@@ -7,6 +7,7 @@ import {
   QUESTIONS,
   SOC_NET_ICONS,
   ghPagesPath,
+  imgsPath,
 } from "../CONSTANTS.js";
 
 const ArtItem = () => {
@@ -69,10 +70,7 @@ const ArtItem = () => {
     return (
       <main>
         <section className="art-item-top">
-          <img
-            src={process.env.REACT_APP_IMAGES_PATH + "/ArtItemTopImage.png"}
-            alt=""
-          />
+          <img src={imgsPath + "/ArtItemTopImage.png"} alt="" />
           <h2>
             {currentArtItem.artist}
             <br />

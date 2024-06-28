@@ -1,5 +1,5 @@
 import { register } from "swiper/element/bundle";
-import { ghPagesPath } from "../CONSTANTS.js";
+import { ghPagesPath, imgsPath } from "../CONSTANTS.js";
 
 register();
 
@@ -16,31 +16,22 @@ const MainPageSlider = () => {
         >
           <swiper-slide>
             <div className="swiper-slide-item">
-              <a href={ghPagesPath + "/shop-beers/plavo"}>
-                <img
-                  src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                  alt="plavo beer"
-                />
+              <a href={ghPagesPath + "shop-beers/plavo"}>
+                <img src={imgsPath + "/slider.png"} alt="plavo beer" />
               </a>
             </div>
           </swiper-slide>
           <swiper-slide>
             <div className="swiper-slide-item">
-              <a href={ghPagesPath + "/shop-beers/plavo"}>
-                <img
-                  src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                  alt="plavo beer"
-                />
+              <a href={ghPagesPath + "shop-beers/plavo"}>
+                <img src={imgsPath + "/slider.png"} alt="plavo beer" />
               </a>
             </div>
           </swiper-slide>
           <swiper-slide>
             <div className="swiper-slide-item">
-              <a href={ghPagesPath + "/shop-beers/plavo"}>
-                <img
-                  src={process.env.REACT_APP_IMAGES_PATH + "/slider.png"}
-                  alt="plavo beer"
-                />
+              <a href={ghPagesPath + "shop-beers/plavo"}>
+                <img src={imgsPath + "/slider.png"} alt="plavo beer" />
               </a>
             </div>
           </swiper-slide>

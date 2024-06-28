@@ -1,3 +1,4 @@
+import { imgsPath } from "./CONSTANTS.js";
 import NormalTransparentButton from "./buttons/NormalTransparentButton.js";
 import NormalWhiteButtonWithoutBorder from "./buttons/NormalWhiteButtonWithoutBorder.js";
 
@@ -5,7 +6,7 @@ const KabinetLounge = () => {
   return (
     <section className="trip-to-kabinet-lounge">
       <img
-        src={process.env.REACT_APP_IMAGES_PATH + "/trip-to-kabinet-lounge.png"}
+        src={imgsPath + "/trip-to-kabinet-lounge.png"}
         alt="trip to kabinet lounge background"
         loading="lazy"
       />
