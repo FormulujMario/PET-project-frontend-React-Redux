@@ -1,23 +1,13 @@
+import scrollUp from "../scrollUp";
+import rewrite from "../rewrite";
 import { GALLERY } from "../CONSTANTS";
 import PageTitle from "../PageTitle";
 import { Link } from "react-router-dom";
 
 const Art = () => {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
+  scrollUp();
   const pathsToArtItem = (item) => {
-    let nameToURL = (name) => {
-      return name
-        .toLowerCase()
-        .replace(/[^\w ]/g, "")
-        .replace(/\s+/g, " ")
-        .replace(/\s/g, "-");
-    };
-    let fullPathArt =
-      "/art/" + nameToURL(item.artist) + "-" + nameToURL(item.name);
+    let fullPathArt = "/art/" + rewrite(item.artist) + "-" + rewrite(item.name);
     return { fullPathArt };
   };
   const classesArr = [

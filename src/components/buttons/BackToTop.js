@@ -1,16 +1,10 @@
 import { BsArrowUp } from "react-icons/bs";
+import scrollUp from "../scrollUp";
 
 const BackToTop = () => {
-  const backToTopFn = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
   return (
     <section className="back-to-top">
-      <button onClick={backToTopFn}>
+      <button onClick={scrollUp}>
         BACK TO TOP
         <BsArrowUp />
       </button>

@@ -1,16 +1,33 @@
-import { useDispatch } from "react-redux";
-import { setFiltered } from "../../store/ProductsSlice.js";
-import { STYLE, ALCOHOL, COLOR, QUANTITY } from "../CONSTANTS.js";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  STYLE,
+  ALCOHOL,
+  COLOR,
+  QUANTITY,
+  listOfCategories,
+} from "../CONSTANTS.js";
+import { changeProducts } from "../../store/ActiveProductsSlice.js";
 import FilterItem from "./FilterItem.js";
 
-const Filters = ({
-  filters,
-  productsList,
-  category,
-  filtersTypes,
-  checkboxesRefs,
-}) => {
+const Filters = ({ filters, checkboxesRefs }) => {
+  const activeCategory = useSelector(
+    (state) => state.activeCategoryReducer.activeCategory
+  );
+  let filtersTypes = [];
+  let allProducts = [];
   const filterDispatch = useDispatch();
+  listOfCategories.lists.map((list) => {
+    if (list.categories === activeCategory) {
+      filtersTypes = [
+        { style: list.style },
+        { alcohol: list.alcohol },
+        { color: list.color },
+        { quantity: list.quantity },
+      ];
+      allProducts = list.productsList;
+    }
+    return allProducts;
+  });
   const filtersProductsArr = [
     { style: STYLE },
     { alcohol: ALCOHOL },
@@ -27,7 +44,7 @@ const Filters = ({
     });
   };
   const filterFunction = () => {
-    const filtered = productsList.filter((element) => {
+    const filtered = allProducts.filter((element) => {
       ifZeroFn(filtersProductsArr);
       return (
         (filters.style.includes(element.style) &&
@@ -36,9 +53,8 @@ const Filters = ({
         filters.quantity.includes(element.quantityFilter)
       );
     });
-    filterDispatch(setFiltered({ category: category, filtereddArr: filtered }));
+    filterDispatch(changeProducts(filtered));
   };
-
   return (
     <div className="filters-wrapper">
       {filtersTypes.map((type) => {
@@ -70,4 +86,5 @@ const Filters = ({
     </div>
   );
 };
+
 export default Filters;

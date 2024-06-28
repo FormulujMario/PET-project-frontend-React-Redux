@@ -2,23 +2,28 @@ import { configureStore } from "@reduxjs/toolkit";
 import activeCategoryReducer from "./ActiveCategorySlice";
 import cartReducer from "./ShowCartSlice";
 import filtersReducer from "./FiltersSlice";
-import productsReducer from "./ProductsSlice";
 import mobileMenuReducer from "./ShowMobileMenuSlice";
 import packageTypeReducer from "./PackageTypeSlice";
+import activeProductsReducer from "./ActiveProductsSlice";
 
 export const store = configureStore({
   reducer: {
     activeCategoryReducer,
     cartReducer,
     filtersReducer,
-    productsReducer,
     mobileMenuReducer,
     packageTypeReducer,
+    activeProductsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredPaths: ["productsReducer.lists", "packageTypeReducer.product"],
+        // I have "Math.random" for several values in products objects, so it's just the way to avoid errors in console
+        ignoredPaths: ["packageTypeReducer", "activeProductsReducer"],
+        ignoredActions: [
+          "active products/changeProducts",
+          "package type/setPrice",
+        ],
       },
     }),
 });

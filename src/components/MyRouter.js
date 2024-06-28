@@ -1,36 +1,33 @@
 import "../scss/App.scss";
 import { useSelector } from "react-redux";
+import rewrite from "./rewrite.js";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HeaderMenuMobile from "./header/HeaderMenuMobile.js";
 import Cart from "./cart/Cart.js";
 import Header from "./header/Header.js";
-import { MENU_LIST, FOOTER_MENU_LIST, GALLERY } from "./CONSTANTS.js";
+import {
+  MENU_LIST,
+  FOOTER_MENU_LIST,
+  GALLERY,
+  listOfCategories,
+} from "./CONSTANTS.js";
 import NotFound from "./pages/NotFound.js";
 import Footer from "./footer/Footer.js";
 
 function MyRouter() {
   const showCart = useSelector((state) => state.cartReducer.showCart);
-  const lists = useSelector((state) => state.productsReducer.lists);
   const showMobileMenu = useSelector(
     (state) => state.mobileMenuReducer.showMenu
   );
-  const pathsTemplate = (item) => {
-    return item
-      .toLowerCase()
-      .replace(/[^\w ]/g, "")
-      .replace(/\s+/g, " ")
-      .replace(/\s/g, "-");
-  };
   const pathsToProducts = (list, item) => {
-    const fullPath = list.url + pathsTemplate(item.name);
+    const fullPath = list.url + rewrite(item.name);
     const element = item.element;
     return { fullPath, element };
   };
   const pathsToArtItem = (item) => {
     let fullPathArt = null;
     if (item.artist) {
-      fullPathArt =
-        "/art/" + pathsTemplate(item.artist) + "-" + pathsTemplate(item.name);
+      fullPathArt = "/art/" + rewrite(item.artist) + "-" + rewrite(item.name);
     }
     return { fullPathArt };
   };
@@ -56,7 +53,7 @@ function MyRouter() {
             );
           });
         })}
-        {lists.map((list) => {
+        {listOfCategories.lists.map((list) => {
           let productProperties = null;
           return list.productsList.map((item) => {
             productProperties = pathsToProducts(list, item);
@@ -79,7 +76,7 @@ function MyRouter() {
             />
           );
         })}
-        {lists.map((list) => {
+        {listOfCategories.lists.map((list) => {
           return (
             <Route
               key={list.categories}

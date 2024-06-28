@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
 import { useRef, useState } from "react";
-import { SORT_BY } from "../CONSTANTS.js";
+import { useSelector } from "react-redux";
 import Sort from "./Sort.js";
 import Filters from "./Filters.js";
+import { listOfCategories } from "../CONSTANTS.js";
 import ClearFilters from "../buttons/ClearFilters.js";
 
 const FiltersSection = () => {
@@ -18,56 +18,37 @@ const FiltersSection = () => {
     color: [],
     quantity: [],
   });
-  const sortRef = useRef([]);
-  const activeCategoryContext = useSelector(
+  const activeCategory = useSelector(
     (state) => state.activeCategoryReducer.activeCategory
   );
-  const products = useSelector((state) => state.productsReducer.lists);
-  const filtersButtonTitle = useSelector(
+  const filtersButtonVisible = useSelector(
     (state) => state.filtersReducer.filters
   );
-  if (activeCategoryContext !== "ALL") {
-    return products.map((list) => {
-      const filtersTypes = [
-        { style: list.style },
-        { alcohol: list.alcohol },
-        { color: list.color },
-        { quantity: list.quantity },
-      ];
-      if (list.categories === activeCategoryContext) {
-        return (
-          <div
-            key={activeCategoryContext}
-            className="filters-section"
-            style={{ display: filtersButtonTitle }}
-          >
-            <div className="sort-filters">
-              <Sort
-                list={SORT_BY}
-                state={list.state}
-                category={list.categories}
-                sortRef={sortRef}
-              />
-              <Filters
-                filters={filters}
-                productsList={list.productsList}
-                category={list.categories}
-                filtersTypes={filtersTypes}
-                checkboxesRefs={checkboxesRefs}
-              />
-            </div>
-            {(list.quantity || list.style || list.color || list.alcohol) && (
-              <ClearFilters
-                checkboxesRefs={checkboxesRefs}
-                setFilters={setFilters}
-              />
-            )}
-          </div>
-        );
-      } else {
-        return null;
-      }
-    });
+  if (activeCategory !== "ALL") {
+    return (
+      <div
+        className="filters-section"
+        style={{ display: filtersButtonVisible }}
+      >
+        <div className="sort-filters">
+          <Sort />
+          <Filters filters={filters} checkboxesRefs={checkboxesRefs} />
+        </div>
+        {listOfCategories.lists.map((list) => {
+          if (list.categories === activeCategory) {
+            if (list.quantity || list.style || list.color || list.alcohol) {
+              return (
+                <ClearFilters
+                  key={activeCategory}
+                  checkboxesRefs={checkboxesRefs}
+                  setFilters={setFilters}
+                />
+              );
+            } else return null;
+          } else return null;
+        })}
+      </div>
+    );
   }
 };
 export default FiltersSection;

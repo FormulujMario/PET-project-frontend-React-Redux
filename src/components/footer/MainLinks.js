@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { activeCategoryToggle } from "../../store/ActiveCategorySlice";
+import scrollUp from "../scrollUp";
 import { FOOTER_MENU_LIST, SOC_NET_ICONS } from "../CONSTANTS";
 import { Link } from "react-router-dom";
 
@@ -8,11 +9,7 @@ const MainLinks = () => {
   const changeCategory = (subelement) => {
     subelement.activeKey &&
       activeCategoryDispatch(activeCategoryToggle(subelement.activeKey));
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
+    scrollUp();
   };
 
   return (

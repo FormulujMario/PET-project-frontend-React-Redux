@@ -1,16 +1,15 @@
-import { useSelector } from "react-redux";
 import { Row, Tab } from "react-bootstrap";
 import ShopCategories from "./ShopCategories";
+import { listOfCategories } from "../CONSTANTS";
 
 const ShopTabsProductsRow = () => {
-  const lists = useSelector((state) => state.productsReducer.lists);
   return (
     <Row>
       <Tab.Content>
         <Tab.Pane key="ALL" eventKey="ALL">
           <ShopCategories />
         </Tab.Pane>
-        {lists.map((list) => {
+        {listOfCategories.lists.map((list) => {
           return (
             <Tab.Pane key={list.categories} eventKey={list.categories}>
               <ShopCategories />

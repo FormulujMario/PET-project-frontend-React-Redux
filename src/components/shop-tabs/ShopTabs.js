@@ -1,17 +1,19 @@
 import { useDispatch, useSelector } from "react-redux";
+import { activeCategoryToggle } from "../../store/ActiveCategorySlice.js";
+import { changeProducts } from "../../store/ActiveProductsSlice.js";
 import { TabContainer, Nav, Row } from "react-bootstrap";
 import ShowFilters from "../buttons/ShowFilters.js";
 import FiltersSection from "../filters-and-sort/FiltersSection.js";
 import ShopTabsProductsRow from "./ShopTabsProductsRow.js";
-import { activeCategoryToggle } from "../../store/ActiveCategorySlice.js";
 
 const ShopTabs = () => {
-  const activeCategoryDispatch = useDispatch();
+  const dispatch = useDispatch();
   const activeCategoryContext = useSelector(
     (state) => state.activeCategoryReducer.activeCategory
   );
   const changeCategory = (selectedKey) => {
-    activeCategoryDispatch(activeCategoryToggle(selectedKey));
+    dispatch(activeCategoryToggle(selectedKey));
+    dispatch(changeProducts(null));
   };
   return (
     <section className="shop-section">
@@ -33,7 +35,7 @@ const ShopTabs = () => {
           </Nav>
         </Row>
         <Row>
-          <FiltersSection />
+          <FiltersSection key={activeCategoryContext}/>
         </Row>
         <ShopTabsProductsRow />
       </TabContainer>

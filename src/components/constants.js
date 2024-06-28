@@ -1000,6 +1000,47 @@ export const QUANTITY = [
     name: 6,
   },
 ];
+// ======= Lists of shop categories and slider parameters =======
+export const shopSliderParams = {
+  slidesPerView: "4",
+  navigation: "false",
+  pagination: "false",
+  direction: "horizontal",
+  loop: "false",
+  spaceBetween: "30",
+};
+
+export const listOfCategories = {
+  lists: [
+    {
+      categories: "BEER-PACKS",
+      productsList: SHOP_MAIN_BEER_PACKS_LIST,
+      url: "/shop-beer-packs/",
+      sectionFilter: "beer-packs",
+      quantity: true,
+    },
+    {
+      categories: "BEERS",
+      productsList: SHOP_MAIN_BEERS_LIST,
+      url: "/shop-beers/",
+      sectionFilter: "beers",
+      style: true,
+      alcohol: true,
+      color: true,
+      quantity: false,
+    },
+    {
+      categories: "PIVOLADA",
+      productsList: SHOP_MAIN_PIVOLADA_LIST,
+      url: "/shop-pivolada/",
+    },
+    {
+      categories: "MERCH",
+      productsList: SHOP_MAIN_MERCH_LIST,
+      url: "/shop-merch/",
+    },
+  ],
+};
 // ======================= Awards ========================
 export const dataSource = [
   {
