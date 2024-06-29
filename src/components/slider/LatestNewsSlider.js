@@ -3,6 +3,9 @@ import { useRef } from "react";
 import { CentralSlide, SideSlide } from "./NewsSlides";
 
 const LatestNewsSlider = ({ list }) => {
+  if (!list) {
+    throw new Error("News list in LatestNewsSlider is missing");
+  }
   const windowInnerWidth = document.documentElement.clientWidth;
   let sliderParams = {
     slidesPerView: "3",
@@ -28,13 +31,14 @@ const LatestNewsSlider = ({ list }) => {
           loop={sliderParams.loop}
           space-between={sliderParams.spaceBetween}
         >
-          {list.map((element, i) => {
-            return i === 1 ? (
-              <CentralSlide key={`item-${element.title}`} element={element} />
-            ) : (
-              <SideSlide key={`item-${element.title}`} element={element} />
-            );
-          })}
+          {list &&
+            list.map((element, i) => {
+              return i === 1 ? (
+                <CentralSlide key={`item-${element.title}`} element={element} />
+              ) : (
+                <SideSlide key={`item-${element.title}`} element={element} />
+              );
+            })}
         </swiper-container>
       </div>
     </div>

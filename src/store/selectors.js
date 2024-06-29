@@ -7,8 +7,11 @@ export const activeCategoryList = createSelector(
     (state) => state.activeProductsReducer.productsList,
   ],
   (activeCategory, productsList) => {
+    if (!listOfCategories) {
+      throw new Error("Categories list in activeCategoryList is missing");
+    }
     let allProducts = [];
-    if (!productsList) {
+    if (!productsList && listOfCategories) {
       listOfCategories.lists.forEach((list) => {
         if (list.categories === activeCategory) {
           allProducts = list.productsList;

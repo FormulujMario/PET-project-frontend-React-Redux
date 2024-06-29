@@ -10,24 +10,30 @@ import { changeProducts } from "../../store/ActiveProductsSlice.js";
 import FilterItem from "./FilterItem.js";
 
 const Filters = ({ filters, checkboxesRefs }) => {
+  if (!STYLE || !ALCOHOL || !COLOR || !QUANTITY || !listOfCategories) {
+    throw new Error("Some list in Filters is missing");
+  }
   const activeCategory = useSelector(
     (state) => state.activeCategoryReducer.activeCategory
   );
   let filtersTypes = [];
   let allProducts = [];
   const filterDispatch = useDispatch();
-  listOfCategories.lists.map((list) => {
-    if (list.categories === activeCategory) {
-      filtersTypes = [
-        { style: list.style },
-        { alcohol: list.alcohol },
-        { color: list.color },
-        { quantity: list.quantity },
-      ];
-      allProducts = list.productsList;
-    }
-    return allProducts;
-  });
+  if (listOfCategories) {
+    listOfCategories.lists.map((list) => {
+      if (list.categories === activeCategory) {
+        filtersTypes = [
+          { style: list.style },
+          { alcohol: list.alcohol },
+          { color: list.color },
+          { quantity: list.quantity },
+        ];
+        allProducts = list.productsList;
+      }
+      return allProducts;
+    });
+  }
+
   const filtersProductsArr = [
     { style: STYLE },
     { alcohol: ALCOHOL },

@@ -5,17 +5,27 @@ import LinkToAboutUs from "../LinkToAboutUs.js";
 import KabinetProducts from "../KabinetProducts.js";
 import KabinetLounge from "../KabinetLounge.js";
 import LatestNews from "../LatestNews.js";
+import { ErrorBoundary } from "react-error-boundary";
+import { Fallback } from "../Fallback.js";
 
 const Home = () => {
   return (
     <main>
       <PageTitle title="CRAFT BREWERY" />
       <MainPageSlider />
-      <Bestsellers />
-      <LinkToAboutUs />
-      <KabinetProducts />
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <Bestsellers />
+      </ErrorBoundary>
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <LinkToAboutUs />
+      </ErrorBoundary>
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <KabinetProducts />
+      </ErrorBoundary>
       <KabinetLounge />
-      <LatestNews />
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <LatestNews />
+      </ErrorBoundary>
     </main>
   );
 };

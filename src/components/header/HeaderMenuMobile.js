@@ -6,6 +6,9 @@ import { PiBeerBottle } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
 const HeaderMenuMobile = () => {
+  if (!MENU_LIST) {
+    throw new Error("Menu list in HeaderMenuMobile is missing");
+  }
   const dispatch = useDispatch();
   return (
     <div className="mobile-menu">
@@ -29,23 +32,24 @@ const HeaderMenuMobile = () => {
         </div>
         <nav>
           <ul>
-            {MENU_LIST.map((item) => {
-              return (
-                item.link !== "/" && (
-                  <li
-                    key={item.name}
-                    onClick={() => {
-                      dispatch(menuToggle());
-                    }}
-                  >
-                    <PiBeerBottle />
-                    <Link key={item.name} to={item.link}>
-                      {item.name}
-                    </Link>
-                  </li>
-                )
-              );
-            })}
+            {MENU_LIST &&
+              MENU_LIST.map((item) => {
+                return (
+                  item.link !== "/" && (
+                    <li
+                      key={item.name}
+                      onClick={() => {
+                        dispatch(menuToggle());
+                      }}
+                    >
+                      <PiBeerBottle />
+                      <Link key={item.name} to={item.link}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  )
+                );
+              })}
           </ul>
         </nav>
       </div>

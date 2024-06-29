@@ -7,6 +7,8 @@ import {
   NEWS_VIRTUAL,
   NEWS_TRAVEL,
 } from "./CONSTANTS.js";
+import { ErrorBoundary } from "react-error-boundary";
+import { Fallback } from "./Fallback.js";
 
 const NewsTabs = () => {
   return (
@@ -36,25 +38,27 @@ const NewsTabs = () => {
             </Nav.Item>
           </Nav>
         </Row>
-        <Row>
-          <Tab.Content>
-            <Tab.Pane eventKey="ALL">
-              <NewsContainer list={NEWS} />
-            </Tab.Pane>
-            <Tab.Pane eventKey="NEWS">
-              <NewsContainer list={NEWS_NEWS} />
-            </Tab.Pane>
-            <Tab.Pane eventKey="PRESS">
-              <NewsContainer list={NEWS_PRESS} />
-            </Tab.Pane>
-            <Tab.Pane eventKey="VIRTUAL EXHIBITION">
-              <NewsContainer list={NEWS_VIRTUAL} />
-            </Tab.Pane>
-            <Tab.Pane eventKey="WE TRAVEL WITH RECIPES">
-              <NewsContainer list={NEWS_TRAVEL} />
-            </Tab.Pane>
-          </Tab.Content>
-        </Row>
+        <ErrorBoundary FallbackComponent={Fallback}>
+          <Row>
+            <Tab.Content>
+              <Tab.Pane eventKey="ALL">
+                <NewsContainer list={NEWS} />
+              </Tab.Pane>
+              <Tab.Pane eventKey="NEWS">
+                <NewsContainer list={NEWS_NEWS} />
+              </Tab.Pane>
+              <Tab.Pane eventKey="PRESS">
+                <NewsContainer list={NEWS_PRESS} />
+              </Tab.Pane>
+              <Tab.Pane eventKey="VIRTUAL EXHIBITION">
+                <NewsContainer list={NEWS_VIRTUAL} />
+              </Tab.Pane>
+              <Tab.Pane eventKey="WE TRAVEL WITH RECIPES">
+                <NewsContainer list={NEWS_TRAVEL} />
+              </Tab.Pane>
+            </Tab.Content>
+          </Row>
+        </ErrorBoundary>
       </TabContainer>
     </section>
   );

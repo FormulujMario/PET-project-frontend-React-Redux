@@ -2,6 +2,9 @@ import scssVars from "./../../scss/App.scss";
 import { Link } from "react-router-dom";
 
 const KBProductsModuleSlider = ({ list }) => {
+  if (!list) {
+    throw new Error("Products list in KBProductsModuleSlider is missing");
+  }
   const windowInnerWidth = document.documentElement.clientWidth;
   let sliderParams = {
     slidesPerView: "4",
@@ -54,9 +57,10 @@ const KBProductsModuleSlider = ({ list }) => {
           loop={sliderParams.loop}
           space-between={sliderParams.spaceBetween}
         >
-          {list.map((element) => {
-            return element.price ? product(element) : shopNow(element);
-          })}
+          {list &&
+            list.map((element) => {
+              return element.price ? product(element) : shopNow(element);
+            })}
         </swiper-container>
       </div>
       <div className="swiper-button-prev"></div>

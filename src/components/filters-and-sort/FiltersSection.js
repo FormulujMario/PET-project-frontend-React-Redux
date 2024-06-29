@@ -6,6 +6,9 @@ import { listOfCategories } from "../CONSTANTS.js";
 import ClearFilters from "../buttons/ClearFilters.js";
 
 const FiltersSection = () => {
+  if (!listOfCategories) {
+    throw new Error("Some list in FiltersSection is missing");
+  }
   const [filters, setFilters] = useState({
     style: [],
     alcohol: [],
@@ -34,19 +37,20 @@ const FiltersSection = () => {
           <Sort />
           <Filters filters={filters} checkboxesRefs={checkboxesRefs} />
         </div>
-        {listOfCategories.lists.map((list) => {
-          if (list.categories === activeCategory) {
-            if (list.quantity || list.style || list.color || list.alcohol) {
-              return (
-                <ClearFilters
-                  key={activeCategory}
-                  checkboxesRefs={checkboxesRefs}
-                  setFilters={setFilters}
-                />
-              );
+        {listOfCategories &&
+          listOfCategories.lists.map((list) => {
+            if (list.categories === activeCategory) {
+              if (list.quantity || list.style || list.color || list.alcohol) {
+                return (
+                  <ClearFilters
+                    key={activeCategory}
+                    checkboxesRefs={checkboxesRefs}
+                    setFilters={setFilters}
+                  />
+                );
+              } else return null;
             } else return null;
-          } else return null;
-        })}
+          })}
       </div>
     );
   }

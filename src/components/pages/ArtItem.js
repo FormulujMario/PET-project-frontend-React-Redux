@@ -11,45 +11,49 @@ import {
 } from "../CONSTANTS.js";
 
 const ArtItem = () => {
+  if (!GALLERY || !QUESTIONS || !SOC_NET_ICONS) {
+    throw new Error("Some list in ArtItem is missing");
+  }
   scrollUp();
-  let currentArtItem = {};
+  let currentArtItem = null;
   let prevItemPath = "";
   let nextItemPath = "";
   const pathsToArtItem = (arr) => {
-    arr.map((item) => {
-      const itemUrl = `${ghPagesPath}art/${rewrite(item.artist)}-${rewrite(
-        item.name
-      )}`;
-      if (itemUrl === window.location.pathname) {
-        currentArtItem = {
-          itemIndex: arr.indexOf(item),
-          name: item.name,
-          artist: item.artist,
-          img: item.img,
-          interview: item.interview,
-          description: item.description,
-          site: item.site,
-        };
-        let prevItem = arr[currentArtItem.itemIndex - 1];
-        const prevOrNextItemURL = (atrist, name) => {
-          return `/art/${rewrite(atrist)}-${rewrite(name)}`;
-        };
-        if (arr.indexOf(prevItem) >= 0) {
-          if (!prevItem.artist) {
-            prevItem = arr[currentArtItem.itemIndex - 2];
+    arr &&
+      arr.map((item) => {
+        const itemUrl = `${ghPagesPath}art/${rewrite(item.artist)}-${rewrite(
+          item.name
+        )}`;
+        if (itemUrl === window.location.pathname) {
+          currentArtItem = {
+            itemIndex: arr.indexOf(item),
+            name: item.name,
+            artist: item.artist,
+            img: item.img,
+            interview: item.interview,
+            description: item.description,
+            site: item.site,
+          };
+          let prevItem = arr[currentArtItem.itemIndex - 1];
+          const prevOrNextItemURL = (atrist, name) => {
+            return `/art/${rewrite(atrist)}-${rewrite(name)}`;
+          };
+          if (arr.indexOf(prevItem) >= 0) {
+            if (!prevItem.artist) {
+              prevItem = arr[currentArtItem.itemIndex - 2];
+            }
+            prevItemPath = prevOrNextItemURL(prevItem.artist, prevItem.name);
           }
-          prevItemPath = prevOrNextItemURL(prevItem.artist, prevItem.name);
-        }
-        let nextItem = arr[currentArtItem.itemIndex + 1];
-        if (arr.indexOf(nextItem) < arr.length && arr.indexOf(nextItem) > 0) {
-          if (!nextItem.artist) {
-            nextItem = arr[currentArtItem.itemIndex + 2];
+          let nextItem = arr[currentArtItem.itemIndex + 1];
+          if (arr.indexOf(nextItem) < arr.length && arr.indexOf(nextItem) > 0) {
+            if (!nextItem.artist) {
+              nextItem = arr[currentArtItem.itemIndex + 2];
+            }
+            nextItemPath = prevOrNextItemURL(nextItem.artist, nextItem.name);
           }
-          nextItemPath = prevOrNextItemURL(nextItem.artist, nextItem.name);
         }
-      }
-      return { currentArtItem, prevItemPath, nextItemPath };
-    });
+        return { currentArtItem, prevItemPath, nextItemPath };
+      });
   };
   const prevOrNextButton = (itemClass, text, icon, path, iconPosition) => {
     return (
@@ -79,23 +83,25 @@ const ArtItem = () => {
         </section>
         <section className="art-item-interview">
           <div className="soc-net-icons">
-            {SOC_NET_ICONS.map((icon) => {
-              return icon.svg;
-            })}
+            {SOC_NET_ICONS &&
+              SOC_NET_ICONS.map((icon) => {
+                return icon.svg;
+              })}
           </div>
           <div>
-            {QUESTIONS.map((question) => {
-              return (
-                <p key={question}>
-                  <b>{question}</b>
-                  <br />
-                  <br />
-                  <span>
-                    {currentArtItem.interview[QUESTIONS.indexOf(question)]}
-                  </span>
-                </p>
-              );
-            })}
+            {QUESTIONS &&
+              QUESTIONS.map((question) => {
+                return (
+                  <p key={question}>
+                    <b>{question}</b>
+                    <br />
+                    <br />
+                    <span>
+                      {currentArtItem.interview[QUESTIONS.indexOf(question)]}
+                    </span>
+                  </p>
+                );
+              })}
           </div>
         </section>
         <section className="art-item-desc">

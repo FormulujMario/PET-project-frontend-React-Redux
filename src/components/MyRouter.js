@@ -13,8 +13,13 @@ import {
 } from "./CONSTANTS.js";
 import NotFound from "./pages/NotFound.js";
 import Footer from "./footer/Footer.js";
+import { ErrorBoundary } from "react-error-boundary";
+import { Fallback } from "./Fallback.js";
 
 function MyRouter() {
+  if (!MENU_LIST || !FOOTER_MENU_LIST || !GALLERY || !listOfCategories) {
+    throw new Error("Some list in MyRouter is missing");
+  }
   const showCart = useSelector((state) => state.cartReducer.showCart);
   const showMobileMenu = useSelector(
     (state) => state.mobileMenuReducer.showMenu
@@ -33,26 +38,38 @@ function MyRouter() {
   };
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      {showMobileMenu && <HeaderMenuMobile />}
-      {showCart && <Cart />}
-      <Header />
+      {showMobileMenu && (
+        <ErrorBoundary FallbackComponent={Fallback}>
+          <HeaderMenuMobile />
+        </ErrorBoundary>
+      )}
+      {showCart && (
+        <ErrorBoundary FallbackComponent={Fallback}>
+          <Cart />
+        </ErrorBoundary>
+      )}
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <Header />
+      </ErrorBoundary>
       <Routes>
-        {MENU_LIST.map((item) => {
-          return (
-            <Route key={item.name} path={item.link} element={item.element} />
-          );
-        })}
-        {FOOTER_MENU_LIST.map((item) => {
-          return item.list.map((subelement) => {
+        {MENU_LIST &&
+          MENU_LIST.map((item) => {
             return (
-              <Route
-                key={subelement.name}
-                path={subelement.link}
-                element={subelement.element}
-              />
+              <Route key={item.name} path={item.link} element={item.element} />
             );
-          });
-        })}
+          })}
+        {FOOTER_MENU_LIST &&
+          FOOTER_MENU_LIST.map((item) => {
+            return item.list.map((subelement) => {
+              return (
+                <Route
+                  key={subelement.name}
+                  path={subelement.link}
+                  element={subelement.element}
+                />
+              );
+            });
+          })}
         {listOfCategories.lists.map((list) => {
           let productProperties = null;
           return list.productsList.map((item) => {
@@ -66,29 +83,33 @@ function MyRouter() {
             );
           });
         })}
-        {GALLERY.map((item) => {
-          let artItemProperties = pathsToArtItem(item);
-          return (
-            <Route
-              key={`${item.artist}-${item.name}`}
-              path={artItemProperties.fullPathArt}
-              element={item.element}
-            />
-          );
-        })}
-        {listOfCategories.lists.map((list) => {
-          return (
-            <Route
-              key={list.categories}
-              exact
-              path={list.url}
-              element={<Navigate to="/shop" replace />}
-            />
-          );
-        })}
+        {GALLERY &&
+          GALLERY.map((item) => {
+            let artItemProperties = pathsToArtItem(item);
+            return (
+              <Route
+                key={`${item.artist}-${item.name}`}
+                path={artItemProperties.fullPathArt}
+                element={item.element}
+              />
+            );
+          })}
+        {listOfCategories &&
+          listOfCategories.lists.map((list) => {
+            return (
+              <Route
+                key={list.categories}
+                exact
+                path={list.url}
+                element={<Navigate to="/shop" replace />}
+              />
+            );
+          })}
         <Route key="not-found" path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <Footer />
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }

@@ -10,21 +10,27 @@ import ProductDescription from "./ProductDescripion";
 import AddToCartForm from "./AddToCartForm";
 
 const ProductCard = () => {
+  if (!listOfCategories) {
+    throw new Error("Categories list in ProductCard is missing");
+  }
   scrollUp();
   const windowInnerWidth = document.documentElement.clientWidth;
   const dispatch = useDispatch();
-  let currentProduct = {};
-  listOfCategories.lists.forEach((list) => {
-    window.location.pathname.includes(list.url) &&
-      list.productsList.map((item) => {
-        const itemUrl = ghPagesPath.slice(0, -1) + list.url + rewrite(item.name);
-        if (itemUrl === window.location.pathname) {
-          currentProduct = item;
-          dispatch(setPrice(currentProduct));
-        }
-        return currentProduct;
-      });
-  });
+  let currentProduct = null;
+  if (listOfCategories) {
+    listOfCategories.lists.forEach((list) => {
+      window.location.pathname.includes(list.url) &&
+        list.productsList.map((item) => {
+          const itemUrl =
+            ghPagesPath.slice(0, -1) + list.url + rewrite(item.name);
+          if (itemUrl === window.location.pathname) {
+            currentProduct = item;
+            dispatch(setPrice(currentProduct));
+          }
+          return currentProduct;
+        });
+    });
+  }
   if (currentProduct) {
     return (
       <section className="product-card">

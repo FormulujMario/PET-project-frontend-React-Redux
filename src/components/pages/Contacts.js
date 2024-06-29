@@ -2,6 +2,9 @@ import PageTitle from "../PageTitle";
 import { KB_CONTACTS, KL_CONTACTS, OPENING_HOURS } from "../CONSTANTS";
 
 const Contacts = () => {
+  if (!KB_CONTACTS || !KL_CONTACTS || !OPENING_HOURS) {
+    throw new Error("Contact info in Contacts is missing");
+  }
   return (
     <main>
       <PageTitle title="CONTACTS" />

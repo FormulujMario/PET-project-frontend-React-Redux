@@ -6,6 +6,9 @@ import { SORT_BY } from "../CONSTANTS";
 import { changeProducts } from "../../store/ActiveProductsSlice";
 
 const Sort = () => {
+  if (!SORT_BY) {
+    throw new Error("Sort list in Sort is missing");
+  }
   const activeCategory = useSelector(
     (state) => state.activeCategoryReducer.activeCategory
   );
@@ -21,7 +24,10 @@ const Sort = () => {
     const classNameForSorting = (element) => {
       return element.className === event.currentTarget.className;
     };
-    const propertyForSorting = SORT_BY.find(classNameForSorting).connectedTo;
+    let propertyForSorting = null;
+    if (SORT_BY) {
+      propertyForSorting = SORT_BY.find(classNameForSorting).connectedTo;
+    }
     const sortedBeers = activeProducts.slice().sort(function (a, b) {
       return event.currentTarget.className === "low-to-high-price"
         ? a.price - b.price
@@ -32,19 +38,20 @@ const Sort = () => {
   return (
     <div className={`sort-wrapper ${activeCategory}`}>
       <p className="title">Sort by</p>
-      {SORT_BY.map((element) => {
-        let index = element.key;
-        return (
-          <div
-            key={element.property}
-            ref={(element) => (sortRef.current[index] = element)}
-            className={element.className}
-            onClick={onclickSortBy}
-          >
-            {element.property}
-          </div>
-        );
-      })}
+      {SORT_BY &&
+        SORT_BY.map((element) => {
+          let index = element.key;
+          return (
+            <div
+              key={element.property}
+              ref={(element) => (sortRef.current[index] = element)}
+              className={element.className}
+              onClick={onclickSortBy}
+            >
+              {element.property}
+            </div>
+          );
+        })}
     </div>
   );
 };

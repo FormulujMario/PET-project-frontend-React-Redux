@@ -4,6 +4,9 @@ import { BsArrowUpRight } from "react-icons/bs";
 import LatestNewsSlider from "./slider/LatestNewsSlider.js";
 
 const LatestNews = () => {
+  if (!NEWS_LIST) {
+    throw new Error("News list in LatestNews is missing");
+  }
   const news = NEWS_LIST;
   return (
     <section className="latest-news">
@@ -15,7 +18,7 @@ const LatestNews = () => {
           href="/news"
         />
       </div>
-      <LatestNewsSlider list={news} />
+      {news && <LatestNewsSlider list={news} />}
     </section>
   );
 };

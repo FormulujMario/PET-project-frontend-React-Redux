@@ -35,7 +35,7 @@ const ShopTabs = () => {
           </Nav>
         </Row>
         <Row>
-          <FiltersSection key={activeCategoryContext}/>
+          <FiltersSection key={activeCategoryContext} />
         </Row>
         <ShopTabsProductsRow />
       </TabContainer>

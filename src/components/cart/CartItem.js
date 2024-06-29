@@ -8,7 +8,10 @@ import { imgsPath } from "../CONSTANTS";
 import NormalWhiteButton from "../buttons/NormalWhiteButton";
 
 const CartItem = () => {
-  const storageArr = JSON.parse(localStorage.cart);
+  let storageArr = [];
+  if (localStorage.cart) {
+    storageArr = JSON.parse(localStorage.cart);
+  }
   const [storageArrState, setStorageArrState] = useState(storageArr);
   const [orderCompletedText, setOrderCompletedText] = useState();
   const cartDispatch = useDispatch();

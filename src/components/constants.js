@@ -10,6 +10,8 @@ import Art from "./pages/Art.js";
 import ArtItem from "./pages/ArtItem.js";
 import News from "./pages/News.js";
 import Contacts from "./pages/Contacts.js";
+import { ErrorBoundary } from "react-error-boundary";
+import { Fallback } from "./Fallback.js";
 
 export const imgsPath = process.env.REACT_APP_IMAGES_PATH;
 export const ghPagesPath = process.env.REACT_APP_GHPAGES_PATH;
@@ -21,10 +23,34 @@ export const MENU_LIST = [
     link: "/shop",
     element: <Shop activeKey="ALL" filterButton={"none"} />,
   },
-  { name: "ABOUT", link: "/about", element: <About /> },
-  { name: "ART", link: "/art", element: <Art /> },
+  {
+    name: "ABOUT",
+    link: "/about",
+    element: (
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <About />
+      </ErrorBoundary>
+    ),
+  },
+  {
+    name: "ART",
+    link: "/art",
+    element: (
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <Art />
+      </ErrorBoundary>
+    ),
+  },
   { name: "NEWS", link: "/news", element: <News /> },
-  { name: "CONTACT", link: "/contacts", element: <Contacts /> },
+  {
+    name: "CONTACT",
+    link: "/contacts",
+    element: (
+      <ErrorBoundary FallbackComponent={Fallback}>
+        <Contacts />
+      </ErrorBoundary>
+    ),
+  },
 ];
 // ======================= Index page =======================
 export const BESTSELLERS_LIST = [
@@ -214,15 +240,39 @@ export const FOOTER_MENU_LIST = [
   {
     name: "ABOUT US",
     list: [
-      { name: "ABOUT", link: "/about", element: <About /> },
-      { name: "ART", link: "/art", element: <Art /> },
+      {
+        name: "ABOUT",
+        link: "/about",
+        element: (
+          <ErrorBoundary FallbackComponent={Fallback}>
+            <About />
+          </ErrorBoundary>
+        ),
+      },
+      {
+        name: "ART",
+        link: "/art",
+        element: (
+          <ErrorBoundary FallbackComponent={Fallback}>
+            <Art />
+          </ErrorBoundary>
+        ),
+      },
       { name: "NEWS", link: "/news", element: <News /> },
     ],
   },
   {
     name: "HELP",
     list: [
-      { name: "CONTACT", link: "/contacts", element: <Contacts /> },
+      {
+        name: "CONTACT",
+        link: "/contacts",
+        element: (
+          <ErrorBoundary FallbackComponent={Fallback}>
+            <Contacts />
+          </ErrorBoundary>
+        ),
+      },
       { name: "SHIPPING", link: "", element: "" },
       { name: "RETURNED", link: "", element: "" },
       { name: "TERMS & CONDITIONS", link: "", element: "" },

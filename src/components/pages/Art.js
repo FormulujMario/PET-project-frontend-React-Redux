@@ -44,6 +44,9 @@ const Art = () => {
   let arrForRender = [];
   let restOfGallery = null;
   const createArrForGalleryRender = (arr) => {
+    if (!arr) {
+      throw new Error("Arts list in createArrForGalleryRender is missing");
+    }
     copyOfGalleryArr = JSON.parse(JSON.stringify(arr));
     if (copyOfGalleryArr.length !== 0) {
       if (copyOfGalleryArr.length < classesArr.length) {
@@ -64,51 +67,52 @@ const Art = () => {
   return (
     <main>
       <PageTitle title="ART GALLERY" />
-      {arrForRender.map((arr) => {
-        indexOfRenderingArr++;
-        return (
-          <div
-            key={`art-gallery-${indexOfRenderingArr}`}
-            className="gallery-container"
-          >
-            {arr.map((item) => {
-              galleryItemRender(item, i);
-              i++;
-              if (!galleryItem.imageItem) {
-                return (
-                  <div
-                    key={galleryItem.nameItem}
-                    className={`item-without-pic ${galleryItem.classItem}`}
-                  >
-                    <p>{galleryItem.nameItem}</p>
-                  </div>
-                );
-              } else {
-                let myLink = pathsToArtItem(item);
-                return (
-                  <Link
-                    key={galleryItem.nameItem}
-                    className={`gallery-item ${galleryItem.classItem}`}
-                    to={myLink.fullPathArt}
-                  >
-                    <div>
-                      <div className="item-img">
-                        <img
-                          src={galleryItem.imageItem}
-                          alt={galleryItem.nameItem}
-                        />
-                      </div>
-                      <p>
-                        {galleryItem.artist} <br /> {galleryItem.nameItem}
-                      </p>
+      {arrForRender.length > 0 &&
+        arrForRender.map((arr) => {
+          indexOfRenderingArr++;
+          return (
+            <div
+              key={`art-gallery-${indexOfRenderingArr}`}
+              className="gallery-container"
+            >
+              {arr.map((item) => {
+                galleryItemRender(item, i);
+                i++;
+                if (!galleryItem.imageItem) {
+                  return (
+                    <div
+                      key={galleryItem.nameItem}
+                      className={`item-without-pic ${galleryItem.classItem}`}
+                    >
+                      <p>{galleryItem.nameItem}</p>
                     </div>
-                  </Link>
-                );
-              }
-            })}
-          </div>
-        );
-      })}
+                  );
+                } else {
+                  let myLink = pathsToArtItem(item);
+                  return (
+                    <Link
+                      key={galleryItem.nameItem}
+                      className={`gallery-item ${galleryItem.classItem}`}
+                      to={myLink.fullPathArt}
+                    >
+                      <div>
+                        <div className="item-img">
+                          <img
+                            src={galleryItem.imageItem}
+                            alt={galleryItem.nameItem}
+                          />
+                        </div>
+                        <p>
+                          {galleryItem.artist} <br /> {galleryItem.nameItem}
+                        </p>
+                      </div>
+                    </Link>
+                  );
+                }
+              })}
+            </div>
+          );
+        })}
     </main>
   );
 };

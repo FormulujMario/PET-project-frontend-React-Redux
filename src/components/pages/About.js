@@ -6,6 +6,9 @@ import { columns, dataSource, imgsPath } from "../CONSTANTS";
 import EveryDetail from "../EveryDetail";
 
 const About = () => {
+  if (!columns || !dataSource) {
+    throw new Error("Colomns or data source in About is missing");
+  }
   const [videoContent, setVideoContent] = useState(<BsPlayCircle />);
   const videoPlay = () => {
     setVideoContent(<BsCheckCircleFill />);
@@ -80,12 +83,14 @@ const About = () => {
               <p>awards</p>
             </div>
             <div className="awards-table">
-              <Table
-                showHeader={false}
-                pagination={false}
-                dataSource={dataSource}
-                columns={columns}
-              />
+              {columns && (
+                <Table
+                  showHeader={false}
+                  pagination={false}
+                  dataSource={dataSource}
+                  columns={columns}
+                />
+              )}
             </div>
           </div>
         </section>

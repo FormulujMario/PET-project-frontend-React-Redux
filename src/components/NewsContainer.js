@@ -2,6 +2,9 @@ import scssVars from "./../scss/App.scss";
 import NewsSlider from "./slider/NewsSlider";
 
 const NewsContainer = ({ list }) => {
+  if (!list) {
+    throw new Error("News list in NewsContainer is missing");
+  }
   const windowInnerWidth = document.documentElement.clientWidth;
   let i = 3;
   if (windowInnerWidth < scssVars.breakpoint_sm) {
@@ -32,7 +35,7 @@ const NewsContainer = ({ list }) => {
     }
     return arrToRender;
   };
-  newsRender(list);
+  list && newsRender(list);
   let indexOfRenderingArr = -1;
   return (
     <div>

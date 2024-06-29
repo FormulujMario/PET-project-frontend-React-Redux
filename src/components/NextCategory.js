@@ -4,6 +4,9 @@ import { FOOTER_MENU_LIST, imgsPath } from "./CONSTANTS";
 import { BsArrowRight } from "react-icons/bs";
 
 const NextCategory = () => {
+  if (!FOOTER_MENU_LIST) {
+    throw new Error("Footer menu list in NextCategory is missing");
+  }
   const activeCategoryDispatch = useDispatch();
   const activeCategoryContext = useSelector(
     (state) => state.activeCategoryReducer.activeCategory
@@ -32,17 +35,19 @@ const NextCategory = () => {
     });
   };
   return (
-    <section className="next-category" onClick={changeCategory}>
-      <img src={imgsPath + "/Beers.png"} alt="" loading="lazy" />
-      <div className="title">
-        <button>
-          <h2>
-            {firstButtonTitle}
-            <BsArrowRight />
-          </h2>
-        </button>
-      </div>
-    </section>
+    firstButtonTitle && (
+      <section className="next-category" onClick={changeCategory}>
+        <img src={imgsPath + "/Beers.png"} alt="" loading="lazy" />
+        <div className="title">
+          <button>
+            <h2>
+              {firstButtonTitle}
+              <BsArrowRight />
+            </h2>
+          </button>
+        </div>
+      </section>
+    )
   );
 };
 
