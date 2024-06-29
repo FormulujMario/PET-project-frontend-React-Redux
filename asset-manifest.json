@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.faffaaba.css",
-    "main.js": "/static/js/main.7e0a9984.js",
-    "static/js/453.a6033b24.chunk.js": "/static/js/453.a6033b24.chunk.js",
-    "index.html": "/index.html",
-    "main.faffaaba.css.map": "/static/css/main.faffaaba.css.map",
-    "main.7e0a9984.js.map": "/static/js/main.7e0a9984.js.map",
-    "453.a6033b24.chunk.js.map": "/static/js/453.a6033b24.chunk.js.map"
+    "main.css": "/PET-project-frontend-React-Redux/static/css/main.faffaaba.css",
+    "main.js": "/PET-project-frontend-React-Redux/static/js/main.8776ce67.js",
+    "static/js/453.a6033b24.chunk.js": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js",
+    "index.html": "/PET-project-frontend-React-Redux/index.html",
+    "main.faffaaba.css.map": "/PET-project-frontend-React-Redux/static/css/main.faffaaba.css.map",
+    "main.8776ce67.js.map": "/PET-project-frontend-React-Redux/static/js/main.8776ce67.js.map",
+    "453.a6033b24.chunk.js.map": "/PET-project-frontend-React-Redux/static/js/453.a6033b24.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.faffaaba.css",
-    "static/js/main.7e0a9984.js"
+    "static/js/main.8776ce67.js"
   ]
 }
