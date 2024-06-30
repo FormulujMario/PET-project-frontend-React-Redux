@@ -137,7 +137,7 @@ export const KABINET_PRODUCTS_MERCH_LIST = [
     price: "350 RSD",
     description: "Tote bag",
     img: imgsPath + "/BrrKaaa-bag.png",
-    path: "/shop-merch/brrKaaa",
+    path: "/shop-merch/brrkaaa",
   },
   {
     name: "Lutka",

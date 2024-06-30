@@ -24,3 +24,24 @@
     margin-top: 20px;
   }
 }
+@include tablet {
+  .art-item-interview {
+    display: block;
+    .soc-net-icons svg {
+      margin-top: 20px;
+      margin-bottom: $default-items-margin-bottom-tablet;
+    }
+    div {
+      width: 100%;
+    }
+  }
+  .art-item-desc {
+    display: block;
+    p {
+      margin-bottom: 20px;
+    }
+    div {
+      width: 100%;
+    }
+  }
+}

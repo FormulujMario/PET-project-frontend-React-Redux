@@ -1,6 +1,6 @@
 @include mobile {
   .gallery-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: $grid-template-columns-mobile;
     grid-template-areas:
       "a b"
       "a c"
@@ -12,8 +12,28 @@
       "m n";
     margin-top: 20px;
     .gallery-item {
-      justify-content: center;
-      align-items: center;
+      .item-img {
+        img {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+@include tablet {
+  .gallery-container {
+    grid-template-columns: $grid-template-columns-tablet;
+    grid-template-areas:
+      "a a b"
+      "a a c"
+      "d e f"
+      "g h h"
+      "g h h"
+      "i i j"
+      "i i k"
+      "l m n";
+    margin-top: 20px;
+    .gallery-item {
       .item-img {
         img {
           width: 80%;

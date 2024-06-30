@@ -50,3 +50,48 @@
     }
   }
 }
+@include tablet {
+  .cart {
+    .modal-back {
+      width: 30%;
+    }
+    .modal {
+      width: 70%;
+      left: 30%;
+      .cart-item {
+        grid-template-columns: 1fr 1fr 10%;
+        grid-template-areas:
+          "image name ."
+          "inputNumber price xItem";
+        grid-template-rows: auto;
+        .image {
+          grid-area: image;
+          img {
+            width: 50%;
+          }
+        }
+        .name {
+          grid-area: name;
+        }
+        .input-number {
+          grid-area: inputNumber;
+          width: 100%;
+        }
+        .price {
+          grid-area: price;
+          justify-self: center;
+        }
+        .xItem {
+          grid-area: xItem;
+          justify-self: right;
+        }
+      }
+      .empty-cart {
+        gap: 10px;
+        img {
+          width: 70%;
+        }
+      }
+    }
+  }
+}

@@ -48,3 +48,46 @@
     }
   }
 }
+@include tablet {
+  .footer-main {
+    padding: 20px 25px 0 25px;
+    .subscribe-form {
+      gap: 0px;
+      padding: 15px 0 15px 0;
+      div {
+        width: 40%;
+      }
+      .subscribe-input {
+        font-size: 18px;
+      }
+      .subscribe-button {
+        font-size: 18px;
+        svg {
+          display: none;
+        }
+      }
+    }
+    .thankyou {
+      font-size: 20px;
+      padding: 15px 0 15px 0;
+    }
+    .main-links-footer {
+      .list-menu-footer {
+        font-size: 12px;
+        width: 85%;
+      }
+      .soc-net-icons {
+        display: block;
+        width: 5%;
+        svg {
+          width: 25px;
+          height: 25px;
+          margin-bottom: $default-items-margin-bottom-tablet;
+        }
+      }
+    }
+    .developed-by {
+      font-size: 11px;
+    }
+  }
+}

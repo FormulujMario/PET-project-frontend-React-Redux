@@ -1,6 +1,8 @@
 $default-slider-margin-bottom-mobile: 40px;
 $default-margin-bottom-mobile: 50px;
 $default-items-margin-bottom-mobile: 10px;
+$grid-template-columns-mobile: 1fr 1fr;
+
 @include mobile {
   .mobile-menu {
     .menu-modal-back {
@@ -21,7 +23,7 @@ $default-items-margin-bottom-mobile: 10px;
       background-color: $default-color;
       padding: 50px 15px 25px 25px;
       text-transform: $text-uppercase;
-      font-weight: 500;
+      font-weight: $font-weight-max;
       ul {
         padding-left: 0px;
         li {
@@ -38,7 +40,8 @@ $default-items-margin-bottom-mobile: 10px;
     }
   }
   h1 {
-    font-size: 40px;
+    font-size: 50px;
+    display: block;
   }
   h2 {
     font-size: 25px;
@@ -48,7 +51,7 @@ $default-items-margin-bottom-mobile: 10px;
   h3 {
     font-size: 20px;
     line-height: 20px;
-    font-weight: 500;
+    font-weight: $font-weight-max;
     margin-bottom: 10px;
   }
   h4 {

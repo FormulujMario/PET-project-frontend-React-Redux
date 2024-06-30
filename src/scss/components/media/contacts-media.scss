@@ -16,3 +16,21 @@
     }
   }
 }
+@include tablet {
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    .main-info {
+      margin-bottom: 15px;
+      p {
+        margin-bottom: 15px;
+      }
+    }
+    .right-part {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+}

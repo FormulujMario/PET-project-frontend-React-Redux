@@ -29,3 +29,6 @@ export const CentralSlide = ({ element }) => {
     </swiper-slide>
   );
 };
+export const EmptySlide = () => {
+  return <swiper-slide class="side-slide"></swiper-slide>;
+};

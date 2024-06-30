@@ -12,3 +12,17 @@
     }
   }
 }
+@include tablet {
+  .link-to-about-us {
+    margin-bottom: $default-margin-bottom-tablet;
+    img {
+      margin-bottom: 15px;
+    }
+    p {
+      width: 60%;
+    }
+    .align-right {
+      gap: 15px;
+    }
+  }
+}

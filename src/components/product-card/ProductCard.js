@@ -34,7 +34,7 @@ const ProductCard = () => {
   if (currentProduct) {
     return (
       <section className="product-card">
-        {windowInnerWidth >= scssVars.breakpoint_sm && <ProductPics />}
+        {windowInnerWidth > scssVars.breakpoint_md && <ProductPics />}
         <div className="product-info">
           <ProductTitle />
           {currentProduct.style && currentProduct.alcohol ? (
@@ -43,7 +43,7 @@ const ProductCard = () => {
           <p className="product-top-description">
             {currentProduct.description}
           </p>
-          {windowInnerWidth < scssVars.breakpoint_sm && <ProductPics />}
+          {windowInnerWidth <= scssVars.breakpoint_md && <ProductPics />}
           <AddToCartForm />
           <hr />
           {window.location.pathname.indexOf("beers") !== -1 && (

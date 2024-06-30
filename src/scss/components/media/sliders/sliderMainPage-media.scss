@@ -6,3 +6,11 @@
     }
   }
 }
+@include tablet {
+  .swiper-main-page {
+    margin-bottom: $default-margin-bottom-tablet;
+    img {
+      padding-bottom: 0px;
+    }
+  }
+}

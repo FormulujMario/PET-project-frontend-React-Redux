@@ -3,8 +3,6 @@
 # Pet project - website "Kabinet Brewery"
 The purpose of the project is to demonstrate my frontend skills in React. I'm based in Czech Republic and of course I choosed the site about beer :beer:
 
-**This is the desktop version only**
-
 ## Stack
 ![Static Badge](https://img.shields.io/badge/React-18.2.0-1C5D35)
 ![Static Badge](https://img.shields.io/badge/JS-EAD51A)

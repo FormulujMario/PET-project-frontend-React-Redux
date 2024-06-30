@@ -10,3 +10,13 @@
     }
   }
 }
+@include tablet {
+  header {
+    ul {
+      gap: 20px;
+    }
+    .lg-cart ul {
+      gap: 15px;
+    }
+  }
+}

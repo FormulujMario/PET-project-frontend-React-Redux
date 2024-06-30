@@ -1,0 +1,34 @@
+$default-slider-margin-bottom-tablet: 60px;
+$default-margin-bottom-tablet: 80px;
+$default-items-margin-bottom-tablet: 20px;
+$grid-template-columns-tablet: 1fr 1fr 1fr;
+
+@include tablet {
+  h1 {
+    font-size: 60px;
+    display: block;
+  }
+  h2 {
+    font-size: 35px;
+    line-height: 40px;
+    margin-bottom: 15px;
+  }
+  h4 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  .swiper {
+    margin-bottom: $default-slider-margin-bottom-tablet;
+  }
+  .section-title {
+    margin-bottom: 15px;
+  }
+  .input-number {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

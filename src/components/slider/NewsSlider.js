@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { CentralSlide, SideSlide } from "./NewsSlides";
+import { CentralSlide, EmptySlide, SideSlide } from "./NewsSlides";
 
 const NewsSlider = ({ arr }) => {
   const swiperElRef = useRef(null);
@@ -23,7 +23,7 @@ const NewsSlider = ({ arr }) => {
                 <SideSlide key={`item-${element.key}`} element={element} />
               );
             } else {
-              return null;
+              return <EmptySlide key={`item-${element.key}`} />;
             }
           })}
         </swiper-container>

@@ -1,8 +1,15 @@
 @include mobile {
   .shop-category {
     .products {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: $grid-template-columns-mobile;
       gap: 30px 30px;
+    }
+  }
+}
+@include tablet {
+  .shop-category {
+    .products {
+      grid-template-columns: $grid-template-columns-tablet;
     }
   }
 }

@@ -7,11 +7,15 @@ const NewsContainer = ({ list }) => {
   }
   const windowInnerWidth = document.documentElement.clientWidth;
   let i = 3;
-  if (windowInnerWidth < scssVars.breakpoint_sm) {
+  if (windowInnerWidth <= scssVars.breakpoint_md) {
     i = 2;
   }
   const toggleQ = (ind) => {
-    return ind === 3 ? (i = 4) : (i = 3);
+    if (windowInnerWidth > scssVars.breakpoint_md) {
+      return ind === 3 ? (i = 4) : (i = 3);
+    } else {
+      return ind === 2 ? (i = 3) : (i = 2);
+    }
   };
   let arrToRender = [];
   let restOfNews = null;
@@ -28,7 +32,7 @@ const NewsContainer = ({ list }) => {
         arrToRender.push(copyOfNewsArr);
         restOfNews.splice(0, i);
       }
-      if (windowInnerWidth >= scssVars.breakpoint_sm) {
+      if (windowInnerWidth > scssVars.breakpoint_sm) {
         toggleQ(i);
       }
       newsRender(restOfNews);

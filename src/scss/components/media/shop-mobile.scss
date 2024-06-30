@@ -14,3 +14,18 @@
     }
   }
 }
+@include tablet {
+  .shop-section {
+    .section-title {
+      display: block;
+      div {
+        margin-bottom: $default-items-margin-bottom-tablet;
+      }
+      .tab-buttons {
+        .nav-link {
+          padding: 10px 15px 10px 15px;
+        }
+      }
+    }
+  }
+}

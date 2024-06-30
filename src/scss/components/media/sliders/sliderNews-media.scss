@@ -14,3 +14,19 @@
     }
   }
 }
+@include tablet {
+  .swiper-news {
+    .side-slide {
+      width: calc(96% / 3) !important;
+    }
+    .central-slide {
+      width: calc(96% / 3) !important;
+    }
+    img {
+      padding-bottom: 0px;
+    }
+    p {
+      margin-bottom: 0px;
+    }
+  }
+}

@@ -16,8 +16,11 @@
     }
   }
   .gallery-item {
-    @extend %flex-clm-end;
     @extend %bordered;
+    div {
+      @extend %flex-clm;
+      height: 100%;
+    }
     .item-img {
       @extend %flex-center;
       margin-top: 10%;

@@ -9,3 +9,10 @@
     }
   }
 }
+@include tablet {
+  .kabinet-products {
+    .section-title {
+      display: block;
+    }
+  }
+}

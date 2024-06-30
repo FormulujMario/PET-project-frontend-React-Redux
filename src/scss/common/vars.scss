@@ -14,13 +14,12 @@ $breakpoint_xl: 1024px;
 $breakpoint_md: 767px;
 $breakpoint_sm: 576px;
 
-
 :export {
   defaultColor: $default-color;
   accentColor: $accent-color;
   opacityMax: $opacity-max;
   breakpoint_xxl: 1200;
-breakpoint_xl: 1024;
-breakpoint_md: 767;
-breakpoint_sm: 576;
+  breakpoint_xl: 1024;
+  breakpoint_md: 767;
+  breakpoint_sm: 576;
 }

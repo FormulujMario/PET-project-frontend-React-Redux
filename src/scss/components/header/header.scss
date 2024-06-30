@@ -15,8 +15,13 @@ header {
     gap: 64px;
     width: 100%;
   }
-  .lg-cart ul {
-    display: flex;
-    gap: 40px;
+  .lg-cart {
+    ul {
+      display: flex;
+      gap: 40px;
+    }
+    div {
+      white-space: nowrap;
+    }
   }
 }

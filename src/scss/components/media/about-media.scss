@@ -53,7 +53,59 @@
         }
       }
       .other-imgs {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: $grid-template-columns-mobile;
+        div {
+          height: 250px;
+        }
+      }
+    }
+  }
+}
+@include tablet {
+  .about-kabinet {
+    .history,
+    .video,
+    .awards,
+    .every-detail {
+      margin-top: $default-margin-bottom-tablet;
+    }
+    .history {
+      .content-to-right {
+        width: 100%;
+        p {
+          width: 100%;
+        }
+      }
+    }
+    .awards {
+      .awards-section {
+        display: block;
+        .awards-table {
+          width: 100%;
+          table {
+            td {
+              &:last-child {
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+    }
+    .every-detail {
+      .main-img-and-text {
+        display: block;
+        img {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+        p {
+          max-width: 100%;
+          padding-left: 0px;
+          padding-right: 0px;
+        }
+      }
+      .other-imgs {
         div {
           height: 250px;
         }
