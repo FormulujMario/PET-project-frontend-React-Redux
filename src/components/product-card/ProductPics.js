@@ -8,7 +8,7 @@ const ProductPics = () => {
   );
   const packageType = useSelector((state) => state.packageTypeReducer.package);
   const windowInnerWidth = document.documentElement.clientWidth;
-  const mobile = scssVars.breakpoint_sm;
+  const tablet = scssVars.breakpoint_md;
   let picFirst = null;
   let picSecond = null;
   let styleIfNone = null;
@@ -28,7 +28,7 @@ const ProductPics = () => {
   return (
     <div className="product-imgs">
       <img src={picFirst} alt={currentProduct.name} style={styleIfNone} />
-      {windowInnerWidth >= mobile && <img src={picSecond} alt="" />}
+      {windowInnerWidth > tablet && <img src={picSecond} alt="" />}
     </div>
   );
 };

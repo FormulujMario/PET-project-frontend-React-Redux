@@ -113,3 +113,27 @@
     }
   }
 }
+@include laptop {
+  .about-kabinet {
+    .history,
+    .video,
+    .awards,
+    .every-detail {
+      margin-top: $default-margin-bottom-laptop;
+    }
+    .history {
+      .content-to-right {
+        p {
+          width: 100%;
+        }
+      }
+    }
+    .every-detail {
+      .other-imgs {
+        div {
+          height: 350px;
+        }
+      }
+    }
+  }
+}

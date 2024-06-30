@@ -91,3 +91,33 @@
     }
   }
 }
+@include laptop {
+  .footer-main {
+    .subscribe-form {
+      div {
+        width: 40%;
+      }
+      .subscribe-input {
+        font-size: 23px;
+      }
+      .subscribe-button {
+        font-size: 23px;
+      }
+    }
+    .thankyou {
+      font-size: 23px;
+    }
+    .main-links-footer {
+      .list-menu-footer {
+        width: 90%;
+      }
+      .soc-net-icons {
+        gap: 20px;
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}

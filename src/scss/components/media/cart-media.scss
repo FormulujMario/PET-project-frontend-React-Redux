@@ -95,3 +95,20 @@
     }
   }
 }
+@include laptop {
+  .cart {
+    .modal-back {
+      width: 30%;
+    }
+    .modal {
+      width: 70%;
+      left: 30%;
+      .cart-item {
+        grid-template-columns: 18% 28% 23% 14% 4%;
+        .input-number {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

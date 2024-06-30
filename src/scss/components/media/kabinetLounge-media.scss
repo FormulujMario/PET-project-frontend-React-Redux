@@ -20,7 +20,6 @@
           display: none;
         }
         .buttons {
-          display: flex;
           flex-direction: column;
           justify-content: center;
           gap: 10px;
@@ -48,13 +47,43 @@
           display: none;
         }
         .buttons {
-          display: flex;
           flex-direction: column;
           justify-content: center;
           gap: 20px;
           margin-top: 20px;
           button {
             white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+}
+@include laptop {
+  .trip-to-kabinet-lounge {
+    margin-bottom: $default-margin-bottom-laptop;
+    .kabinet-lounge-title {
+      width: 90%;
+      margin-top: 15px;
+      margin-left: 20px;
+      padding-right: 20px;
+      gap: 60px;
+      .title {
+        flex-basis: auto;
+      }
+      .description {
+        flex-basis: auto;
+        p {
+          display: none;
+        }
+        .buttons {
+          flex-direction: column;
+          justify-content: center;
+          gap: 30px;
+          margin-top: 30px;
+          button {
+            padding: 10px 25px 10px 25px;
+            font-size: 20px;
           }
         }
       }

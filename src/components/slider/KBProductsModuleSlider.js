@@ -14,7 +14,7 @@ const KBProductsModuleSlider = ({ list }) => {
     loop: "false",
     spaceBetween: "30",
   };
-  if (windowInnerWidth <= scssVars.breakpoint_md) {
+  if (windowInnerWidth < scssVars.breakpoint_md) {
     sliderParams.slidesPerView = "2";
   }
   const product = (element) => {

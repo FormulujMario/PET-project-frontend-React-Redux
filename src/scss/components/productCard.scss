@@ -1,5 +1,6 @@
 .product-card {
   @extend %flex-sp-bw-start;
+  margin-bottom: 30px;
   .product-imgs {
     width: 45%;
   }

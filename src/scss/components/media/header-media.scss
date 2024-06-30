@@ -20,3 +20,13 @@
     }
   }
 }
+@include laptop {
+  header {
+    ul {
+      gap: 45px;
+    }
+    .lg-cart ul {
+      gap: 20px;
+    }
+  }
+}

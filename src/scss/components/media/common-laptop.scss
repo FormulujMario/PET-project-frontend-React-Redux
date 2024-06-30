@@ -1,0 +1,37 @@
+$default-slider-margin-bottom-laptop: 70px;
+$default-margin-bottom-laptop: 80px;
+$default-items-margin-bottom-laptop: 20px;
+
+@include laptop {
+  h1 {
+    font-size: 87px;
+    display: block;
+  }
+  h2 {
+    font-size: 45px;
+    line-height: 50px;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-size: 13px;
+    line-height: 17px;
+  }
+  p {
+    font-size: 19px;
+    line-height: 22px;
+  }
+  .swiper {
+    margin-bottom: $default-slider-margin-bottom-laptop;
+  }
+  .swiper-slide-item {
+    p {
+      font-size: 13px;
+    }
+    .title {
+      gap: 15px;
+    }
+  }
+  .input-number {
+    width: 70%;
+  }
+}

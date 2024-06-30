@@ -14,3 +14,11 @@
     }
   }
 }
+@include laptop {
+  .swiper-main-page {
+    margin-bottom: $default-margin-bottom-laptop;
+    img {
+      padding-bottom: 0px;
+    }
+  }
+}

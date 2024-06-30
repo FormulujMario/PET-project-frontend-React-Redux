@@ -11,13 +11,6 @@
       "k l"
       "m n";
     margin-top: 20px;
-    .gallery-item {
-      .item-img {
-        img {
-          width: 80%;
-        }
-      }
-    }
   }
 }
 @include tablet {
@@ -33,12 +26,5 @@
       "i i k"
       "l m n";
     margin-top: 20px;
-    .gallery-item {
-      .item-img {
-        img {
-          width: 80%;
-        }
-      }
-    }
   }
 }

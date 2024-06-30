@@ -29,3 +29,18 @@
     }
   }
 }
+@include laptop {
+  .shop-section {
+    .section-title {
+      display: block;
+      div {
+        margin-bottom: $default-items-margin-bottom-laptop;
+      }
+      .tab-buttons {
+        .nav-link {
+          padding: 10px 15px 10px 15px;
+        }
+      }
+    }
+  }
+}
