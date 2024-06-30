@@ -1,3 +1,8 @@
+@mixin desktopLarge() {
+  @media (min-width: $breakpoint_xxl) and (max-width: $breakpoint_xxxl) {
+    @content;
+  }
+}
 @mixin desktop() {
   @media (min-width: $breakpoint_xl) and (max-width: $breakpoint_xxl) {
     @content;
