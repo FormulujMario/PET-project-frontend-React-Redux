@@ -6,7 +6,6 @@ $grid-template-columns-tablet: 1fr 1fr 1fr;
 @include tablet {
   h1 {
     font-size: 60px;
-    display: block;
   }
   h2 {
     font-size: 35px;

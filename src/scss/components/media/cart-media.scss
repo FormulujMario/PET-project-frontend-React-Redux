@@ -112,3 +112,15 @@
     }
   }
 }
+@include desktop {
+  .cart {
+    .modal {
+      .cart-item {
+        grid-template-columns: 18% 28% 23% 14% 4%;
+        .input-number {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

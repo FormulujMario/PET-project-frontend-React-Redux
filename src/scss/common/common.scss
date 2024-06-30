@@ -8,6 +8,7 @@ main {
 h1 {
   text-transform: $titles-uppercase;
   display: flex;
+  justify-content: center;
   font-size: 180px;
   text-align: center;
   border-top: $default-border $accent-color;

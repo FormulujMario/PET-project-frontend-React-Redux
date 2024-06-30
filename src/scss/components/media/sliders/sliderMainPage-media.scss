@@ -22,3 +22,11 @@
     }
   }
 }
+@include desktop {
+  .swiper-main-page {
+    margin-bottom: $default-margin-bottom-desktop;
+    img {
+      padding-bottom: 0px;
+    }
+  }
+}

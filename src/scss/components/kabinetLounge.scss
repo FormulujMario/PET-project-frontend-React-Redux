@@ -21,6 +21,7 @@
         @extend %flex-sp-bw-center;
         gap: $min-gap;
         margin-top: 24px;
+        white-space: nowrap;
       }
     }
   }
