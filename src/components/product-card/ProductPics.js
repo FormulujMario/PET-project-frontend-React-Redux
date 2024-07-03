@@ -1,13 +1,18 @@
-import { useSelector } from "react-redux";
 import scssVars from "./../../scss/App.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { changeWindowSize } from "../../store/WindowSizeSlice";
 import { imgsPath } from "../CONSTANTS";
+import { useLayoutEffect } from "react";
 
 const ProductPics = () => {
   const currentProduct = useSelector(
     (state) => state.packageTypeReducer.product
   );
+  const dispatch = useDispatch();
+  const windowInnerWidth = useSelector(
+    (state) => state.windowSizeReducer.window
+  );
   const packageType = useSelector((state) => state.packageTypeReducer.package);
-  const windowInnerWidth = document.documentElement.clientWidth;
   const tablet = scssVars.breakpoint_md;
   let picFirst = null;
   let picSecond = null;
@@ -25,6 +30,14 @@ const ProductPics = () => {
       styleIfNone = { display: "none" };
     }
   }
+  useLayoutEffect(() => {
+    window.onresize = () => {
+      dispatch(changeWindowSize(window.innerWidth));
+    };
+    return () => {
+      window.onresize = false;
+    };
+  }, [windowInnerWidth]);
   return (
     <div className="product-imgs">
       <img src={picFirst} alt={currentProduct.name} style={styleIfNone} />

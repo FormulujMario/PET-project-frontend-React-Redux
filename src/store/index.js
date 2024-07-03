@@ -5,6 +5,7 @@ import filtersReducer from "./FiltersSlice";
 import mobileMenuReducer from "./ShowMobileMenuSlice";
 import packageTypeReducer from "./PackageTypeSlice";
 import activeProductsReducer from "./ActiveProductsSlice";
+import windowSizeReducer from "./WindowSizeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     mobileMenuReducer,
     packageTypeReducer,
     activeProductsReducer,
+    windowSizeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

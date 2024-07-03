@@ -1,22 +1,25 @@
-import scssVars from "./../../scss/App.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { changeWindowSize } from "../../store/WindowSizeSlice";
 import { Link } from "react-router-dom";
+import { useLayoutEffect } from "react";
 
 const KBProductsModuleSlider = ({ list }) => {
   if (!list) {
     throw new Error("Products list in KBProductsModuleSlider is missing");
   }
-  const windowInnerWidth = document.documentElement.clientWidth;
+  const dispatch = useDispatch();
+  const windowInnerWidth = useSelector(
+    (state) => state.windowSizeReducer.window
+  );
+  const slides = useSelector((state) => state.windowSizeReducer.slides);
   let sliderParams = {
-    slidesPerView: "4",
+    slidesPerView: slides,
     navigation: "true",
     pagination: "false",
     direction: "horizontal",
     loop: "false",
     spaceBetween: "30",
   };
-  if (windowInnerWidth < scssVars.breakpoint_md) {
-    sliderParams.slidesPerView = "2";
-  }
   const product = (element) => {
     let myLink = element.path;
     return (
@@ -46,6 +49,14 @@ const KBProductsModuleSlider = ({ list }) => {
       </swiper-slide>
     );
   };
+  useLayoutEffect(() => {
+    window.onresize = () => {
+      dispatch(changeWindowSize(window.innerWidth));
+    };
+    return () => {
+      window.onresize = false;
+    };
+  }, [windowInnerWidth]);
   return (
     <div className="swiper">
       <div className="swiper-wrapper">

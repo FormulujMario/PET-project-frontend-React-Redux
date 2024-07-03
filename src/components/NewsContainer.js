@@ -1,17 +1,25 @@
 import scssVars from "./../scss/App.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { changeWindowSize } from "../store/WindowSizeSlice";
 import NewsSlider from "./slider/NewsSlider";
+import { useLayoutEffect } from "react";
 
 const NewsContainer = ({ list }) => {
   if (!list) {
     throw new Error("News list in NewsContainer is missing");
   }
-  const windowInnerWidth = document.documentElement.clientWidth;
+  const dispatch = useDispatch();
+  const windowInnerWidth = useSelector(
+    (state) => state.windowSizeReducer.window
+  );
+  const mobile = scssVars.breakpoint_sm;
+  const tablet = scssVars.breakpoint_md;
   let i = 3;
-  if (windowInnerWidth <= scssVars.breakpoint_md) {
+  if (windowInnerWidth <= tablet) {
     i = 2;
   }
   const toggleQ = (ind) => {
-    if (windowInnerWidth > scssVars.breakpoint_md) {
+    if (windowInnerWidth > tablet) {
       return ind === 3 ? (i = 4) : (i = 3);
     } else {
       return ind === 2 ? (i = 3) : (i = 2);
@@ -32,7 +40,7 @@ const NewsContainer = ({ list }) => {
         arrToRender.push(copyOfNewsArr);
         restOfNews.splice(0, i);
       }
-      if (windowInnerWidth > scssVars.breakpoint_sm) {
+      if (windowInnerWidth > mobile) {
         toggleQ(i);
       }
       newsRender(restOfNews);
@@ -41,6 +49,14 @@ const NewsContainer = ({ list }) => {
   };
   list && newsRender(list);
   let indexOfRenderingArr = -1;
+  useLayoutEffect(() => {
+    window.onresize = () => {
+      dispatch(changeWindowSize(window.innerWidth));
+    };
+    return () => {
+      window.onresize = false;
+    };
+  }, [windowInnerWidth]);
   return (
     <div>
       {arrToRender.map((arr) => {

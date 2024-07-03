@@ -1,12 +1,18 @@
 import scssVars from "./../../scss/App.scss";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeWindowSize } from "../../store/WindowSizeSlice";
 import { CentralSlide, SideSlide } from "./NewsSlides";
 
 const LatestNewsSlider = ({ list }) => {
   if (!list) {
     throw new Error("News list in LatestNewsSlider is missing");
   }
-  const windowInnerWidth = document.documentElement.clientWidth;
+  const dispatch = useDispatch();
+  const windowInnerWidth = useSelector(
+    (state) => state.windowSizeReducer.window
+  );
+  const mobile = scssVars.breakpoint_sm;
   let sliderParams = {
     slidesPerView: "3",
     navigation: "false",
@@ -15,10 +21,18 @@ const LatestNewsSlider = ({ list }) => {
     loop: "false",
     spaceBetween: "2%",
   };
-  if (windowInnerWidth < scssVars.breakpoint_sm) {
+  if (windowInnerWidth < mobile) {
     sliderParams.slidesPerView = "2";
   }
   const swiperElRef = useRef(null);
+  useLayoutEffect(() => {
+    window.onresize = () => {
+      dispatch(changeWindowSize(window.innerWidth));
+    };
+    return () => {
+      window.onresize = false;
+    };
+  }, [windowInnerWidth]);
   return (
     <div className="swiper-news">
       <div className="swiper-wrapper">

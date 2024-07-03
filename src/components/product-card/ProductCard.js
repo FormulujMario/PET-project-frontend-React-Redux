@@ -1,5 +1,6 @@
 import scrollUp from "../scrollUp";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeWindowSize } from "../../store/WindowSizeSlice";
 import { ghPagesPath, listOfCategories } from "../CONSTANTS";
 import rewrite from "../rewrite";
 import { setPrice } from "../../store/PackageTypeSlice";
@@ -8,14 +9,18 @@ import ProductPics from "./ProductPics";
 import ProductTitle from "./ProductTitle";
 import ProductDescription from "./ProductDescripion";
 import AddToCartForm from "./AddToCartForm";
+import { useLayoutEffect } from "react";
 
 const ProductCard = () => {
   if (!listOfCategories) {
     throw new Error("Categories list in ProductCard is missing");
   }
   scrollUp();
-  const windowInnerWidth = document.documentElement.clientWidth;
   const dispatch = useDispatch();
+  const windowInnerWidth = useSelector(
+    (state) => state.windowSizeReducer.window
+  );
+  const tablet = scssVars.breakpoint_md;
   let currentProduct = null;
   if (listOfCategories) {
     listOfCategories.lists.forEach((list) => {
@@ -31,10 +36,18 @@ const ProductCard = () => {
         });
     });
   }
+  useLayoutEffect(() => {
+    window.onresize = () => {
+      dispatch(changeWindowSize(window.innerWidth));
+    };
+    return () => {
+      window.onresize = false;
+    };
+  }, [windowInnerWidth]);
   if (currentProduct) {
     return (
       <section className="product-card">
-        {windowInnerWidth > scssVars.breakpoint_md && <ProductPics />}
+        {windowInnerWidth > tablet && <ProductPics />}
         <div className="product-info">
           <ProductTitle />
           {currentProduct.style && currentProduct.alcohol ? (
@@ -43,7 +56,7 @@ const ProductCard = () => {
           <p className="product-top-description">
             {currentProduct.description}
           </p>
-          {windowInnerWidth <= scssVars.breakpoint_md && <ProductPics />}
+          {windowInnerWidth <= tablet && <ProductPics />}
           <AddToCartForm />
           <hr />
           {window.location.pathname.indexOf("beers") !== -1 && (
