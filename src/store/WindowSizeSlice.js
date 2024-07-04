@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import scssVars from "./../scss/App.scss";
 
-const initialState = { window: null, slides: "4" };
+const initialState = { window: 1500, slides: "4" };
 const WindowSizeSlice = createSlice({
   name: "window",
   initialState,
